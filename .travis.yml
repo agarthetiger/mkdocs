@@ -10,4 +10,5 @@ script:
 - git config user.name "Travis CI"
 - git config user.email "agarthetiger@users.noreply.github.com"
 - git remote add gh-repo "git@github.com:agarthetiger/mkdocs.git"
-- if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then echo "Publishing to GitHub Pages site on gh-pages branch."; mkdocs gh-deploy -v --clean --remote-name gh-repo; fi;
+- git fetch gh-repo && git fetch gh-repo gh-pages:gh-pages
+- if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then echo "Publishing to GitHub Pages site on gh-pages branch."; mkdocs gh-deploy -v --remote-name gh-repo; fi;

@@ -1,4 +1,9 @@
 language: python
+branches:
+  only:
+  - master
+git:
+  depth: false
 install:
 - pip install mkdocs
 - pip install mkdocs-material
@@ -11,6 +16,7 @@ script:
 - git config user.name "Travis CI"
 - git config user.email "agarthetiger@users.noreply.github.com"
 - git --version
+- git remote show origin
 - git remote set-branches --add origin gh-pages
 - git fetch origin
 - if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then echo "Publishing to GitHub Pages site on gh-pages branch."; mkdocs gh-deploy; fi;

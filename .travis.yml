@@ -10,15 +10,7 @@ script:
 - ssh-add github_deploy_mkdocs_id_ed25519
 - git config user.name "Travis CI"
 - git config user.email "agarthetiger@users.noreply.github.com"
-- git remote add gh-repo "git@github.com:agarthetiger/mkdocs.git"
 - git --version
-- git branch -a
-- git remote show
-- git remote show origin
-- git branch -r
 - git remote set-branches --add origin gh-pages
 - git fetch origin
-- git branch -a
-- git remote show gh-repo
-- git fetch gh-repo
-- if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then echo "Publishing to GitHub Pages site on gh-pages branch."; mkdocs gh-deploy --remote-name gh-repo; fi;
+- if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then echo "Publishing to GitHub Pages site on gh-pages branch."; mkdocs gh-deploy; fi;

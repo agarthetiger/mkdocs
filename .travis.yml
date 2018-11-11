@@ -15,4 +15,3 @@ deploy:
   script: bash travis-ci/deploy-to-gh-pages.sh
   on:
     branch: master
-    condition: $TRAVIS_PULL_REQUEST == "false"

@@ -15,6 +15,7 @@ script:
 - git branch -a
 - git remote show
 - git remote show origin
+- git branch -r
 - git remote show gh-repo
 - git fetch gh-repo
 - if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then echo "Publishing to GitHub Pages site on gh-pages branch."; mkdocs gh-deploy --remote-name gh-repo; fi;

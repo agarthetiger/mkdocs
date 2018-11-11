@@ -4,7 +4,6 @@ install:
 - pip install mkdocs-material
 script:
 - if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then mkdocs build --strict; fi;
-deploy: 
 - openssl aes-256-cbc -K $encrypted_41526d4b983e_key -iv $encrypted_41526d4b983e_iv -in github_deploy_mkdocs_id_ed25519.enc -out ./github_deploy_mkdocs_id_ed25519 -d
 - chmod 600 github_deploy_mkdocs_id_ed25519
 - eval `ssh-agent -s`

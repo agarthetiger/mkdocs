@@ -10,7 +10,9 @@ install:
 script:
 - if [[ $TRAVIS_PULL_REQUEST == "false" ]]; then mkdocs build --strict; fi;
 deploy: 
+  skip_cleanup: true
   provider: script
   script: bash travis-ci/deploy-to-gh-pages.sh
   on:
     branch: master
+    condition: $TRAVIS_PULL_REQUEST == "false"

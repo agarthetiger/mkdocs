@@ -16,6 +16,7 @@ script:
 - git remote show
 - git remote show origin
 - git branch -r
+- git remote set-branches --add origin gh-pages
 - git fetch origin
 - git branch -a
 - git remote show gh-repo

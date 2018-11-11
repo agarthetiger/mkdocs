@@ -13,5 +13,7 @@ script:
 - git remote add gh-repo "git@github.com:agarthetiger/mkdocs.git"
 - git --version
 - git branch -a
-- git fetch gh-repo gh-pages:gh-pages
+- git remote show
+- git remote show gh-repo
+- git fetch gh-repo
 - if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then echo "Publishing to GitHub Pages site on gh-pages branch."; mkdocs gh-deploy --remote-name gh-repo; fi;

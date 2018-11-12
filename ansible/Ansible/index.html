@@ -540,7 +540,7 @@
                 
                 <h1 id="ansible-notes">Ansible Notes</h1>
 <h2 id="single-action">Single action</h2>
-<pre><code>`ansible all -m setup -i 127.0.0.1, --connection=local`
+<pre><code>ansible all -m setup -i 127.0.0.1, --connection=local
 </code></pre>
 <ul>
 <li><code>ansible all</code> execute ansible against host group 'all'    </li>
@@ -655,13 +655,14 @@ http://docs.ansible.com/ansible/2.4/playbooks_reuse.html</p>
 my_var_name: "some value"</p>
 <p>Use {{ hostvars[inventory_hostname]['my_var_name'] }} to reference. Note the group_vars/all structure does not mean there is an [all] hosts group to reference, but the vars in all will get applied to all group (hosts), and can be referenced using the magic variable inventory_hostname. Note the use of single quotes for the my_var_name (which is looking up the string 'my_var_name') vs the [inventory_hostname] syntax to index the inventory_hostname in the hostvars array. </p>
 <h2 id="debug">Debug</h2>
-<p>Use this to debug what is available in hostvars quickly. gather_facts: false would not be a useful option on first execution of this.
-- hosts: ondemand
+<p>Use this to debug what is available in hostvars quickly. gather_facts: false would not be a useful option on first execution of this.</p>
+<pre><code>- hosts: ondemand
   gather_facts: false
   tasks:
   - name: "test hostvars for target_environment"
     debug:
-      var: hostvars</p>
+      var: hostvars
+</code></pre>
 <p>You can print a message with variable information in it.</p>
 <pre><code>- debug:
     msg: "System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}"

@@ -2,7 +2,7 @@
 
 ## Single action
 
-    `ansible all -m setup -i 127.0.0.1, --connection=local`
+    ansible all -m setup -i 127.0.0.1, --connection=local
     
 * `ansible all` execute ansible against host group 'all'    
 * `-m setup` run the setup module to gather information about the hosts
@@ -148,12 +148,13 @@ Use {{ hostvars[inventory_hostname]['my_var_name'] }} to reference. Note the gro
 
 ## Debug
 Use this to debug what is available in hostvars quickly. gather_facts: false would not be a useful option on first execution of this.
-- hosts: ondemand
-  gather_facts: false
-  tasks:
-  - name: "test hostvars for target_environment"
-    debug:
-      var: hostvars
+
+    - hosts: ondemand
+      gather_facts: false
+      tasks:
+      - name: "test hostvars for target_environment"
+        debug:
+          var: hostvars
 
 You can print a message with variable information in it.
 

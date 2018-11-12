@@ -228,8 +228,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#single-simple-action" title="Single simple action" class="md-nav__link">
-    Single simple action
+  <a href="#single-action" title="Single action" class="md-nav__link">
+    Single action
   </a>
   
 </li>
@@ -411,8 +411,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#single-simple-action" title="Single simple action" class="md-nav__link">
-    Single simple action
+  <a href="#single-action" title="Single action" class="md-nav__link">
+    Single action
   </a>
   
 </li>
@@ -539,21 +539,28 @@
                 
                 
                 <h1 id="ansible-notes">Ansible Notes</h1>
-<h2 id="single-simple-action">Single simple action</h2>
-<p><code>ansible all -m setup -i 127.0.0.1, --connection=local</code>
-<code>ansible all</code> execute ansible against host group 'all'
-<code>-m setup</code> run the setup module to gather information about the hosts
-<code>-i 127.0.0.1,</code> inline host list, must be comma-separated list of hosts so add training comman for a single host
-<code>--connection=local</code> instruct ansible to just run locally and not to try and establish an SSH connection. Useful if local loobpack is disabled eg. due to firewall rules or security groups. 
-See <a href="https://docs.ansible.com/ansible/latest/modules/setup_module.html#examples">Examples</a> on the Ansible Setup module documentation.</p>
+<h2 id="single-action">Single action</h2>
+<pre><code>`ansible all -m setup -i 127.0.0.1, --connection=local`
+</code></pre>
+<ul>
+<li><code>ansible all</code> execute ansible against host group 'all'    </li>
+<li><code>-m setup</code> run the setup module to gather information about the hosts</li>
+<li><code>-i 127.0.0.1,</code> inline host list, must be comma-separated list of hosts so add training comman for a single host</li>
+<li><code>--connection=local</code> instruct ansible to just run locally and not to try and establish an SSH connection. Useful if local loobpack is disabled eg. due to firewall rules or security groups. </li>
+</ul>
+<p>See <a href="https://docs.ansible.com/ansible/latest/modules/setup_module.html#examples">Examples</a> on the Ansible Setup module documentation.</p>
 <h2 id="local-actions">Local actions</h2>
 <p>If you want to run a playbook and always do things locally, use <code>- hosts: 127.0.0.1</code> in the playbook. Execute the playbook using <code>--connection=local</code></p>
-<p>To run a playbook which uses <code>- hosts: all</code> or similar, pass an inventory with just localhost or 127.0.0.1 and connection=local, eg <code>ansible-playbook -i 127.0.0.1, --connection=local myplaybook.yaml</code>. </p>
-<p>Alternatively, within a playbook with tasks to be executed remotely, include a section with 
-<code>- hosts: 127.0.0.1
-  connection: local</code></p>
-<p>More alternatives include using the <code>local_action</code> module which is a shorthand syntax for  the <code>delegate_to: 127.0.0.1</code> option. Combine these with <code>run_once: true</code> to ensure things running locally only happen once if that's what you want (like downloading a file once to then use Ansible to push the file to multiple hosts). See Ansible documentation on <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_delegation.html#delegation">Delegation</a> This is useful to switch to running selected tasks locally in the middle of a role execution for example, where you cannot add hosts: directives to switch between local and remote execution.</p>
-<p><code>- hosts: all
+<p>To run a playbook which uses <code>- hosts: all</code> or similar, pass an inventory with just localhost or 127.0.0.1 and connection=local</p>
+<pre><code>ansible-playbook -i 127.0.0.1, --connection=local myplaybook.yaml
+</code></pre>
+<p>Alternatively, within a playbook with tasks to be executed remotely, include a section with </p>
+<pre><code>- hosts: 127.0.0.1
+  connection: local
+</code></pre>
+<p>More alternatives include using the <code>local_action</code> module which is a shorthand syntax for  the <code>delegate_to: 127.0.0.1</code> option. Combine these with <code>run_once: true</code> to ensure things running locally only happen once if that's what you want (like downloading a file once to then use Ansible to push the file to multiple hosts). </p>
+<p>See Ansible documentation on <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_delegation.html#delegation">Delegation</a> This is useful to switch to running selected tasks locally in the middle of a role execution for example, where you cannot add hosts: directives to switch between local and remote execution.</p>
+<pre><code>- hosts: all
   gather_facts: false
   tasks:
   - name: ensure required parameters have been set
@@ -568,10 +575,11 @@ See <a href="https://docs.ansible.com/ansible/latest/modules/setup_module.html#e
       module: stat
       path: "{{ public_key_file }}"
     register: keyFile
-    run_once: true</code></p>
+    run_once: true
+</code></pre>
 <h2 id="localhost-and-non-ssh-connections">Localhost and non-SSH connections</h2>
-<p>ansible_connection=local can be used to specify how Ansible will connect to the target host. In the case of local actions you can use ansible_connection=local as an inventory parameter with localhost to execute something locally even if you don't have a local loopback connection.</p>
-<p>Note localhost will be recognised by Ansible if the /etc/hosts file has an entry for 127.0.0.1 localhost or if <code>localhost 127.0.0.1 ansible_connection=local</code> is specified in the inventory.</p>
+<p><code>ansible_connection=local</code> can be used in the inventory or on the command line to specify how Ansible will connect to the target host. In the case of local actions you can use ansible_connection=local as an inventory parameter with localhost to execute something locally even if you don't have a local loopback connection. The equivalent in a playbook is <code>connection: local</code>.</p>
+<p>Note localhost will be recognised by Ansible as a valid host if the /etc/hosts file has an entry for 127.0.0.1 localhost or if <code>localhost 127.0.0.1 ansible_connection=local</code> is specified in the inventory, otherwise use 127.0.0.1.</p>
 <h2 id="conditional-checks">Conditional checks</h2>
 <p>Conditional checks use the when: syntax. When conditions are raw Jinja2 expressions and don't require double quotes for variable interpolation.</p>
 <pre><code>---

@@ -4,7 +4,7 @@ This site is built with MKDocs, hosted on GitHub Pages and automatically publish
 
 Good documentation is vital for any enterprise IT team to publish shared practices or software components. To empower other teams and allow them to easily consume the output is key, in order to alleviate the publishing team from becoming yet-another-enterprise-bottleneck. MKDocs and GitHub Pages allows teams to publish documentation without having to worry about site hosting, and the documentation can be easily written in markdown. 
 
-# Open source Travis CI build
+# CI deployments to GitHub Pages with Travis-CI
 To publish from master onto the site served from the gh-pages branch I've used Travis CI for this open source site. I based my .travis.yml file on [Derek Weitzel's blog post](https://derekweitzel.com/2017/02/08/deploying-docs-on-github-with-travisci/). As this was my first time using Travis I didn't initally understand what every line was for. A little piece of me dies whenever I see people cutting and pasting from the internet and executing code, or worse just "curl bash piping", especially in an enterprise organisation when they have no idea what code they are running. I've seen that happen way more times than I'd like. Anyway, here is my breakdown of the original script, followed by my enhancements. 
 
     env:
@@ -75,5 +75,3 @@ My yaml file looks like this.
         branch: master 
 
 I kept the --depth option to still shallow clone the repo with a single branch for the build. Using the branches whitelist I could remove the requirement to check the branch name later in the script, and using a deploy phase meant no additional logic is required to check for pull requests or the branch in the shell script travis-ci/deploy-to-gh-pages.sh. deploy.skip_cleanup stops Travis from stashing changes in the workspace between the (build) script and deploy phases. 
-
-I could parameterise the deploy phase and define the environment variables in the .travis.yml file, internally I'm still wincing at having to use bash scripting for everything. Looking at the [requests to not run all script steps is one fails](https://github.com/travis-ci/travis-ci/issues/1066) and the [examples for the build phase ](https://docs.travis-ci.com/user/job-lifecycle#customizing-the-build-phase), complex multi-line build phases are not well supported. 

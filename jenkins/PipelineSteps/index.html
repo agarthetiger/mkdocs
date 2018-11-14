@@ -270,6 +270,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#noncps-annotation" title="NonCPS annotation" class="md-nav__link">
+    NonCPS annotation
+  </a>
+  
+</li>
+      
       
       
       
@@ -349,6 +356,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#noncps-annotation" title="NonCPS annotation" class="md-nav__link">
+    NonCPS annotation
+  </a>
+  
+</li>
+      
       
       
       
@@ -369,7 +383,7 @@
                 <h1 id="pipeline-steps">Pipeline Steps</h1>
 <h2 id="sh"><a href="https://jenkins.io/doc/pipeline/steps/workflow-durable-task-step/#sh-shell-script">sh</a></h2>
 <p>The bash defaults for running sh script is <code>set -xe</code> which will print all commands and arguments when executed (-x) and terminate on any non-zero exit code (-e). Note that this behaviour changes if using <code>returnStatus: true</code>. In this case the sh step will not terminate on error but the build will still be marked as failed overall, but the build execution will not be halted. It is down to you to check the value returned by the sh step.</p>
-<h1 id="noncps">NonCPS</h1>
+<h2 id="noncps-annotation"><a href="https://github.com/jenkinsci/workflow-cps-plugin/blob/master/README.md#technical-design">NonCPS annotation</a></h2>
 <p>DSL code can only call methods or use classes which are serializable, unless the non-serializable methods are annotated with @NonCPS. Note there are additional considerations to be aware of. </p>
 <ul>
 <li>Methods annotated with @NonCPS cannot call any DSL methods, or any other methods unless the other methods are also annotated as NonCPS.</li>

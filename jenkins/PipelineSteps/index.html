@@ -268,6 +268,26 @@
     sh
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quotes-and-sh" title="Quotes and sh" class="md-nav__link">
+    Quotes and sh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debugging-sh-scripts" title="Debugging sh scripts" class="md-nav__link">
+    Debugging sh scripts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -354,6 +374,26 @@
     sh
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quotes-and-sh" title="Quotes and sh" class="md-nav__link">
+    Quotes and sh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debugging-sh-scripts" title="Debugging sh scripts" class="md-nav__link">
+    Debugging sh scripts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -383,6 +423,13 @@
                 <h1 id="pipeline-steps">Pipeline Steps</h1>
 <h2 id="sh"><a href="https://jenkins.io/doc/pipeline/steps/workflow-durable-task-step/#sh-shell-script">sh</a></h2>
 <p>The bash defaults for running sh script is <code>set -xe</code> which will print all commands and arguments when executed (-x) and terminate on any non-zero exit code (-e). Note that this behaviour changes if using <code>returnStatus: true</code>. In this case the sh step will not terminate on error but the build will still be marked as failed overall, but the build execution will not be halted. It is down to you to check the value returned by the sh step.</p>
+<h3 id="quotes-and-sh">Quotes and sh</h3>
+<p>Quotes in Jenkinsfiles are not always as simple to get right as you may think. Jenkinsfiles are groovy DSL, which often reference environment variables such as the values for parameterised jobs. Environment variables and groovy vars may both need to be passed to an echo step or to a sh step, sometimes to be evaluated in the Jenkins context, sometimes by the sh. An apparently simple task using process substitution to create a virtual .netrc file or creating a temporary json file (without using <a href="https://jenkins.io/doc/pipeline/steps/pipeline-utility-steps/#writejson-write-json-to-a-file-in-the-workspace">writeJSON</a>) is often not quite so straightforward unless you remember the rules for quotations for each context.</p>
+<script src="https://gist.github.com/agarthetiger/c25afa0a13dcc97c3d2d5362590567a5.js"></script>
+
+<h3 id="debugging-sh-scripts">Debugging sh scripts</h3>
+<p>Add 'cat -n \$0' into sh scripts to get Jenkins to echo out the shell script and line numbers into the console log, to check what Jenkins is actually executing on the agent.
+From <a href="https://devblog.metabrite.com/posts/jenkins-04-sh-step/">this blog</a></p>
 <h2 id="noncps-annotation"><a href="https://github.com/jenkinsci/workflow-cps-plugin/blob/master/README.md#technical-design">NonCPS annotation</a></h2>
 <p>DSL code can only call methods or use classes which are serializable, unless the non-serializable methods are annotated with @NonCPS. Note there are additional considerations to be aware of. </p>
 <ul>

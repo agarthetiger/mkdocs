@@ -268,6 +268,19 @@
     Custom tool plugin
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" title="1" class="md-nav__link">
+    1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -359,6 +372,19 @@
     Custom tool plugin
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" title="1" class="md-nav__link">
+    1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -379,10 +405,11 @@
                 
                 
                 <h1 id="jenkins-plugins">Jenkins Plugins</h1>
-<p>Anyone who has ever administered Jenkins will know that plugins are both essential and problematic. Jenkins can be enhanced through an extensive collection of community maintained plugins, and therein lies the problem. "Want to do 'A' with Jenkins? Yes you can. Want to do 'B' with Jenkins? Yes you can.", goes the sales pitch. However, often A and B are implemented in community plugins which may conflict when installed<a href="#1">1</a> or may not work together even if both are installed. </p>
+<p>Anyone who has ever administered Jenkins will know that plugins are both essential and problematic. Jenkins can be enhanced through an extensive collection of community maintained plugins, and therein lies the problem. "Want to do 'A' with Jenkins? Yes you can. Want to do 'B' with Jenkins? Yes you can.", goes the sales pitch. However, often A and B are implemented in community plugins which may conflict when installed<a href="#1">[1]</a> or may not work together even if both are installed. </p>
 <h2 id="custom-tool-plugin"><a href="https://wiki.jenkins.io/display/JENKINS/Custom+Tools+Plugin">Custom tool plugin</a></h2>
 <p>Not compatible with Pipelines until <a href="https://issues.jenkins-ci.org/browse/JENKINS-30680">JENKINS-30680</a> is resolved. This has been open since September 2015.</p>
-<p>(#1) "Installed" must include restarting the Jenkins Master. I've had a plugin cause a conflict when installed, so I uninstalled it. The uninstall didn't resolve the conflict so I restarted to completely remove it. 12 hours later at 11:30pm I finally got the Jenkins Master up and running again. I'd been tracking down all the recent changes working backwards to find that a plugin installed 8 months previously (before I joined the company of course) was causing the conflict. I'd overlooked the signs initially, not believing that a change made 8 months ago could have caused the problem. The master had not been restarted in 8 months. If the master had been restarted at the time, the problem would have been detected immediately and the change rolled back right away. Lesson learned, always restart Jenkins after installing or removing plugins and check the logs to ensure the instance comes up cleanly. </p>
+<h4 id="1">1</h4>
+<p>"Installed" must include restarting the Jenkins Master. I've had a plugin cause a conflict when installed, so I uninstalled it. The uninstall didn't resolve the conflict so I restarted to completely remove it. 12 hours later at 11:30pm I finally got the Jenkins Master up and running again. I'd been tracking down all the recent changes working backwards to find that a plugin installed 8 months previously (before I joined the company of course) was causing the conflict. I'd overlooked the signs initially, not believing that a change made 8 months ago could have caused the problem. The master had not been restarted in 8 months. If the master had been restarted at the time, the problem would have been detected immediately and the change rolled back right away. Lesson learned, always restart Jenkins after installing or removing plugins and check the logs to ensure the instance comes up cleanly. </p>
                 
                   
                 

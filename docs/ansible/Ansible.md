@@ -1,18 +1,18 @@
-# Ansible Notes
+# Ansible
 
-## Single action
+## Single actions
 
-    ansible all -m setup -i 127.0.0.1, --connection=local
+    ansible all -m setup -i 192.168.0.11
     
 * `ansible all` execute ansible against host group 'all'    
 * `-m setup` run the setup module to gather information about the hosts
-* `-i 127.0.0.1,` inline host list, must be comma-separated list of hosts so add training comman for a single host
-* `--connection=local` instruct ansible to just run locally and not to try and establish an SSH connection. Useful if local loobpack is disabled eg. due to firewall rules or security groups. 
+* `-i 192.168.0.11,` inline host list, must be comma-separated list of hosts so add training comma for a single host.
 
 See [Examples](https://docs.ansible.com/ansible/latest/modules/setup_module.html#examples) on the Ansible Setup module documentation.
 
 ## Local actions
-If you want to run a playbook and always do things locally, use `- hosts: 127.0.0.1` in the playbook. Execute the playbook using `--connection=local`
+
+If you want to run a playbook and always do things locally, use `- hosts: 127.0.0.1` in the playbook. Execute the playbook using `--connection=local`. This instructs ansible to execute the command locally and not to establish an SSH connection, which is useful if local loobpack is disabled eg. due to firewall rules or security groups. 
 
 To run a playbook which uses `- hosts: all` or similar, pass an inventory with just localhost or 127.0.0.1 and connection=local
 
@@ -49,59 +49,6 @@ See Ansible documentation on [Delegation](https://docs.ansible.com/ansible/lates
 
 Note localhost will be recognised by Ansible as a valid host if the /etc/hosts file has an entry for 127.0.0.1 localhost or if `localhost 127.0.0.1 ansible_connection=local` is specified in the inventory, otherwise use 127.0.0.1.
 
-## Conditional checks
-Conditional checks use the when: syntax. When conditions are raw Jinja2 expressions and don't require double quotes for variable interpolation.
-
-    ---
-    - hosts: all
-      tasks:
-        - name: "print inventory vars"
-          debug:
-            var: "{{ item }}"
-          with_items:
-            - inventory_dir
-            - inventory_file
-          when: inventory_dir | regex_search('dev$')
-    
-    - hosts: all
-      tasks:
-        - name: "apply stub role"
-          include_role:
-            name: issuer-wallet-stub
-          when: inventory_dir | regex_search('dev$')
-    
-    ...
-
-
-## Filters
-
-See documentation on [filters](http://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html).
-Filters are really provided by Jinja2, which is python under the hood. Note that the online [Jinja2 documentation](http://jinja.pocoo.org/docs/2.10/templates/#builtin-filters) doesn't go back to python-jinja2 2.7 which is what is provided in RedHat repos for RHEL7. There are no RHEL plans to update Jinja2 to anything later, so what you read on the Jinja website will include features not available to Ansible on RHEL7, because of the Jinja2 version. 
-
-To select an item from a list, based on an attribute, use the selectattr with the match filter, as the equalsto filter is only available in Jinja2 2.8.
-
-eg. 
-
-Yaml file
-
-    projects:
-      - name: data-services
-        version: '2.3.4-SNAPSHOT'
-      - name: service-manager
-        version: '1.2.3-SNAPSHOT'
-      - name: issuer-wallet-service
-      	value: '5.6.7-SNAPSHOT'
-
-Select the version of service-manager using the following expression.
-
-    - hosts: service-manager
-      vars:
-        - deployable_version: "{{ projects | selectattr('name', 'match', '^service-manager$') | map(attribute='version') | list | first }}"
-
-References
-
-* [jinja2-selectattr-filter](http://www.oznetnerd.com/jinja2-selectattr-filter/)
-
 ## Load variables from a file
 On the command line, use -e or --extra-vars. Set additional variables as key=value or YAML/JSON, if filename prepend the filename with @.
 
@@ -113,12 +60,6 @@ Combine vars from a file and additional vars by using --extra-vars twice.
 
 See [documentation](https://docs.ansible.com/ansible/2.4/ansible-playbook.html#cmdoption-ansible-playbook-e)
 
-## Import and Include
-https://docs.ansible.com/ansible/2.4/playbooks_reuse_includes.html
-
-* All `import*` statements are pre-processed at the time playbooks are parsed.
-* All `include*` statements are processed as they encountered during the execution of the playbook.
-
 ## Roles
 
 Link to Roles documentation
@@ -129,14 +70,6 @@ http://docs.ansible.com/ansible/2.4/playbooks_reuse.html
 http://docs.ansible.com/ansible/latest/playbooks_variables.html#magic-variables-and-how-to-access-information-about-other-hosts
 
 
-## General useful stuff
-
-Disable facts gathering
-
-    - hosts: all
-      gather_facts: false
-
-
 ## Group and Host Variables
 
 See documentation for [playbooks best practices](http://docs.ansible.com/ansible/latest/playbooks_best_practices.html#group-and-host-variables).
@@ -145,31 +78,6 @@ inventory/group_vars/all.yaml
 my_var_name: "some value"
 
 Use {{ hostvars[inventory_hostname]['my_var_name'] }} to reference. Note the group_vars/all structure does not mean there is an [all] hosts group to reference, but the vars in all will get applied to all group (hosts), and can be referenced using the magic variable inventory_hostname. Note the use of single quotes for the my_var_name (which is looking up the string 'my_var_name') vs the [inventory_hostname] syntax to index the inventory_hostname in the hostvars array. 
-
-## Debug
-Use this to debug what is available in hostvars quickly. gather_facts: false would not be a useful option on first execution of this.
-
-    - hosts: ondemand
-      gather_facts: false
-      tasks:
-      - name: "test hostvars for target_environment"
-        debug:
-          var: hostvars
-
-You can print a message with variable information in it.
-
-    - debug:
-        msg: "System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}"
-      when: ansible_default_ipv4.gateway is defined
-
-You can dump the contents of a list or map, and set a verbosity level, below which the debug will not output anything. 
-
-    - name: Display all variables/facts known for a host
-      debug:
-        var: hostvars[inventory_hostname]
-        verbosity: 4
-
-See documentation for the [debug module](http://docs.ansible.com/ansible/latest/modules/debug_module.html).
 
 ## Ansible Tower
 AWX is the upstream open-source version of Ansible Tower. See the [AWX Project](https://www.ansible.com/products/awx-project) for details. You can get it from [GitHub](https://github.com/ansible/awx).

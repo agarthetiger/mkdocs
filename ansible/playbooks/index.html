@@ -36,7 +36,7 @@
     
     
       
-        <title>Conditional checks - Software Engineering Notes</title>
+        <title>Playbooks - Software Engineering Notes</title>
       
     
     
@@ -72,7 +72,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#conditional-checks" tabindex="1" class="md-skip">
+      <a href="#playbooks" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -98,7 +98,7 @@
                 Software Engineering Notes
               </span>
               <span class="md-header-nav__topic">
-                Conditional checks
+                Playbooks
               </span>
             
           
@@ -223,11 +223,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Conditional checks
+        Playbooks
       </label>
     
-    <a href="./" title="Conditional checks" class="md-nav__link md-nav__link--active">
-      Conditional checks
+    <a href="./" title="Playbooks" class="md-nav__link md-nav__link--active">
+      Playbooks
     </a>
     
       
@@ -241,8 +241,28 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#conditional-checks" title="Conditional checks" class="md-nav__link">
+    Conditional checks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#conditional-check-examples" title="Conditional check examples" class="md-nav__link">
     Conditional check examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filters" title="Filters" class="md-nav__link">
+    Filters
   </a>
   
 </li>
@@ -368,8 +388,28 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#conditional-checks" title="Conditional checks" class="md-nav__link">
+    Conditional checks
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#conditional-check-examples" title="Conditional check examples" class="md-nav__link">
     Conditional check examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filters" title="Filters" class="md-nav__link">
+    Filters
   </a>
   
 </li>
@@ -391,9 +431,10 @@
               
                 
                 
-                <h1 id="conditional-checks">Conditional checks</h1>
+                <h1 id="playbooks">Playbooks</h1>
+<h2 id="conditional-checks">Conditional checks</h2>
 <p>Conditional checks use the <code>when:</code> syntax. The <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html">Ansible documentation</a> states "...When conditions are raw Jinja2 expressions and don't require double quotes for variable interpolation.", which is not entirely accurate. When conditions can use raw Jinja2 expressions but can execute regular python code so can access methods like String.find() to check for a text match in a String. Multiple conditions should be enclosed with parenthesis, multiple conditions can be specified in a list where they are all required to be true (logical AND).</p>
-<h2 id="conditional-check-examples">Conditional check examples</h2>
+<h3 id="conditional-check-examples">Conditional check examples</h3>
 <pre><code class="yaml">    when: 
       - tomcat_status_result.stdout.find(&quot;JVM is running.&quot;) &gt; -1
       - tomcat_status_result.stderr != &quot;&quot;
@@ -418,7 +459,7 @@
           when: inventory_dir | regex_search('dev$')
 </code></pre>
 
-<h1 id="filters">Filters</h1>
+<h2 id="filters">Filters</h2>
 <p>See documentation on <a href="http://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html">filters</a>.
 Filters use Jinja2, and Ansible ships with some extra ones to those available in Jinja2. Remember that if using a filter in a conditional statement that python methods are also accessible. </p>
 <p>Also note that the online <a href="http://jinja.pocoo.org/docs/2.10/templates/#builtin-filters">Jinja2 documentation</a> doesn't go back to python-jinja2 2.7 which is what is provided in RedHat repos for RHEL7. There are no RHEL plans to update Jinja2 to anything later, so what you read on the Jinja website will include features not available to Ansible on RHEL7, because of the Jinja2 version. </p>

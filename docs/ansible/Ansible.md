@@ -2,7 +2,7 @@
 
 ## Single actions
 
-    ansible all -m setup -i 192.168.0.11
+    ansible all -m setup -i 192.168.0.11,
     
 * `ansible all` execute ansible against host group 'all'    
 * `-m setup` run the setup module to gather information about the hosts

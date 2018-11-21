@@ -62,3 +62,43 @@ Select the version of project-b using the following expression.
 References
 
 * [jinja2-selectattr-filter](http://www.oznetnerd.com/jinja2-selectattr-filter/)
+
+## Debug
+Use this to debug what is available in hostvars quickly. gather_facts: false would not be a useful option on first execution of this.
+
+    - hosts: ondemand
+      gather_facts: false
+      tasks:
+      - name: "test hostvars for target_environment"
+        debug:
+          var: hostvars
+
+You can print a message with variable information in it.
+
+    - debug:
+        msg: "System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}"
+      when: ansible_default_ipv4.gateway is defined
+
+You can dump the contents of a list or map, and set a verbosity level, below which the debug will not output anything. 
+
+    - name: Display all variables/facts known for a host
+      debug:
+        var: hostvars[inventory_hostname]
+        verbosity: 4
+
+See documentation for the [debug module](http://docs.ansible.com/ansible/latest/modules/debug_module.html).
+
+## Play options
+
+Disable facts gathering
+
+    - hosts: all
+      gather_facts: false
+
+## Import and Include
+Ansible documentation on [Creating reusable playbooks](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse.html)
+Note there are trade-offs when selecting between static and dynamic, any import\* tasks will be static, any include\* tasks will be dynamic. 
+
+* All `import*` statements are pre-processed at the time playbooks are parsed.
+* All `include*` statements are processed as they encountered during the execution of the playbook.
+

@@ -1,8 +1,9 @@
-# Conditional checks
+# Playbooks
+## Conditional checks
 
 Conditional checks use the `when:` syntax. The [Ansible documentation](https://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html) states "...When conditions are raw Jinja2 expressions and don't require double quotes for variable interpolation.", which is not entirely accurate. When conditions can use raw Jinja2 expressions but can execute regular python code so can access methods like String.find() to check for a text match in a String. Multiple conditions should be enclosed with parenthesis, multiple conditions can be specified in a list where they are all required to be true (logical AND).
 
-## Conditional check examples
+### Conditional check examples
 
 ```yaml
     when: 
@@ -29,7 +30,7 @@ Conditional checks use the `when:` syntax. The [Ansible documentation](https://d
           when: inventory_dir | regex_search('dev$')
 ```          
 
-# Filters
+## Filters
 
 See documentation on [filters](http://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html).
 Filters use Jinja2, and Ansible ships with some extra ones to those available in Jinja2. Remember that if using a filter in a conditional statement that python methods are also accessible. 

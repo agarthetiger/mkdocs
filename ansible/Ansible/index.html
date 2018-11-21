@@ -36,7 +36,7 @@
     
     
       
-        <title>Ansible Notes - Software Engineering Notes</title>
+        <title>Ansible - Software Engineering Notes</title>
       
     
     
@@ -72,7 +72,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#ansible-notes" tabindex="1" class="md-skip">
+      <a href="#ansible" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -98,7 +98,7 @@
                 Software Engineering Notes
               </span>
               <span class="md-header-nav__topic">
-                Ansible Notes
+                Ansible
               </span>
             
           
@@ -211,11 +211,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Ansible Notes
+        Ansible
       </label>
     
-    <a href="./" title="Ansible Notes" class="md-nav__link md-nav__link--active">
-      Ansible Notes
+    <a href="./" title="Ansible" class="md-nav__link md-nav__link--active">
+      Ansible
     </a>
     
       
@@ -229,8 +229,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#single-action" title="Single action" class="md-nav__link">
-    Single action
+  <a href="#single-actions" title="Single actions" class="md-nav__link">
+    Single actions
   </a>
   
 </li>
@@ -250,29 +250,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conditional-checks" title="Conditional checks" class="md-nav__link">
-    Conditional checks
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#filters" title="Filters" class="md-nav__link">
-    Filters
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#load-variables-from-a-file" title="Load variables from a file" class="md-nav__link">
     Load variables from a file
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#import-and-include" title="Import and Include" class="md-nav__link">
-    Import and Include
   </a>
   
 </li>
@@ -292,22 +271,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#general-useful-stuff" title="General useful stuff" class="md-nav__link">
-    General useful stuff
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#group-and-host-variables" title="Group and Host Variables" class="md-nav__link">
     Group and Host Variables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#debug" title="Debug" class="md-nav__link">
-    Debug
   </a>
   
 </li>
@@ -472,8 +437,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#single-action" title="Single action" class="md-nav__link">
-    Single action
+  <a href="#single-actions" title="Single actions" class="md-nav__link">
+    Single actions
   </a>
   
 </li>
@@ -493,29 +458,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conditional-checks" title="Conditional checks" class="md-nav__link">
-    Conditional checks
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#filters" title="Filters" class="md-nav__link">
-    Filters
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#load-variables-from-a-file" title="Load variables from a file" class="md-nav__link">
     Load variables from a file
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#import-and-include" title="Import and Include" class="md-nav__link">
-    Import and Include
   </a>
   
 </li>
@@ -535,22 +479,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#general-useful-stuff" title="General useful stuff" class="md-nav__link">
-    General useful stuff
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#group-and-host-variables" title="Group and Host Variables" class="md-nav__link">
     Group and Host Variables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#debug" title="Debug" class="md-nav__link">
-    Debug
   </a>
   
 </li>
@@ -599,19 +529,18 @@
               
                 
                 
-                <h1 id="ansible-notes">Ansible Notes</h1>
-<h2 id="single-action">Single action</h2>
-<pre><code>ansible all -m setup -i 127.0.0.1, --connection=local
+                <h1 id="ansible">Ansible</h1>
+<h2 id="single-actions">Single actions</h2>
+<pre><code>ansible all -m setup -i 192.168.0.11
 </code></pre>
 <ul>
 <li><code>ansible all</code> execute ansible against host group 'all'    </li>
 <li><code>-m setup</code> run the setup module to gather information about the hosts</li>
-<li><code>-i 127.0.0.1,</code> inline host list, must be comma-separated list of hosts so add training comman for a single host</li>
-<li><code>--connection=local</code> instruct ansible to just run locally and not to try and establish an SSH connection. Useful if local loobpack is disabled eg. due to firewall rules or security groups. </li>
+<li><code>-i 192.168.0.11,</code> inline host list, must be comma-separated list of hosts so add training comma for a single host.</li>
 </ul>
 <p>See <a href="https://docs.ansible.com/ansible/latest/modules/setup_module.html#examples">Examples</a> on the Ansible Setup module documentation.</p>
 <h2 id="local-actions">Local actions</h2>
-<p>If you want to run a playbook and always do things locally, use <code>- hosts: 127.0.0.1</code> in the playbook. Execute the playbook using <code>--connection=local</code></p>
+<p>If you want to run a playbook and always do things locally, use <code>- hosts: 127.0.0.1</code> in the playbook. Execute the playbook using <code>--connection=local</code>. This instructs ansible to execute the command locally and not to establish an SSH connection, which is useful if local loobpack is disabled eg. due to firewall rules or security groups. </p>
 <p>To run a playbook which uses <code>- hosts: all</code> or similar, pass an inventory with just localhost or 127.0.0.1 and connection=local</p>
 <pre><code>ansible-playbook -i 127.0.0.1, --connection=local myplaybook.yaml
 </code></pre>
@@ -641,51 +570,6 @@
 <h2 id="localhost-and-non-ssh-connections">Localhost and non-SSH connections</h2>
 <p><code>ansible_connection=local</code> can be used in the inventory or on the command line to specify how Ansible will connect to the target host. In the case of local actions you can use ansible_connection=local as an inventory parameter with localhost to execute something locally even if you don't have a local loopback connection. The equivalent in a playbook is <code>connection: local</code>.</p>
 <p>Note localhost will be recognised by Ansible as a valid host if the /etc/hosts file has an entry for 127.0.0.1 localhost or if <code>localhost 127.0.0.1 ansible_connection=local</code> is specified in the inventory, otherwise use 127.0.0.1.</p>
-<h2 id="conditional-checks">Conditional checks</h2>
-<p>Conditional checks use the when: syntax. When conditions are raw Jinja2 expressions and don't require double quotes for variable interpolation.</p>
-<pre><code>---
-- hosts: all
-  tasks:
-    - name: "print inventory vars"
-      debug:
-        var: "{{ item }}"
-      with_items:
-        - inventory_dir
-        - inventory_file
-      when: inventory_dir | regex_search('dev$')
-
-- hosts: all
-  tasks:
-    - name: "apply stub role"
-      include_role:
-        name: issuer-wallet-stub
-      when: inventory_dir | regex_search('dev$')
-
-...
-</code></pre>
-<h2 id="filters">Filters</h2>
-<p>See documentation on <a href="http://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html">filters</a>.
-Filters are really provided by Jinja2, which is python under the hood. Note that the online <a href="http://jinja.pocoo.org/docs/2.10/templates/#builtin-filters">Jinja2 documentation</a> doesn't go back to python-jinja2 2.7 which is what is provided in RedHat repos for RHEL7. There are no RHEL plans to update Jinja2 to anything later, so what you read on the Jinja website will include features not available to Ansible on RHEL7, because of the Jinja2 version. </p>
-<p>To select an item from a list, based on an attribute, use the selectattr with the match filter, as the equalsto filter is only available in Jinja2 2.8.</p>
-<p>eg. </p>
-<p>Yaml file</p>
-<pre><code>projects:
-  - name: data-services
-    version: '2.3.4-SNAPSHOT'
-  - name: service-manager
-    version: '1.2.3-SNAPSHOT'
-  - name: issuer-wallet-service
-    value: '5.6.7-SNAPSHOT'
-</code></pre>
-<p>Select the version of service-manager using the following expression.</p>
-<pre><code>- hosts: service-manager
-  vars:
-    - deployable_version: "{{ projects | selectattr('name', 'match', '^service-manager$') | map(attribute='version') | list | first }}"
-</code></pre>
-<p>References</p>
-<ul>
-<li><a href="http://www.oznetnerd.com/jinja2-selectattr-filter/">jinja2-selectattr-filter</a></li>
-</ul>
 <h2 id="load-variables-from-a-file">Load variables from a file</h2>
 <p>On the command line, use -e or --extra-vars. Set additional variables as key=value or YAML/JSON, if filename prepend the filename with @.</p>
 <pre><code>ansible-playbook ... --extra-vars '@my-vars.yaml'
@@ -694,48 +578,16 @@ Filters are really provided by Jinja2, which is python under the hood. Note that
 <pre><code>ansible-playbook ... --extra-vars '@my-vars.yaml' --extra-vars 'target_env=uat generate_report=true'
 </code></pre>
 <p>See <a href="https://docs.ansible.com/ansible/2.4/ansible-playbook.html#cmdoption-ansible-playbook-e">documentation</a></p>
-<h2 id="import-and-include">Import and Include</h2>
-<p>https://docs.ansible.com/ansible/2.4/playbooks_reuse_includes.html</p>
-<ul>
-<li>All <code>import*</code> statements are pre-processed at the time playbooks are parsed.</li>
-<li>All <code>include*</code> statements are processed as they encountered during the execution of the playbook.</li>
-</ul>
 <h2 id="roles">Roles</h2>
 <p>Link to Roles documentation
 http://docs.ansible.com/ansible/2.4/playbooks_reuse.html</p>
 <h2 id="magic-variables">Magic variables</h2>
 <p>http://docs.ansible.com/ansible/latest/playbooks_variables.html#magic-variables-and-how-to-access-information-about-other-hosts</p>
-<h2 id="general-useful-stuff">General useful stuff</h2>
-<p>Disable facts gathering</p>
-<pre><code>- hosts: all
-  gather_facts: false
-</code></pre>
 <h2 id="group-and-host-variables">Group and Host Variables</h2>
 <p>See documentation for <a href="http://docs.ansible.com/ansible/latest/playbooks_best_practices.html#group-and-host-variables">playbooks best practices</a>.</p>
 <p>inventory/group_vars/all.yaml
 my_var_name: "some value"</p>
 <p>Use {{ hostvars[inventory_hostname]['my_var_name'] }} to reference. Note the group_vars/all structure does not mean there is an [all] hosts group to reference, but the vars in all will get applied to all group (hosts), and can be referenced using the magic variable inventory_hostname. Note the use of single quotes for the my_var_name (which is looking up the string 'my_var_name') vs the [inventory_hostname] syntax to index the inventory_hostname in the hostvars array. </p>
-<h2 id="debug">Debug</h2>
-<p>Use this to debug what is available in hostvars quickly. gather_facts: false would not be a useful option on first execution of this.</p>
-<pre><code>- hosts: ondemand
-  gather_facts: false
-  tasks:
-  - name: "test hostvars for target_environment"
-    debug:
-      var: hostvars
-</code></pre>
-<p>You can print a message with variable information in it.</p>
-<pre><code>- debug:
-    msg: "System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}"
-  when: ansible_default_ipv4.gateway is defined
-</code></pre>
-<p>You can dump the contents of a list or map, and set a verbosity level, below which the debug will not output anything. </p>
-<pre><code>- name: Display all variables/facts known for a host
-  debug:
-    var: hostvars[inventory_hostname]
-    verbosity: 4
-</code></pre>
-<p>See documentation for the <a href="http://docs.ansible.com/ansible/latest/modules/debug_module.html">debug module</a>.</p>
 <h2 id="ansible-tower">Ansible Tower</h2>
 <p>AWX is the upstream open-source version of Ansible Tower. See the <a href="https://www.ansible.com/products/awx-project">AWX Project</a> for details. You can get it from <a href="https://github.com/ansible/awx">GitHub</a>.</p>
 <h2 id="ansible-tools">Ansible tools</h2>

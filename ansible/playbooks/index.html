@@ -202,8 +202,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../Ansible/" title="Ansible Notes" class="md-nav__link">
-      Ansible Notes
+    <a href="../Ansible/" title="Ansible" class="md-nav__link">
+      Ansible
     </a>
   </li>
 
@@ -263,6 +263,27 @@
         <li class="md-nav__item">
   <a href="#filters" title="Filters" class="md-nav__link">
     Filters
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug" title="Debug" class="md-nav__link">
+    Debug
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#play-options" title="Play options" class="md-nav__link">
+    Play options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-and-include" title="Import and Include" class="md-nav__link">
+    Import and Include
   </a>
   
 </li>
@@ -414,6 +435,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#debug" title="Debug" class="md-nav__link">
+    Debug
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#play-options" title="Play options" class="md-nav__link">
+    Play options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-and-include" title="Import and Include" class="md-nav__link">
+    Import and Include
+  </a>
+  
+</li>
+      
       
       
       
@@ -484,6 +526,39 @@ Filters use Jinja2, and Ansible ships with some extra ones to those available in
 <ul>
 <li><a href="http://www.oznetnerd.com/jinja2-selectattr-filter/">jinja2-selectattr-filter</a></li>
 </ul>
+<h2 id="debug">Debug</h2>
+<p>Use this to debug what is available in hostvars quickly. gather_facts: false would not be a useful option on first execution of this.</p>
+<pre><code>- hosts: ondemand
+  gather_facts: false
+  tasks:
+  - name: "test hostvars for target_environment"
+    debug:
+      var: hostvars
+</code></pre>
+<p>You can print a message with variable information in it.</p>
+<pre><code>- debug:
+    msg: "System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}"
+  when: ansible_default_ipv4.gateway is defined
+</code></pre>
+<p>You can dump the contents of a list or map, and set a verbosity level, below which the debug will not output anything. </p>
+<pre><code>- name: Display all variables/facts known for a host
+  debug:
+    var: hostvars[inventory_hostname]
+    verbosity: 4
+</code></pre>
+<p>See documentation for the <a href="http://docs.ansible.com/ansible/latest/modules/debug_module.html">debug module</a>.</p>
+<h2 id="play-options">Play options</h2>
+<p>Disable facts gathering</p>
+<pre><code>- hosts: all
+  gather_facts: false
+</code></pre>
+<h2 id="import-and-include">Import and Include</h2>
+<p>Ansible documentation on <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse.html">Creating reusable playbooks</a>
+Note there are trade-offs when selecting between static and dynamic, any import* tasks will be static, any include* tasks will be dynamic. </p>
+<ul>
+<li>All <code>import*</code> statements are pre-processed at the time playbooks are parsed.</li>
+<li>All <code>include*</code> statements are processed as they encountered during the execution of the playbook.</li>
+</ul>
                 
                   
                 
@@ -504,7 +579,7 @@ Filters use Jinja2, and Ansible ships with some extra ones to those available in
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../Ansible/" title="Ansible Notes" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Ansible/" title="Ansible" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -513,7 +588,7 @@ Filters use Jinja2, and Ansible ships with some extra ones to those available in
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Ansible Notes
+                Ansible
               </span>
             </div>
           </a>

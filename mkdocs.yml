@@ -15,6 +15,15 @@ markdown_extensions:
   - toc:
       permalink: true
   - meta
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tilde
   
 extra:
   social:

@@ -604,14 +604,14 @@
 
 
 <ul>
-<li><code>ansible all</code> execute ansible against host group 'all'    </li>
-<li><code>-m setup</code> run the setup module to gather information about the hosts</li>
-<li><code>-i 192.168.0.11,</code> inline host list, must be comma-separated list of hosts so add training comma for a single host.</li>
+<li><code class="codehilite">ansible all</code> execute ansible against host group 'all'    </li>
+<li><code class="codehilite">-m setup</code> run the setup module to gather information about the hosts</li>
+<li><code class="codehilite">-i 192.168.0.11,</code> inline host list, must be comma-separated list of hosts so add training comma for a single host.</li>
 </ul>
 <p>See <a href="https://docs.ansible.com/ansible/latest/modules/setup_module.html#examples">Examples</a> on the Ansible Setup module documentation.</p>
 <h2 id="local-actions">Local actions<a class="headerlink" href="#local-actions" title="Permanent link">&para;</a></h2>
-<p>If you want to run a playbook and always do things locally, use <code>- hosts: 127.0.0.1</code> in the playbook. Execute the playbook using <code>--connection=local</code>. This instructs ansible to execute the command locally and not to establish an SSH connection, which is useful if local loobpack is disabled eg. due to firewall rules or security groups. </p>
-<p>To run a playbook which uses <code>- hosts: all</code> or similar, pass an inventory with just localhost or 127.0.0.1 and connection=local</p>
+<p>If you want to run a playbook and always do things locally, use <code class="codehilite">- hosts: 127.0.0.1</code> in the playbook. Execute the playbook using <code class="codehilite">--connection=local</code>. This instructs ansible to execute the command locally and not to establish an SSH connection, which is useful if local loobpack is disabled eg. due to firewall rules or security groups. </p>
+<p>To run a playbook which uses <code class="codehilite">- hosts: all</code> or similar, pass an inventory with just localhost or 127.0.0.1 and connection=local</p>
 <div class="codehilite"><pre><span></span>ansible-playbook -i 127.0.0.1, --connection=local myplaybook.yaml
 </pre></div>
 
@@ -622,7 +622,7 @@
 </pre></div>
 
 
-<p>More alternatives include using the <code>local_action</code> module which is a shorthand syntax for  the <code>delegate_to: 127.0.0.1</code> option. Combine these with <code>run_once: true</code> to ensure things running locally only happen once if that's what you want (like downloading a file once to then use Ansible to push the file to multiple hosts). </p>
+<p>More alternatives include using the <code class="codehilite">local_action</code> module which is a shorthand syntax for  the <code class="codehilite"><span class="n">delegate_to</span><span class="o">:</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span></code> option. Combine these with <code class="codehilite"><span class="n">run_once</span><span class="o">:</span> <span class="kc">true</span></code> to ensure things running locally only happen once if that's what you want (like downloading a file once to then use Ansible to push the file to multiple hosts). </p>
 <p>See Ansible documentation on <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_delegation.html#delegation">Delegation</a> This is useful to switch to running selected tasks locally in the middle of a role execution for example, where you cannot add hosts: directives to switch between local and remote execution.</p>
 <div class="codehilite"><pre><span></span><span class="x">- hosts: all</span>
 <span class="x">  gather_facts: false</span>
@@ -644,8 +644,8 @@
 
 
 <h2 id="localhost-and-non-ssh-connections">Localhost and non-SSH connections<a class="headerlink" href="#localhost-and-non-ssh-connections" title="Permanent link">&para;</a></h2>
-<p><code>ansible_connection=local</code> can be used in the inventory or on the command line to specify how Ansible will connect to the target host. In the case of local actions you can use ansible_connection=local as an inventory parameter with localhost to execute something locally even if you don't have a local loopback connection. The equivalent in a playbook is <code>connection: local</code>.</p>
-<p>Note localhost will be recognised by Ansible as a valid host if the /etc/hosts file has an entry for 127.0.0.1 localhost or if <code>localhost 127.0.0.1 ansible_connection=local</code> is specified in the inventory, otherwise use 127.0.0.1.</p>
+<p><code class="codehilite">ansible_connection=local</code> can be used in the inventory or on the command line to specify how Ansible will connect to the target host. In the case of local actions you can use ansible_connection=local as an inventory parameter with localhost to execute something locally even if you don't have a local loopback connection. The equivalent in a playbook is <code class="codehilite"><span class="n">connection</span><span class="o">:</span> <span class="n">local</span></code>.</p>
+<p>Note localhost will be recognised by Ansible as a valid host if the /etc/hosts file has an entry for 127.0.0.1 localhost or if <code class="codehilite">localhost 127.0.0.1 ansible_connection=local</code> is specified in the inventory, otherwise use 127.0.0.1.</p>
 <h2 id="load-variables-from-a-file">Load variables from a file<a class="headerlink" href="#load-variables-from-a-file" title="Permanent link">&para;</a></h2>
 <p>On the command line, use -e or --extra-vars. Set additional variables as key=value or YAML/JSON, if filename prepend the filename with @.</p>
 <div class="codehilite"><pre><span></span>ansible-playbook ... --extra-vars &#39;@my-vars.yaml&#39;
@@ -660,9 +660,9 @@
 <p>See <a href="https://docs.ansible.com/ansible/2.4/ansible-playbook.html#cmdoption-ansible-playbook-e">documentation</a></p>
 <h2 id="roles">Roles<a class="headerlink" href="#roles" title="Permanent link">&para;</a></h2>
 <p>Link to Roles documentation
-http://docs.ansible.com/ansible/2.4/playbooks_reuse.html</p>
+<a href="http://docs.ansible.com/ansible/2.4/playbooks_reuse.html">http://docs.ansible.com/ansible/2.4/playbooks_reuse.html</a></p>
 <h2 id="magic-variables">Magic variables<a class="headerlink" href="#magic-variables" title="Permanent link">&para;</a></h2>
-<p>http://docs.ansible.com/ansible/latest/playbooks_variables.html#magic-variables-and-how-to-access-information-about-other-hosts</p>
+<p><a href="http://docs.ansible.com/ansible/latest/playbooks_variables.html#magic-variables-and-how-to-access-information-about-other-hosts">http://docs.ansible.com/ansible/latest/playbooks_variables.html#magic-variables-and-how-to-access-information-about-other-hosts</a></p>
 <h2 id="group-and-host-variables">Group and Host Variables<a class="headerlink" href="#group-and-host-variables" title="Permanent link">&para;</a></h2>
 <p>See documentation for <a href="http://docs.ansible.com/ansible/latest/playbooks_best_practices.html#group-and-host-variables">playbooks best practices</a>.</p>
 <p>inventory/group_vars/all.yaml

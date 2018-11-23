@@ -543,7 +543,7 @@
                 
                 <h1 id="playbooks">Playbooks<a class="headerlink" href="#playbooks" title="Permanent link">&para;</a></h1>
 <h2 id="conditional-checks">Conditional checks<a class="headerlink" href="#conditional-checks" title="Permanent link">&para;</a></h2>
-<p>Conditional checks use the <code>when:</code> syntax. The <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html">Ansible documentation</a> states "...When conditions are raw Jinja2 expressions and don't require double quotes for variable interpolation.", which is not entirely accurate. When conditions can use raw Jinja2 expressions but can execute regular python code so can access methods like String.find() to check for a text match in a String. Multiple conditions should be enclosed with parenthesis, multiple conditions can be specified in a list where they are all required to be true (logical AND).</p>
+<p>Conditional checks use the <code class="codehilite">when:</code> syntax. The <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html">Ansible documentation</a> states "...When conditions are raw Jinja2 expressions and don't require double quotes for variable interpolation.", which is not entirely accurate. When conditions can use raw Jinja2 expressions but can execute regular python code so can access methods like String.find() to check for a text match in a String. Multiple conditions should be enclosed with parenthesis, multiple conditions can be specified in a list where they are all required to be true (logical AND).</p>
 <h3 id="conditional-check-examples">Conditional check examples<a class="headerlink" href="#conditional-check-examples" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span>    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> 
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">tomcat_status_result.stdout.find(&quot;JVM is running.&quot;) &gt; -1</span>
@@ -569,7 +569,6 @@
           <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">inventory_dir | regex_search(&#39;dev$&#39;)</span>
 </pre></div>
 
-
 <h2 id="filters">Filters<a class="headerlink" href="#filters" title="Permanent link">&para;</a></h2>
 <p>See documentation on <a href="http://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html">filters</a>.
 Filters use Jinja2, and Ansible ships with some extra ones to those available in Jinja2. Remember that if using a filter in a conditional statement that python methods are also accessible. </p>
@@ -585,13 +584,11 @@ Filters use Jinja2, and Ansible ships with some extra ones to those available in
         <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="s">&#39;5.6.7-SNAPSHOT&#39;</span>
 </pre></div>
 
-
 <p>Select the version of project-b using the following expression.</p>
 <div class="codehilite"><pre><span></span>    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hosts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">project-hosts-b</span>
       <span class="l l-Scalar l-Scalar-Plain">vars</span><span class="p p-Indicator">:</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">deployable_version</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">projects</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">selectattr(&#39;name&#39;,</span><span class="nv"> </span><span class="s">&#39;match&#39;,</span><span class="nv"> </span><span class="s">&#39;^project-b$&#39;)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">map(attribute=&#39;version&#39;)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">list</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">first</span><span class="nv"> </span><span class="s">}}&quot;</span>
 </pre></div>
-
 
 <p>References</p>
 <ul>
@@ -635,8 +632,8 @@ Filters use Jinja2, and Ansible ships with some extra ones to those available in
 <p>Ansible documentation on <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse.html">Creating reusable playbooks</a>
 Note there are trade-offs when selecting between static and dynamic, any import* tasks will be static, any include* tasks will be dynamic. </p>
 <ul>
-<li>All <code>import*</code> statements are pre-processed at the time playbooks are parsed.</li>
-<li>All <code>include*</code> statements are processed as they encountered during the execution of the playbook.</li>
+<li>All <code class="codehilite">import*</code> statements are pre-processed at the time playbooks are parsed.</li>
+<li>All <code class="codehilite">include*</code> statements are processed as they encountered during the execution of the playbook.</li>
 </ul>
                 
                   

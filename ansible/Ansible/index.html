@@ -11,6 +11,8 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
+        <link rel="canonical" href="https://agarthetiger.github.io/mkdocs/ansible/Ansible/">
+      
       
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -80,7 +82,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Software Engineering Notes" class="md-header-nav__button md-logo">
+        <a href="https://agarthetiger.github.io/mkdocs/" title="Software Engineering Notes" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -152,7 +154,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="Software Engineering Notes" class="md-nav__button md-logo">
+    <a href="https://agarthetiger.github.io/mkdocs/" title="Software Engineering Notes" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
@@ -528,69 +530,81 @@
               
                 
                 
-                <h1 id="ansible">Ansible</h1>
-<h2 id="single-actions">Single actions</h2>
-<pre><code>ansible all -m setup -i 192.168.0.11,
-</code></pre>
+                <h1 id="ansible">Ansible<a class="headerlink" href="#ansible" title="Permanent link">&para;</a></h1>
+<h2 id="single-actions">Single actions<a class="headerlink" href="#single-actions" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>ansible all -m setup -i 192.168.0.11,
+</pre></div>
+
+
 <ul>
 <li><code>ansible all</code> execute ansible against host group 'all'    </li>
 <li><code>-m setup</code> run the setup module to gather information about the hosts</li>
 <li><code>-i 192.168.0.11,</code> inline host list, must be comma-separated list of hosts so add training comma for a single host.</li>
 </ul>
 <p>See <a href="https://docs.ansible.com/ansible/latest/modules/setup_module.html#examples">Examples</a> on the Ansible Setup module documentation.</p>
-<h2 id="local-actions">Local actions</h2>
+<h2 id="local-actions">Local actions<a class="headerlink" href="#local-actions" title="Permanent link">&para;</a></h2>
 <p>If you want to run a playbook and always do things locally, use <code>- hosts: 127.0.0.1</code> in the playbook. Execute the playbook using <code>--connection=local</code>. This instructs ansible to execute the command locally and not to establish an SSH connection, which is useful if local loobpack is disabled eg. due to firewall rules or security groups. </p>
 <p>To run a playbook which uses <code>- hosts: all</code> or similar, pass an inventory with just localhost or 127.0.0.1 and connection=local</p>
-<pre><code>ansible-playbook -i 127.0.0.1, --connection=local myplaybook.yaml
-</code></pre>
+<div class="codehilite"><pre><span></span>ansible-playbook -i 127.0.0.1, --connection=local myplaybook.yaml
+</pre></div>
+
+
 <p>Alternatively, within a playbook with tasks to be executed remotely, include a section with </p>
-<pre><code>- hosts: 127.0.0.1
+<div class="codehilite"><pre><span></span>- hosts: 127.0.0.1
   connection: local
-</code></pre>
+</pre></div>
+
+
 <p>More alternatives include using the <code>local_action</code> module which is a shorthand syntax for  the <code>delegate_to: 127.0.0.1</code> option. Combine these with <code>run_once: true</code> to ensure things running locally only happen once if that's what you want (like downloading a file once to then use Ansible to push the file to multiple hosts). </p>
 <p>See Ansible documentation on <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_delegation.html#delegation">Delegation</a> This is useful to switch to running selected tasks locally in the middle of a role execution for example, where you cannot add hosts: directives to switch between local and remote execution.</p>
-<pre><code>- hosts: all
-  gather_facts: false
-  tasks:
-  - name: ensure required parameters have been set
-    fail: msg="Variable '{{ item }}' is not defined"
-    when: item not in vars
-    with_items:
-      - public_key_file
-      - host_user_id
-    run_once: true
-  - name: locate public key file
-    local_action:
-      module: stat
-      path: "{{ public_key_file }}"
-    register: keyFile
-    run_once: true
-</code></pre>
-<h2 id="localhost-and-non-ssh-connections">Localhost and non-SSH connections</h2>
+<div class="codehilite"><pre><span></span><span class="x">- hosts: all</span>
+<span class="x">  gather_facts: false</span>
+<span class="x">  tasks:</span>
+<span class="x">  - name: ensure required parameters have been set</span>
+<span class="x">    fail: msg=&quot;Variable &#39;</span><span class="cp">{{</span> <span class="nv">item</span> <span class="cp">}}</span><span class="x">&#39; is not defined&quot;</span>
+<span class="x">    when: item not in vars</span>
+<span class="x">    with_items:</span>
+<span class="x">      - public_key_file</span>
+<span class="x">      - host_user_id</span>
+<span class="x">    run_once: true</span>
+<span class="x">  - name: locate public key file</span>
+<span class="x">    local_action:</span>
+<span class="x">      module: stat</span>
+<span class="x">      path: &quot;</span><span class="cp">{{</span> <span class="nv">public_key_file</span> <span class="cp">}}</span><span class="x">&quot;</span>
+<span class="x">    register: keyFile</span>
+<span class="x">    run_once: true</span>
+</pre></div>
+
+
+<h2 id="localhost-and-non-ssh-connections">Localhost and non-SSH connections<a class="headerlink" href="#localhost-and-non-ssh-connections" title="Permanent link">&para;</a></h2>
 <p><code>ansible_connection=local</code> can be used in the inventory or on the command line to specify how Ansible will connect to the target host. In the case of local actions you can use ansible_connection=local as an inventory parameter with localhost to execute something locally even if you don't have a local loopback connection. The equivalent in a playbook is <code>connection: local</code>.</p>
 <p>Note localhost will be recognised by Ansible as a valid host if the /etc/hosts file has an entry for 127.0.0.1 localhost or if <code>localhost 127.0.0.1 ansible_connection=local</code> is specified in the inventory, otherwise use 127.0.0.1.</p>
-<h2 id="load-variables-from-a-file">Load variables from a file</h2>
+<h2 id="load-variables-from-a-file">Load variables from a file<a class="headerlink" href="#load-variables-from-a-file" title="Permanent link">&para;</a></h2>
 <p>On the command line, use -e or --extra-vars. Set additional variables as key=value or YAML/JSON, if filename prepend the filename with @.</p>
-<pre><code>ansible-playbook ... --extra-vars '@my-vars.yaml'
-</code></pre>
+<div class="codehilite"><pre><span></span>ansible-playbook ... --extra-vars &#39;@my-vars.yaml&#39;
+</pre></div>
+
+
 <p>Combine vars from a file and additional vars by using --extra-vars twice.</p>
-<pre><code>ansible-playbook ... --extra-vars '@my-vars.yaml' --extra-vars 'target_env=uat generate_report=true'
-</code></pre>
+<div class="codehilite"><pre><span></span>ansible-playbook ... --extra-vars &#39;@my-vars.yaml&#39; --extra-vars &#39;target_env=uat generate_report=true&#39;
+</pre></div>
+
+
 <p>See <a href="https://docs.ansible.com/ansible/2.4/ansible-playbook.html#cmdoption-ansible-playbook-e">documentation</a></p>
-<h2 id="roles">Roles</h2>
+<h2 id="roles">Roles<a class="headerlink" href="#roles" title="Permanent link">&para;</a></h2>
 <p>Link to Roles documentation
 http://docs.ansible.com/ansible/2.4/playbooks_reuse.html</p>
-<h2 id="magic-variables">Magic variables</h2>
+<h2 id="magic-variables">Magic variables<a class="headerlink" href="#magic-variables" title="Permanent link">&para;</a></h2>
 <p>http://docs.ansible.com/ansible/latest/playbooks_variables.html#magic-variables-and-how-to-access-information-about-other-hosts</p>
-<h2 id="group-and-host-variables">Group and Host Variables</h2>
+<h2 id="group-and-host-variables">Group and Host Variables<a class="headerlink" href="#group-and-host-variables" title="Permanent link">&para;</a></h2>
 <p>See documentation for <a href="http://docs.ansible.com/ansible/latest/playbooks_best_practices.html#group-and-host-variables">playbooks best practices</a>.</p>
 <p>inventory/group_vars/all.yaml
 my_var_name: "some value"</p>
 <p>Use {{ hostvars[inventory_hostname]['my_var_name'] }} to reference. Note the group_vars/all structure does not mean there is an [all] hosts group to reference, but the vars in all will get applied to all group (hosts), and can be referenced using the magic variable inventory_hostname. Note the use of single quotes for the my_var_name (which is looking up the string 'my_var_name') vs the [inventory_hostname] syntax to index the inventory_hostname in the hostvars array. </p>
-<h2 id="ansible-tower">Ansible Tower</h2>
+<h2 id="ansible-tower">Ansible Tower<a class="headerlink" href="#ansible-tower" title="Permanent link">&para;</a></h2>
 <p>AWX is the upstream open-source version of Ansible Tower. See the <a href="https://www.ansible.com/products/awx-project">AWX Project</a> for details. You can get it from <a href="https://github.com/ansible/awx">GitHub</a>.</p>
-<h2 id="ansible-tools">Ansible tools</h2>
-<h3 id="ansible-run-analysis-ara">Ansible Run Analysis (ARA)</h3>
+<h2 id="ansible-tools">Ansible tools<a class="headerlink" href="#ansible-tools" title="Permanent link">&para;</a></h2>
+<h3 id="ansible-run-analysis-ara">Ansible Run Analysis (ARA)<a class="headerlink" href="#ansible-run-analysis-ara" title="Permanent link">&para;</a></h3>
 <p>See the <a href="https://dzone.com/articles/ansible-run-analysis">ARA</a> article or view the code on <a href="https://github.com/openstack/ara">GitHub</a>.</p>
 <p><a href="https://groups.google.com/forum/#!forum/ansible-project">Ansible Google Group</a>
 <a href="https://github.com/ansible/ansible/releases">Ansible Source and Releases on GitHub</a></p>
@@ -658,6 +672,17 @@ my_var_name: "some value"</p>
       </div>
       
         
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="http://struct.cc" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/agarthetiger" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://uk.linkedin.com/in/buildthethingright" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
       
     </div>
   </div>

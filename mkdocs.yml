@@ -1,4 +1,21 @@
 site_name: Software Engineering Notes
+site_url: https://agarthetiger.github.io/mkdocs/
+
 theme: 
   name: material
-#nav:
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true
+  - meta
+  
+extra:
+  social:
+    - type: globe
+      link: http://struct.cc
+    - type: github-alt
+      link: https://github.com/agarthetiger
+    - type: linkedin
+      link: https://uk.linkedin.com/in/buildthethingright

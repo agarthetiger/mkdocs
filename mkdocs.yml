@@ -1,6 +1,11 @@
 site_name: Software Engineering Notes
 site_url: https://agarthetiger.github.io/mkdocs/
 
+repo_name: 'agarthetiger/mkdocs'
+repo_url: 'https://github.com/agarthetiger/mkdocs'
+
+edit_uri: 'blob/master/docs/'
+
 theme: 
   name: material
 

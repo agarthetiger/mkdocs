@@ -2,32 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/</loc>
-     <lastmod>2018-12-07</lastmod>
+     <lastmod>2019-01-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/Ansible/</loc>
-     <lastmod>2018-12-07</lastmod>
+     <lastmod>2019-01-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/playbooks/</loc>
-     <lastmod>2018-12-07</lastmod>
+     <lastmod>2019-01-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/jenkins/JenkinsPlugins/</loc>
-     <lastmod>2018-12-07</lastmod>
+     <lastmod>2019-01-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/jenkins/PipelineSteps/</loc>
-     <lastmod>2018-12-07</lastmod>
+     <lastmod>2019-01-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/python/mkdocs/</loc>
-     <lastmod>2018-12-07</lastmod>
+     <lastmod>2019-01-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

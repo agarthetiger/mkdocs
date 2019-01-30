@@ -27,7 +27,7 @@ We can do this in two simple steps using regex_search, the first filter matches 
 ```
 
 !!! note
-    Ansible (2.6) does not support having both facts set in a single task. The following code prodeces the error below.
+    Ansible (2.6) does not support having both facts set in a single task. The following code prodeces the error below because the first fact is not set when the second fact tries to reference it. 
     ```yaml
         - name: extract versions from response
           set_fact:
@@ -39,9 +39,25 @@ We can do this in two simple steps using regex_search, the first filter matches 
     TASK [extract versions from response]  *****************************************************************************************
     fatal: [localhost]: FAILED! => {"msg": "Unexpected templating type error occurred on ({{ deployed_application_version_element | regex_search('(\\\\d+.*$)') }}): expected string or buffer"}
     ```
+    The error is clearer if we drop the regex_search filter from the second fact, although as always we must read the Ansible error message carefully and fully.
+    ```yaml
+        - name: extract versions from response
+          set_fact:
+            deployed_application_version_element: "{{ response | regex_search('application version : ([\\w\\.\\-]+)') }}"
+            deployed_application_version: "{{ deployed_application_version_element }}"
+
+    ```
+    ```bash
+    TASK [extract versions from response] *****************************************************************************************
+    fatal: [localhost]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'deployed_project_version_match' is undefined\n\nThe error appears to have been in '/Users/agar/code/agarthetiger/ansible/check-version.yml': line 9, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n    - name: extract versions from response\n      ^ here\n"}
 
 ### regex_replace
-It would be elegant to get this in one step and we can do that with regex_replace, where the replacement string can reference match groups. We need to modify the original regex slightly so the entire string is matched, in order for just the replacement match group to become the returned string. In the regex below the leading `^.*` and trailing `.*?$` match the whole string, `application version :` homes in on the string we want and `\w\.\-` matches any word character plus dot and hyphen and the brackets around this mark it as the first (and only) match group.
+It would be elegant to get this in one step and we can do that with regex_replace, where the replacement string can reference match groups. We need to modify the original regex slightly so the entire string is matched, in order for just the replacement match group to become the returned string. 
+
+Lets break the regex down.
+* The leading `^.*` and trailing `.*?$` ensure that the whole string is matched and replaced by the match group
+* `application version :` matches the text in the list html element for the version we're interested in 
+* `([\w\.\-])` matches any word character (letters, numbers and underscore) plus dot and hyphen and the round brackets around this expression mark it as the first (and only) match group.
 
 ```yaml
     - name: extract application version from response

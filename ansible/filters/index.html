@@ -535,7 +535,7 @@
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Ansible (2.6) does not support having both facts set in a single task. The following code prodeces the error below.
+<p>Ansible (2.6) does not support having both facts set in a single task. The following code prodeces the error below because the first fact is not set when the second fact tries to reference it. 
 <div class="codehilite"><pre><span></span>    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">extract versions from response</span>
       <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">deployed_application_version_element</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">response</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">regex_search(&#39;application</span><span class="nv"> </span><span class="s">version</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">([\\w\\.\\-]+)&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
@@ -543,10 +543,23 @@
 </pre></div>
 <div class="codehilite"><pre><span></span>TASK <span class="o">[</span>extract versions from response<span class="o">]</span>  *****************************************************************************************
 fatal: <span class="o">[</span>localhost<span class="o">]</span>: FAILED! <span class="o">=</span>&gt; <span class="o">{</span><span class="s2">&quot;msg&quot;</span>: <span class="s2">&quot;Unexpected templating type error occurred on ({{ deployed_application_version_element | regex_search(&#39;(\\\\d+.*</span>$<span class="s2">)&#39;) }}): expected string or buffer&quot;</span><span class="o">}</span>
-</pre></div></p>
+</pre></div>
+The error is clearer if we drop the regex_search filter from the second fact, although as always we must read the Ansible error message carefully and fully.
+<div class="codehilite"><pre><span></span>    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">extract versions from response</span>
+      <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">deployed_application_version_element</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">response</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">regex_search(&#39;application</span><span class="nv"> </span><span class="s">version</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">([\\w\\.\\-]+)&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
+        <span class="l l-Scalar l-Scalar-Plain">deployed_application_version</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">deployed_application_version_element</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</pre></div>
+```bash
+TASK [extract versions from response] *****************************************************************************************
+fatal: [localhost]: FAILED! =&gt; {"msg": "The task includes an option with an undefined variable. The error was: 'deployed_project_version_match' is undefined\n\nThe error appears to have been in '/Users/agar/code/agarthetiger/ansible/check-version.yml': line 9, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n    - name: extract versions from response\n      ^ here\n"}</p>
 </div>
 <h3 id="regex_replace">regex_replace<a class="headerlink" href="#regex_replace" title="Permanent link">&para;</a></h3>
-<p>It would be elegant to get this in one step and we can do that with regex_replace, where the replacement string can reference match groups. We need to modify the original regex slightly so the entire string is matched, in order for just the replacement match group to become the returned string. In the regex below the leading <code class="codehilite">^.*</code> and trailing <code class="codehilite">.*?$</code> match the whole string, <code class="codehilite">application version :</code> homes in on the string we want and <code class="codehilite">\w\.\-</code> matches any word character plus dot and hyphen and the brackets around this mark it as the first (and only) match group.</p>
+<p>It would be elegant to get this in one step and we can do that with regex_replace, where the replacement string can reference match groups. We need to modify the original regex slightly so the entire string is matched, in order for just the replacement match group to become the returned string. </p>
+<p>Lets break the regex down.
+* The leading <code class="codehilite">^.*</code> and trailing <code class="codehilite">.*?$</code> ensure that the whole string is matched and replaced by the match group
+* <code class="codehilite">application version :</code> matches the text in the list html element for the version we're interested in 
+* <code class="codehilite">([\w\.\-])</code> matches any word character (letters, numbers and underscore) plus dot and hyphen and the round brackets around this expression mark it as the first (and only) match group.</p>
 <div class="codehilite"><pre><span></span>    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">extract application version from response</span>
       <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">deployed_application_version</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">response</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">regex_replace(&#39;^.*application</span><span class="nv"> </span><span class="s">version</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">([\\w\\.\\-]+).*?$&#39;,</span><span class="nv"> </span><span class="s">&#39;\\1&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>

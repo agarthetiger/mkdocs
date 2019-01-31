@@ -556,10 +556,12 @@ fatal: [localhost]: FAILED! =&gt; {"msg": "The task includes an option with an u
 </div>
 <h3 id="regex_replace">regex_replace<a class="headerlink" href="#regex_replace" title="Permanent link">&para;</a></h3>
 <p>It would be elegant to get this in one step and we can do that with regex_replace, where the replacement string can reference match groups. We need to modify the original regex slightly so the entire string is matched, in order for just the replacement match group to become the returned string. </p>
-<p>Lets break the regex down.
-* The leading <code class="codehilite">^.*</code> and trailing <code class="codehilite">.*?$</code> ensure that the whole string is matched and replaced by the match group
-* <code class="codehilite">application version :</code> matches the text in the list html element for the version we're interested in 
-* <code class="codehilite">([\w\.\-])</code> matches any word character (letters, numbers and underscore) plus dot and hyphen and the round brackets around this expression mark it as the first (and only) match group.</p>
+<p>Lets break the regex down.</p>
+<ul>
+<li>The leading <code class="codehilite">^.*</code> and trailing <code class="codehilite">.*?$</code> ensure that the whole string is matched and replaced by the match group</li>
+<li><code class="codehilite">application version :</code> matches the text in the list html element for the version we're interested in </li>
+<li><code class="codehilite">([\w\.\-])</code> matches any word character (letters, numbers and underscore) plus dot and hyphen and the round brackets around this expression mark it as the first (and only) match group.</li>
+</ul>
 <div class="codehilite"><pre><span></span>    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">extract application version from response</span>
       <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">deployed_application_version</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">response</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">regex_replace(&#39;^.*application</span><span class="nv"> </span><span class="s">version</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">([\\w\\.\\-]+).*?$&#39;,</span><span class="nv"> </span><span class="s">&#39;\\1&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>

@@ -55,6 +55,7 @@ We can do this in two simple steps using regex_search, the first filter matches 
 It would be elegant to get this in one step and we can do that with regex_replace, where the replacement string can reference match groups. We need to modify the original regex slightly so the entire string is matched, in order for just the replacement match group to become the returned string. 
 
 Lets break the regex down.
+
 * The leading `^.*` and trailing `.*?$` ensure that the whole string is matched and replaced by the match group
 * `application version :` matches the text in the list html element for the version we're interested in 
 * `([\w\.\-])` matches any word character (letters, numbers and underscore) plus dot and hyphen and the round brackets around this expression mark it as the first (and only) match group.

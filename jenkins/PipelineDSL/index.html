@@ -38,7 +38,7 @@
     
     
       
-        <title>Pipeline DSJ Notes - Software Engineering Notes</title>
+        <title>Pipeline DSL Notes - Software Engineering Notes</title>
       
     
     
@@ -92,7 +92,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="../../#pipeline-dsj-notes" tabindex="1" class="md-skip">
+      <a href="../../#pipeline-dsl-notes" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -118,7 +118,7 @@
                 Software Engineering Notes
               </span>
               <span class="md-header-nav__topic">
-                Pipeline DSJ Notes
+                Pipeline DSL Notes
               </span>
             
           
@@ -349,11 +349,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Pipeline DSJ Notes
+        Pipeline DSL Notes
       </label>
     
-    <a href="./" title="Pipeline DSJ Notes" class="md-nav__link md-nav__link--active">
-      Pipeline DSJ Notes
+    <a href="./" title="Pipeline DSL Notes" class="md-nav__link md-nav__link--active">
+      Pipeline DSL Notes
     </a>
     
       
@@ -369,6 +369,13 @@
         <li class="md-nav__item">
   <a href="#groovy-closures" title="Groovy closures" class="md-nav__link">
     Groovy closures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-approvals-from-libraries" title="Script approvals from libraries" class="md-nav__link">
+    Script approvals from libraries
   </a>
   
 </li>
@@ -464,6 +471,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#script-approvals-from-libraries" title="Script approvals from libraries" class="md-nav__link">
+    Script approvals from libraries
+  </a>
+  
+</li>
+      
       
       
       
@@ -483,9 +497,11 @@
                   <a href="https://github.com/agarthetiger/mkdocs/blob/master/docs/jenkins/PipelineDSL.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="pipeline-dsj-notes">Pipeline DSJ Notes<a class="headerlink" href="#pipeline-dsj-notes" title="Permanent link">&para;</a></h1>
+                <h1 id="pipeline-dsl-notes">Pipeline DSL Notes<a class="headerlink" href="#pipeline-dsl-notes" title="Permanent link">&para;</a></h1>
 <h2 id="groovy-closures">Groovy closures<a class="headerlink" href="#groovy-closures" title="Permanent link">&para;</a></h2>
 <p>There has been a <a href="https://issues.jenkins-ci.org/browse/JENKINS-26481">long-standing bug</a> with using closures like <code class="codehilite"><span class="na">.each</span><span class="err">{}</span></code> on collections, where the behaviour was incorrect and inconsistent. This <a href="https://gist.github.com/oifland/ab56226d5f0375103141b5fbd7807398">gist</a> demonstrates some of this behaviour. The bug has now been <a href="https://github.com/jenkins-infra/jenkins.io/commit/89792a0c8e0a3850f95ec5fe24bbc89f962fb7ed">fixed</a> in plugin:workflow-cps 2.33 although it's worth noting that there may still be other bugs like <a href="https://issues.jenkins-ci.org/browse/JENKINS-46749">this</a> which at the time of writing are still unresolved.</p>
+<h2 id="script-approvals-from-libraries">Script approvals from libraries<a class="headerlink" href="#script-approvals-from-libraries" title="Permanent link">&para;</a></h2>
+<p>If you are a non-admin user writing Jenkins shared libraries, note that non-whitelisted methods will be blocked with an error indicating a script approval is required. Unfortunately library code does not raise a script approval for an admin to approve and the code in question has to be added to a Pipeline job where the methods are called directly from a Pipeline job using "Pipeline script" or "Pipeline Script from SCM". </p>
                 
                   
                 

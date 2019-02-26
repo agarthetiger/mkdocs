@@ -27,22 +27,24 @@ More alternatives include using the `local_action` module which is a shorthand s
 
 See Ansible documentation on [Delegation](https://docs.ansible.com/ansible/latest/user_guide/playbooks_delegation.html#delegation) This is useful to switch to running selected tasks locally in the middle of a role execution for example, where you cannot add hosts: directives to switch between local and remote execution.
 
-    - hosts: all
-      gather_facts: false
-      tasks:
-      - name: ensure required parameters have been set
-        fail: msg="Variable '{{ item }}' is not defined"
-        when: item not in vars
-        with_items:
-          - public_key_file
-          - host_user_id
-        run_once: true
-      - name: locate public key file
-        local_action:
-          module: stat
-          path: "{{ public_key_file }}"
-        register: keyFile
-        run_once: true
+```yaml
+- hosts: all
+  gather_facts: false
+  tasks:
+  - name: ensure required parameters have been set
+    fail: msg="Variable '{{ item }}' is not defined"
+    when: item not in vars
+    with_items:
+      - public_key_file
+      - host_user_id
+    run_once: true
+  - name: locate public key file
+    local_action:
+      module: stat
+      path: "{{ public_key_file }}"
+    register: keyFile
+    run_once: true
+```
 
 ## Localhost and non-SSH connections
 `ansible_connection=local` can be used in the inventory or on the command line to specify how Ansible will connect to the target host. In the case of local actions you can use ansible_connection=local as an inventory parameter with localhost to execute something locally even if you don't have a local loopback connection. The equivalent in a playbook is `connection: local`.
@@ -69,6 +71,7 @@ http://docs.ansible.com/ansible/2.4/playbooks_reuse.html
 
 http://docs.ansible.com/ansible/latest/playbooks_variables.html#magic-variables-and-how-to-access-information-about-other-hosts
 
+The most commonly used magic variables are `hostvars`, `groups`, `group_names`, and `inventory_hostname`. `groups` is a list of all the groups (and hosts) in the inventory.
 
 ## Group and Host Variables
 
@@ -77,7 +80,7 @@ See documentation for [playbooks best practices](http://docs.ansible.com/ansible
 inventory/group_vars/all.yaml
 my_var_name: "some value"
 
-Use {{ hostvars[inventory_hostname]['my_var_name'] }} to reference. Note the group_vars/all structure does not mean there is an [all] hosts group to reference, but the vars in all will get applied to all group (hosts), and can be referenced using the magic variable inventory_hostname. Note the use of single quotes for the my_var_name (which is looking up the string 'my_var_name') vs the [inventory_hostname] syntax to index the inventory_hostname in the hostvars array. 
+Use `{{ hostvars[inventory_hostname]['my_var_name'] }}` to reference. Note the group_vars/all structure does not mean there is an `[all]` hosts group to reference, but the vars in all will get applied to all group (hosts), and can be referenced using the magic variable inventory_hostname. Note the use of single quotes for the my_var_name (which is looking up the string 'my_var_name') vs the [inventory_hostname] syntax to index the inventory_hostname in the hostvars array. 
 
 ## Ansible Tower
 AWX is the upstream open-source version of Ansible Tower. See the [AWX Project](https://www.ansible.com/products/awx-project) for details. You can get it from [GitHub](https://github.com/ansible/awx).

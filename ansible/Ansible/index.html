@@ -648,24 +648,23 @@
 
 <p>More alternatives include using the <code class="codehilite">local_action</code> module which is a shorthand syntax for  the <code class="codehilite"><span class="n">delegate_to</span><span class="o">:</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span></code> option. Combine these with <code class="codehilite"><span class="n">run_once</span><span class="o">:</span> <span class="kc">true</span></code> to ensure things running locally only happen once if that's what you want (like downloading a file once to then use Ansible to push the file to multiple hosts). </p>
 <p>See Ansible documentation on <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_delegation.html#delegation">Delegation</a> This is useful to switch to running selected tasks locally in the middle of a role execution for example, where you cannot add hosts: directives to switch between local and remote execution.</p>
-<div class="codehilite"><pre><span></span><span class="x">- hosts: all</span>
-<span class="x">  gather_facts: false</span>
-<span class="x">  tasks:</span>
-<span class="x">  - name: ensure required parameters have been set</span>
-<span class="x">    fail: msg=&quot;Variable &#39;</span><span class="cp">{{</span> <span class="nv">item</span> <span class="cp">}}</span><span class="x">&#39; is not defined&quot;</span>
-<span class="x">    when: item not in vars</span>
-<span class="x">    with_items:</span>
-<span class="x">      - public_key_file</span>
-<span class="x">      - host_user_id</span>
-<span class="x">    run_once: true</span>
-<span class="x">  - name: locate public key file</span>
-<span class="x">    local_action:</span>
-<span class="x">      module: stat</span>
-<span class="x">      path: &quot;</span><span class="cp">{{</span> <span class="nv">public_key_file</span> <span class="cp">}}</span><span class="x">&quot;</span>
-<span class="x">    register: keyFile</span>
-<span class="x">    run_once: true</span>
+<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hosts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
+  <span class="l l-Scalar l-Scalar-Plain">gather_facts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="l l-Scalar l-Scalar-Plain">tasks</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ensure required parameters have been set</span>
+    <span class="l l-Scalar l-Scalar-Plain">fail</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">msg=&quot;Variable &#39;{{ item }}&#39; is not defined&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">item not in vars</span>
+    <span class="l l-Scalar l-Scalar-Plain">with_items</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">public_key_file</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">host_user_id</span>
+    <span class="l l-Scalar l-Scalar-Plain">run_once</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">locate public key file</span>
+    <span class="l l-Scalar l-Scalar-Plain">local_action</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">stat</span>
+      <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">public_key_file</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">register</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">keyFile</span>
+    <span class="l l-Scalar l-Scalar-Plain">run_once</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
-
 
 <h2 id="localhost-and-non-ssh-connections">Localhost and non-SSH connections<a class="headerlink" href="#localhost-and-non-ssh-connections" title="Permanent link">&para;</a></h2>
 <p><code class="codehilite">ansible_connection=local</code> can be used in the inventory or on the command line to specify how Ansible will connect to the target host. In the case of local actions you can use ansible_connection=local as an inventory parameter with localhost to execute something locally even if you don't have a local loopback connection. The equivalent in a playbook is <code class="codehilite"><span class="n">connection</span><span class="o">:</span> <span class="n">local</span></code>.</p>
@@ -687,11 +686,12 @@
 <a href="http://docs.ansible.com/ansible/2.4/playbooks_reuse.html">http://docs.ansible.com/ansible/2.4/playbooks_reuse.html</a></p>
 <h2 id="magic-variables">Magic variables<a class="headerlink" href="#magic-variables" title="Permanent link">&para;</a></h2>
 <p><a href="http://docs.ansible.com/ansible/latest/playbooks_variables.html#magic-variables-and-how-to-access-information-about-other-hosts">http://docs.ansible.com/ansible/latest/playbooks_variables.html#magic-variables-and-how-to-access-information-about-other-hosts</a></p>
+<p>The most commonly used magic variables are <code class="codehilite">hostvars</code>, <code class="codehilite">groups</code>, <code class="codehilite">group_names</code>, and <code class="codehilite">inventory_hostname</code>. <code class="codehilite">groups</code> is a list of all the groups (and hosts) in the inventory.</p>
 <h2 id="group-and-host-variables">Group and Host Variables<a class="headerlink" href="#group-and-host-variables" title="Permanent link">&para;</a></h2>
 <p>See documentation for <a href="http://docs.ansible.com/ansible/latest/playbooks_best_practices.html#group-and-host-variables">playbooks best practices</a>.</p>
 <p>inventory/group_vars/all.yaml
 my_var_name: "some value"</p>
-<p>Use {{ hostvars[inventory_hostname]['my_var_name'] }} to reference. Note the group_vars/all structure does not mean there is an [all] hosts group to reference, but the vars in all will get applied to all group (hosts), and can be referenced using the magic variable inventory_hostname. Note the use of single quotes for the my_var_name (which is looking up the string 'my_var_name') vs the [inventory_hostname] syntax to index the inventory_hostname in the hostvars array. </p>
+<p>Use <code class="codehilite"><span class="cp">{{</span> <span class="nv">hostvars</span><span class="o">[</span><span class="nv">inventory_hostname</span><span class="o">][</span><span class="s1">&#39;my_var_name&#39;</span><span class="o">]</span> <span class="cp">}}</span><span class="x"></span></code> to reference. Note the group_vars/all structure does not mean there is an <code class="codehilite">[all]</code> hosts group to reference, but the vars in all will get applied to all group (hosts), and can be referenced using the magic variable inventory_hostname. Note the use of single quotes for the my_var_name (which is looking up the string 'my_var_name') vs the [inventory_hostname] syntax to index the inventory_hostname in the hostvars array. </p>
 <h2 id="ansible-tower">Ansible Tower<a class="headerlink" href="#ansible-tower" title="Permanent link">&para;</a></h2>
 <p>AWX is the upstream open-source version of Ansible Tower. See the <a href="https://www.ansible.com/products/awx-project">AWX Project</a> for details. You can get it from <a href="https://github.com/ansible/awx">GitHub</a>.</p>
 <h2 id="ansible-tools">Ansible tools<a class="headerlink" href="#ansible-tools" title="Permanent link">&para;</a></h2>

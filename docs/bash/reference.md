@@ -26,3 +26,4 @@ alias.prune-merged=!git branch --merged "$1" |grep -v -e develop -e master -e "$
 
 !!! warning
     Remember this is a public (untrusted) website so be very careful about what you paste in here. 
+

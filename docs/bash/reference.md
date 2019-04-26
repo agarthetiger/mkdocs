@@ -9,9 +9,12 @@ response_code=\$(curl -w %{http_code} --netrc-file <(cat <<<'machine $uploadDoma
 ```
 
 Breaking this command down
+
 `<<<'Something here'` is a [here string](https://www.tldp.org/LDP/abs/html/x17837.html), a variant of a here doc where the (variables in the) string are expanded before being fed to standard input.
- `<( command )` is [process substitution](http://tldp.org/LDP/abs/html/process-sub.html) where the standard output of one process can be fed to the standard input of another process. In this case we're using process substitution and cat to feed curl with a netrc 'file' without ever writing the file to disk.
- `--netrc-file` is a [curl option](https://ec.haxx.se/usingcurl-netrc.html) which can be used to provide credentials for curl to present when connecting to specified domains.
+
+`<( command )` is [process substitution](http://tldp.org/LDP/abs/html/process-sub.html) where the standard output of one process can be fed to the standard input of another process. In this case we're using process substitution and cat to feed curl with a netrc 'file' without ever writing the file to disk.
+ 
+`--netrc-file` is a [curl option](https://ec.haxx.se/usingcurl-netrc.html) which can be used to provide credentials for curl to present when connecting to specified domains.
 
 ## Comments
 

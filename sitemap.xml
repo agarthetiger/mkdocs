@@ -46,6 +46,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://agarthetiger.github.io/mkdocs/jenkins/administration/</loc>
+     <lastmod>2019-07-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://agarthetiger.github.io/mkdocs/python/mkdocs/</loc>
      <lastmod>2019-07-31</lastmod>
      <changefreq>daily</changefreq>

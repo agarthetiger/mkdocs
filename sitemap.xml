@@ -2,57 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/</loc>
-     <lastmod>2019-07-31</lastmod>
+     <lastmod>2019-08-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/Ansible/</loc>
-     <lastmod>2019-07-31</lastmod>
+     <lastmod>2019-08-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/filters/</loc>
-     <lastmod>2019-07-31</lastmod>
+     <lastmod>2019-08-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/playbooks/</loc>
-     <lastmod>2019-07-31</lastmod>
+     <lastmod>2019-08-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/bash/reference/</loc>
-     <lastmod>2019-07-31</lastmod>
+     <lastmod>2019-08-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/cheat-sheets/jenkins/</loc>
-     <lastmod>2019-07-31</lastmod>
+     <lastmod>2019-08-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/jenkins/JenkinsPlugins/</loc>
-     <lastmod>2019-07-31</lastmod>
+     <lastmod>2019-08-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/jenkins/PipelineDSL/</loc>
-     <lastmod>2019-07-31</lastmod>
+     <lastmod>2019-08-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/jenkins/PipelineSteps/</loc>
-     <lastmod>2019-07-31</lastmod>
+     <lastmod>2019-08-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/jenkins/administration/</loc>
-     <lastmod>2019-07-31</lastmod>
+     <lastmod>2019-08-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/python/mkdocs/</loc>
-     <lastmod>2019-07-31</lastmod>
+     <lastmod>2019-08-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

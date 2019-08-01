@@ -372,9 +372,59 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Jenkins
+      </label>
+    
     <a href="./" title="Jenkins" class="md-nav__link md-nav__link--active">
       Jenkins
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jenkinsfile-pipelines" title="Jenkinsfile Pipelines" class="md-nav__link">
+    Jenkinsfile Pipelines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jobdsl" title="JobDSL" class="md-nav__link">
+    JobDSL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jcasc" title="JCasC" class="md-nav__link">
+    JCasC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-references" title="External References" class="md-nav__link">
+    External References
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -509,6 +559,43 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jenkinsfile-pipelines" title="Jenkinsfile Pipelines" class="md-nav__link">
+    Jenkinsfile Pipelines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jobdsl" title="JobDSL" class="md-nav__link">
+    JobDSL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jcasc" title="JCasC" class="md-nav__link">
+    JCasC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-references" title="External References" class="md-nav__link">
+    External References
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -523,14 +610,24 @@
                 
                 
                 <h1 id="jenkins">Jenkins<a class="headerlink" href="#jenkins" title="Permanent link">&para;</a></h1>
-<h1 id="jenkins-master-urls">Jenkins Master urls<a class="headerlink" href="#jenkins-master-urls" title="Permanent link">&para;</a></h1>
-<p>Replace localhost:8080 with the address of your Jenkins instance.</p>
-<p>Pipeline Syntax Snippet Generator, almost always your friend :) - <a href="http://localhost:8080/pipeline-syntax/">http://localhost:8080/pipeline-syntax/</a></p>
-<p>GDSL - <a href="http://localhost:8080/pipeline-syntax/gdsl">http://localhost:8080/pipeline-syntax/gdsl</a></p>
-<p>Global 'variables' docs - <a href="http://localhost:8080/pipeline-syntax/globals">http://localhost:8080/pipeline-syntax/globals</a></p>
-<p>In a shared or global library, add a .txt file alongside a .groovy file with text or HTML to automatically have add help to this globals page.</p>
-<h1 id="external-references">External References<a class="headerlink" href="#external-references" title="Permanent link">&para;</a></h1>
-<p>Java doc for Jenkins API - <a href="https://javadoc.jenkins-ci.org/">https://javadoc.jenkins-ci.org/</a></p>
+<p>As this is my cheat sheet I've used localhost:8080 in the markdown links for the Jenkins master. Replace localhost:8080 with the address of your Jenkins instance.</p>
+<h2 id="jenkinsfile-pipelines">Jenkinsfile Pipelines<a class="headerlink" href="#jenkinsfile-pipelines" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="http://localhost:8080/pipeline-syntax/">http://localhost:8080/pipeline-syntax/</a> - The Pipeline Syntax Snippet Generator, almost always generates valid Jenkins Pipeline DSL :)</li>
+<li><a href="http://localhost:8080/pipeline-syntax/globals">http://localhost:8080/pipeline-syntax/globals</a> - Global 'variables' docs. In a shared or global library, add a .txt file alongside a .groovy file with text or HTML to automatically have add help to this globals page.</li>
+<li><a href="http://localhost:8080/pipeline-syntax/gdsl">http://localhost:8080/pipeline-syntax/gdsl</a> - GDSL, auto-complete Jenkins DSL in IntelliJ</li>
+</ul>
+<h2 id="jobdsl">JobDSL<a class="headerlink" href="#jobdsl" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="http://localhost:8080/plugin/job-dsl/api-viewer/index.html#">http://localhost:8080/plugin/job-dsl/api-viewer/index.html#</a> - JobDSL API documentation, based on the installed plugins on the Jenkins master.</li>
+</ul>
+<h2 id="jcasc">JCasC<a class="headerlink" href="#jcasc" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="http://localhost:8080/configuration-as-code/reference">http://localhost:8080/configuration-as-code/reference</a> - Configration as code reference based on the installed (CasC) plugins and versions. Note not all of the available options are listed here, like the root jobs: option.</li>
+<li><a href="http://localhost:8080/configuration-as-code/schema">http://localhost:8080/configuration-as-code/schema</a> - JSON schema for the CasC options. Less descriptive and less readable but more complete than the above reference.</li>
+</ul>
+<h2 id="external-references">External References<a class="headerlink" href="#external-references" title="Permanent link">&para;</a></h2>
+<p><a href="https://javadoc.jenkins-ci.org/">https://javadoc.jenkins-ci.org/</a> - Java doc for Jenkins API</p>
                 
                   
                 

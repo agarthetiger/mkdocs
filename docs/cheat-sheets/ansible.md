@@ -50,6 +50,10 @@ Block sections include `block`, `rescue` and `always`. These function like `try`
 
 * [Special Variables][ansible_special_variables]
 * [Keywords][ansible_keywords]
+* [Filters][ansible_filters]
+* [Jinja2 Filters][jinja2_filters]
 
 [ansible_keywords]: https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html
 [ansible_special_variables]: https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html
+[ansible_filters]: https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html
+[jinja2_filters]: https://jinja.palletsprojects.com/en/2.10.x/templates/#builtin-filters

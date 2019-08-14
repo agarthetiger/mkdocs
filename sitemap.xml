@@ -36,6 +36,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://agarthetiger.github.io/mkdocs/cheat-sheets/markdown/</loc>
+     <lastmod>2019-08-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://agarthetiger.github.io/mkdocs/jenkins/JenkinsPlugins/</loc>
      <lastmod>2019-08-14</lastmod>
      <changefreq>daily</changefreq>

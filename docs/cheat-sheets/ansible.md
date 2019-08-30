@@ -44,7 +44,28 @@ Loops work with `when` and `failed_when` as well as the `until` conditions. `whe
 
 ## Blocks
 
-Block sections include `block`, `rescue` and `always`. These function like `try`, `catch` and `finally` respectively.
+Block sections include `block`, `rescue` and `always`. These function like `try`, `catch` and `finally` respectively. Blocks can accept options like run_once and tags, note that they can't be used to apply handlers which must be specified per task.
+
+## Process files on host
+
+The find module can be used to find files on a remote host and then process them in later in the playbook by registering the output. The full filename and path is stored in the registered variable under files.path, which can be looped over as per the example below.
+
+```yaml
+- name: find all logstash plugins
+  find:
+    paths: "{{ logstash_plugins_folder }}"
+    patterns: "*.gem"
+    recurse: no
+  register: plugin_gems
+  changed_when: no
+
+- name: ensure all plugins are installed
+  logstash_plugin:
+    name: "{{ item.path }}"
+    state: present
+  loop: "{{ plugin_gems.files }}"
+  notify: restart logstash
+```
 
 ## Documentation
 

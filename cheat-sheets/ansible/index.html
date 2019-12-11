@@ -743,10 +743,11 @@
 <div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">print hostvars</span>
   <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span> 
     <span class="l l-Scalar l-Scalar-Plain">var</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">hostvars[inventory_hostname]</span>
-    <span class="c1"># This is the same as {{ ansible_facts }}</span>
+    <span class="c1"># This is the same as {{ ansible_facts }} but note that ansible_facts will work differntly to hostvars[inventory_hostname] when delegating actions to another host.</span>
     <span class="l l-Scalar l-Scalar-Plain">verbosity</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
 </pre></div>
 
+<p>Note that <code class="codehilite">hostvars[inventory_hostname]</code> will always give the facts for the specified inventory_hostname, whereas ansible_facts gives it for the machine the task is being run on. This behaviour will be apparent when delegating tasks to other machines, especially localhost which will not have had any facts gathered at all. </p>
 <h2 id="flow-control">Flow control<a class="headerlink" href="#flow-control" title="Permanent link">&para;</a></h2>
 <p>Run a single task in serial in a Role. Note that the <a href="https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html">serial keyword</a> is not applicable to a task, so we have to use a workaround with a side-effect which is that the host selected by Ansible to execute the run_once task will report as being changed even when the actual change took place on the host which the task was delegated to. </p>
 <div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Enable and start the service</span>

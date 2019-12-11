@@ -81,7 +81,7 @@ Quick reference for some of the facts I commonly use.
 | ansible_dns.search | List of domains to search |
 | ansible_domain |  | 
 
-Access via `{{ ansible_facts.fact_name }}` or `hostvars[inventory_hostname]['fact_name']`.
+Access via `{{ ansible_facts['fact_name'] }}` or `hostvars[inventory_hostname]['fact_name']`.
 ## Roles
 
 Link to Roles documentation

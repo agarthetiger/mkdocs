@@ -323,6 +323,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#facts" title="Facts" class="md-nav__link">
+    Facts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#roles" title="Roles" class="md-nav__link">
     Roles
   </a>
@@ -711,6 +718,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#facts" title="Facts" class="md-nav__link">
+    Facts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#roles" title="Roles" class="md-nav__link">
     Roles
   </a>
@@ -837,6 +851,71 @@
 
 
 <p>See <a href="https://docs.ansible.com/ansible/2.4/ansible-playbook.html#cmdoption-ansible-playbook-e">documentation</a></p>
+<h2 id="facts">Facts<a class="headerlink" href="#facts" title="Permanent link">&para;</a></h2>
+<p>Quick reference for some of the facts I commonly use.</p>
+<table>
+<thead>
+<tr>
+<th>Fact</th>
+<th>Values (not exhaustive list)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ansible_os_family</td>
+<td>'RedHat', 'Darwin'</td>
+</tr>
+<tr>
+<td>ansible_distribution</td>
+<td>'CentOS', 'MacOSX'</td>
+</tr>
+<tr>
+<td>ansible_distribution_major_version</td>
+<td>'7'</td>
+</tr>
+<tr>
+<td>ansible_distribution_version</td>
+<td>'7.4.1804'</td>
+</tr>
+<tr>
+<td>ansible_pkg_mgr</td>
+<td>'yum', 'apt', 'homebrew'</td>
+</tr>
+<tr>
+<td>ansible_system</td>
+<td>'Linux', 'Darwin'</td>
+</tr>
+<tr>
+<td>ansible_lsb</td>
+<td>dict containing id (ansible_distribution), release (ansible_distribution_version) and others. Depends on lsb package being installed.</td>
+</tr>
+<tr>
+<td>ansible_hostname</td>
+<td></td>
+</tr>
+<tr>
+<td>ansible_fqdn</td>
+<td></td>
+</tr>
+<tr>
+<td>ansible_env</td>
+<td></td>
+</tr>
+<tr>
+<td>ansible_dns.nameservers</td>
+<td>List of name server IPs</td>
+</tr>
+<tr>
+<td>ansible_dns.search</td>
+<td>List of domains to search</td>
+</tr>
+<tr>
+<td>ansible_domain</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Access via <code class="codehilite"><span class="cp">{{</span> <span class="nv">ansible_facts.fact_name</span> <span class="cp">}}</span><span class="x"></span></code> or <code class="codehilite">hostvars[inventory_hostname][&#39;fact_name&#39;]</code>.</p>
 <h2 id="roles">Roles<a class="headerlink" href="#roles" title="Permanent link">&para;</a></h2>
 <p>Link to Roles documentation
 <a href="http://docs.ansible.com/ansible/2.4/playbooks_reuse.html">http://docs.ansible.com/ansible/2.4/playbooks_reuse.html</a></p>

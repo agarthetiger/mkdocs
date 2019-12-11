@@ -9,9 +9,11 @@
 - name: print hostvars
   debug: 
     var: hostvars[inventory_hostname]
-    # This is the same as {{ ansible_facts }}
+    # This is the same as {{ ansible_facts }} but note that ansible_facts will work differntly to hostvars[inventory_hostname] when delegating actions to another host.
     verbosity: 2
 ```
+
+Note that `hostvars[inventory_hostname]` will always give the facts for the specified inventory_hostname, whereas ansible_facts gives it for the machine the task is being run on. This behaviour will be apparent when delegating tasks to other machines, especially localhost which will not have had any facts gathered at all. 
 
 ## Flow control
 Run a single task in serial in a Role. Note that the [serial keyword][ansible_keywords] is not applicable to a task, so we have to use a workaround with a side-effect which is that the host selected by Ansible to execute the run_once task will report as being changed even when the actual change took place on the host which the task was delegated to. 

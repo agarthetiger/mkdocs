@@ -62,6 +62,26 @@ Combine vars from a file and additional vars by using --extra-vars twice.
 
 See [documentation](https://docs.ansible.com/ansible/2.4/ansible-playbook.html#cmdoption-ansible-playbook-e)
 
+## Facts
+Quick reference for some of the facts I commonly use.
+
+| Fact | Values (not exhaustive list) | 
+|------|--------|
+| ansible_os_family | 'RedHat', 'Darwin' |
+| ansible_distribution | 'CentOS', 'MacOSX' |
+| ansible_distribution_major_version | '7' |
+| ansible_distribution_version | '7.4.1804' |
+| ansible_pkg_mgr | 'yum', 'apt', 'homebrew' |
+| ansible_system | 'Linux', 'Darwin' |
+| ansible_lsb | dict containing id (ansible_distribution), release (ansible_distribution_version) and others. Depends on lsb package being installed. |
+| ansible_hostname | |
+| ansible_fqdn | |
+|ansible_env | |
+| ansible_dns.nameservers | List of name server IPs |
+| ansible_dns.search | List of domains to search |
+| ansible_domain |  | 
+
+Access via `{{ ansible_facts.fact_name }}` or `hostvars[inventory_hostname]['fact_name']`.
 ## Roles
 
 Link to Roles documentation

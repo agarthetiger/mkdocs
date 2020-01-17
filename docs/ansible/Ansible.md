@@ -67,8 +67,8 @@ Quick reference for some of the facts I commonly use.
 
 | Fact | Values (not exhaustive list) | 
 |------|--------|
-| ansible_os_family | 'RedHat', 'Darwin' |
-| ansible_distribution | 'CentOS', 'MacOSX' |
+| ansible_os_family | 'RedHat', 'Darwin', Debian' |
+| ansible_distribution | 'CentOS', 'MacOSX', 'Ubuntu' |
 | ansible_distribution_major_version | '7' |
 | ansible_distribution_version | '7.4.1804' |
 | ansible_pkg_mgr | 'yum', 'apt', 'homebrew' |

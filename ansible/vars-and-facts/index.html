@@ -352,6 +352,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#load-variables-from-a-file" title="Load variables from a file" class="md-nav__link">
+    Load variables from a file
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -694,6 +701,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#load-variables-from-a-file" title="Load variables from a file" class="md-nav__link">
+    Load variables from a file
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -756,6 +770,18 @@
 <p>inventory/group_vars/all.yaml
 my_var_name: "some value"</p>
 <p>Use <code class="codehilite"><span class="cp">{{</span> <span class="nv">hostvars</span><span class="o">[</span><span class="nv">inventory_hostname</span><span class="o">][</span><span class="s1">&#39;my_var_name&#39;</span><span class="o">]</span> <span class="cp">}}</span><span class="x"></span></code> to reference. Note the group_vars/all structure does not mean there is an <code class="codehilite">[all]</code> hosts group to reference, but the vars in all will get applied to all group (hosts), and can be referenced using the magic variable inventory_hostname. Note the use of single quotes for the my_var_name (which is looking up the string 'my_var_name') vs the [inventory_hostname] syntax to index the inventory_hostname in the hostvars array. </p>
+<h3 id="load-variables-from-a-file">Load variables from a file<a class="headerlink" href="#load-variables-from-a-file" title="Permanent link">&para;</a></h3>
+<p>On the command line, use -e or --extra-vars. Set additional variables as key=value or YAML/JSON, if filename prepend the filename with @.</p>
+<div class="codehilite"><pre><span></span>ansible-playbook ... --extra-vars &#39;@my-vars.yaml&#39;
+</pre></div>
+
+
+<p>Combine vars from a file and additional vars by using --extra-vars twice.</p>
+<div class="codehilite"><pre><span></span>ansible-playbook ... --extra-vars &#39;@my-vars.yaml&#39; --extra-vars &#39;target_env=uat generate_report=true&#39;
+</pre></div>
+
+
+<p>See <a href="https://docs.ansible.com/ansible/2.4/ansible-playbook.html#cmdoption-ansible-playbook-e">documentation</a></p>
 <h2 id="facts">Facts<a class="headerlink" href="#facts" title="Permanent link">&para;</a></h2>
 <h3 id="setup-module">Setup module<a class="headerlink" href="#setup-module" title="Permanent link">&para;</a></h3>
 <p>Basic example of running the setup module locally.</p>

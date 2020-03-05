@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://agarthetiger.github.io/mkdocs/cheat-sheets/ansible/">
+        <link rel="canonical" href="https://agarthetiger.github.io/mkdocs/ansible/vars-and-facts/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Ansible Cheat Sheet - Software Engineering Notes</title>
+        <title>Vars and Facts - Software Engineering Notes</title>
       
     
     
@@ -92,7 +92,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="../../#ansible-cheat-sheet" tabindex="1" class="md-skip">
+      <a href="../../#vars-and-facts" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -118,7 +118,7 @@
                 Software Engineering Notes
               </span>
               <span class="md-header-nav__topic">
-                Ansible Cheat Sheet
+                Vars and Facts
               </span>
             
           
@@ -245,10 +245,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Ansible
@@ -266,7 +268,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/Ansible/" title="Ansible" class="md-nav__link">
+    <a href="../Ansible/" title="Ansible" class="md-nav__link">
       Ansible
     </a>
   </li>
@@ -278,7 +280,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/filters/" title="Filters" class="md-nav__link">
+    <a href="../filters/" title="Filters" class="md-nav__link">
       Filters
     </a>
   </li>
@@ -290,7 +292,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/playbooks/" title="Playbooks" class="md-nav__link">
+    <a href="../playbooks/" title="Playbooks" class="md-nav__link">
       Playbooks
     </a>
   </li>
@@ -300,11 +302,96 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../ansible/vars-and-facts/" title="Vars and Facts" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Vars and Facts
+      </label>
+    
+    <a href="./" title="Vars and Facts" class="md-nav__link md-nav__link--active">
       Vars and Facts
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vars" title="Vars" class="md-nav__link">
+    Vars
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#magic-variables" title="Magic variables" class="md-nav__link">
+    Magic variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-and-host-variables" title="Group and Host Variables" class="md-nav__link">
+    Group and Host Variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#facts" title="Facts" class="md-nav__link">
+    Facts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-module" title="Setup module" class="md-nav__link">
+    Setup module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-facts" title="Sample Facts" class="md-nav__link">
+    Sample Facts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -353,12 +440,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       Cheat sheets
@@ -374,97 +459,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Ansible Cheat Sheet
-      </label>
-    
-    <a href="./" title="Ansible Cheat Sheet" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../cheat-sheets/ansible/" title="Ansible Cheat Sheet" class="md-nav__link">
       Ansible Cheat Sheet
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#debugging" title="Debugging" class="md-nav__link">
-    Debugging
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#print-hostvars" title="Print hostvars" class="md-nav__link">
-    Print hostvars
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#flow-control" title="Flow control" class="md-nav__link">
-    Flow control
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#loops" title="Loops" class="md-nav__link">
-    Loops
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#blocks" title="Blocks" class="md-nav__link">
-    Blocks
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#process-files-on-host" title="Process files on host" class="md-nav__link">
-    Process files on host
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" title="Documentation" class="md-nav__link">
-    Documentation
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -474,7 +473,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../jenkins/" title="Jenkins" class="md-nav__link">
+    <a href="../../cheat-sheets/jenkins/" title="Jenkins" class="md-nav__link">
       Jenkins
     </a>
   </li>
@@ -486,7 +485,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../markdown/" title="Markdown" class="md-nav__link">
+    <a href="../../cheat-sheets/markdown/" title="Markdown" class="md-nav__link">
       Markdown
     </a>
   </li>
@@ -498,7 +497,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../vagrant/" title="Vagrant" class="md-nav__link">
+    <a href="../../cheat-sheets/vagrant/" title="Vagrant" class="md-nav__link">
       Vagrant
     </a>
   </li>
@@ -674,16 +673,23 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#debugging" title="Debugging" class="md-nav__link">
-    Debugging
+  <a href="#vars" title="Vars" class="md-nav__link">
+    Vars
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#print-hostvars" title="Print hostvars" class="md-nav__link">
-    Print hostvars
+  <a href="#magic-variables" title="Magic variables" class="md-nav__link">
+    Magic variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group-and-host-variables" title="Group and Host Variables" class="md-nav__link">
+    Group and Host Variables
   </a>
   
 </li>
@@ -694,37 +700,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#flow-control" title="Flow control" class="md-nav__link">
-    Flow control
+  <a href="#facts" title="Facts" class="md-nav__link">
+    Facts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-module" title="Setup module" class="md-nav__link">
+    Setup module
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#loops" title="Loops" class="md-nav__link">
-    Loops
+        
+          <li class="md-nav__item">
+  <a href="#sample-facts" title="Sample Facts" class="md-nav__link">
+    Sample Facts
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#blocks" title="Blocks" class="md-nav__link">
-    Blocks
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#process-files-on-host" title="Process files on host" class="md-nav__link">
-    Process files on host
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" title="Documentation" class="md-nav__link">
-    Documentation
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -744,73 +742,101 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/agarthetiger/mkdocs/blob/master/docs/cheat-sheets/ansible.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/agarthetiger/mkdocs/blob/master/docs/ansible/vars-and-facts.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="ansible-cheat-sheet">Ansible Cheat Sheet<a class="headerlink" href="#ansible-cheat-sheet" title="Permanent link">&para;</a></h1>
-<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">&para;</a></h2>
-<p><code class="codehilite"><span class="cp">{{</span> <span class="nv">inventory_hostname</span> <span class="cp">}}</span><span class="x"></span></code> The inventory name for the current host being iterated over in the task. One of Ansible's <a href="https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html">Special Variables</a>.</p>
-<p><code class="codehilite"><span class="cp">{{</span> <span class="nv">ansible_facts</span> <span class="cp">}}</span><span class="x"></span></code> Dictionary of facts gathered or cached for the <code class="codehilite">inventory_hostname</code>.  </p>
-<h3 id="print-hostvars">Print hostvars<a class="headerlink" href="#print-hostvars" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">print hostvars</span>
-  <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span> 
-    <span class="l l-Scalar l-Scalar-Plain">var</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">hostvars[inventory_hostname]</span>
-    <span class="c1"># This is the same as {{ ansible_facts }} but note that ansible_facts will work differntly to hostvars[inventory_hostname] when delegating actions to another host.</span>
-    <span class="l l-Scalar l-Scalar-Plain">verbosity</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+                <h1 id="vars-and-facts">Vars and Facts<a class="headerlink" href="#vars-and-facts" title="Permanent link">&para;</a></h1>
+<h2 id="vars">Vars<a class="headerlink" href="#vars" title="Permanent link">&para;</a></h2>
+<h3 id="magic-variables">Magic variables<a class="headerlink" href="#magic-variables" title="Permanent link">&para;</a></h3>
+<p>The most commonly used magic variables are <code class="codehilite">hostvars</code>, <code class="codehilite">groups</code>, <code class="codehilite">group_names</code>, and <code class="codehilite">inventory_hostname</code>. <code class="codehilite">groups</code> is a list of all the groups (and hosts) in the inventory.</p>
+<p>Also available, <code class="codehilite">inventory_dir</code> is the pathname of the directory holding Ansible’s inventory host file, <code class="codehilite">inventory_file</code> is the pathname and the filename pointing to the Ansible’s inventory host file.</p>
+<p>See the <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#accessing-information-about-other-hosts-with-magic-variables">ansible docs</a> for more details.</p>
+<h3 id="group-and-host-variables">Group and Host Variables<a class="headerlink" href="#group-and-host-variables" title="Permanent link">&para;</a></h3>
+<p>See documentation for <a href="http://docs.ansible.com/ansible/latest/playbooks_best_practices.html#group-and-host-variables">playbooks best practices</a>.</p>
+<p>inventory/group_vars/all.yaml
+my_var_name: "some value"</p>
+<p>Use <code class="codehilite"><span class="cp">{{</span> <span class="nv">hostvars</span><span class="o">[</span><span class="nv">inventory_hostname</span><span class="o">][</span><span class="s1">&#39;my_var_name&#39;</span><span class="o">]</span> <span class="cp">}}</span><span class="x"></span></code> to reference. Note the group_vars/all structure does not mean there is an <code class="codehilite">[all]</code> hosts group to reference, but the vars in all will get applied to all group (hosts), and can be referenced using the magic variable inventory_hostname. Note the use of single quotes for the my_var_name (which is looking up the string 'my_var_name') vs the [inventory_hostname] syntax to index the inventory_hostname in the hostvars array. </p>
+<h2 id="facts">Facts<a class="headerlink" href="#facts" title="Permanent link">&para;</a></h2>
+<h3 id="setup-module">Setup module<a class="headerlink" href="#setup-module" title="Permanent link">&para;</a></h3>
+<p>Basic example of running the setup module locally.</p>
+<p><code class="codehilite">ansible -m setup all -i localhost, --connection=local</code></p>
+<h3 id="sample-facts">Sample Facts<a class="headerlink" href="#sample-facts" title="Permanent link">&para;</a></h3>
+<p>Quick reference for some of the facts I commonly use.</p>
+<table>
+<thead>
+<tr>
+<th>Fact</th>
+<th>Values (not exhaustive list)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ansible_os_family</td>
+<td>'RedHat', 'Darwin', Debian'</td>
+</tr>
+<tr>
+<td>ansible_distribution</td>
+<td>'CentOS', 'MacOSX', 'Ubuntu'</td>
+</tr>
+<tr>
+<td>ansible_distribution_major_version</td>
+<td>'7'</td>
+</tr>
+<tr>
+<td>ansible_distribution_version</td>
+<td>'7.4.1804'</td>
+</tr>
+<tr>
+<td>ansible_pkg_mgr</td>
+<td>'yum', 'apt', 'homebrew'</td>
+</tr>
+<tr>
+<td>ansible_system</td>
+<td>'Linux', 'Darwin'</td>
+</tr>
+<tr>
+<td>ansible_lsb</td>
+<td>dict containing id (ansible_distribution), release (ansible_distribution_version) and others. Depends on lsb package being installed.</td>
+</tr>
+<tr>
+<td>ansible_hostname</td>
+<td></td>
+</tr>
+<tr>
+<td>ansible_fqdn</td>
+<td></td>
+</tr>
+<tr>
+<td>ansible_env</td>
+<td></td>
+</tr>
+<tr>
+<td>ansible_dns.nameservers</td>
+<td>List of name server IPs</td>
+</tr>
+<tr>
+<td>ansible_dns.search</td>
+<td>List of domains to search</td>
+</tr>
+<tr>
+<td>ansible_domain</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Access facts per host by just referencing the fact name as a variable. They are also available via <code class="codehilite"><span class="cp">{{</span> <span class="nv">ansible_facts</span><span class="o">[</span><span class="s1">&#39;fact_name&#39;</span><span class="o">]</span> <span class="cp">}}</span><span class="x"></span></code> or <code class="codehilite">hostvars[inventory_hostname][&#39;fact_name&#39;]</code>. Note that ansible_facts is a subset of hostvars[inventory_hostname].</p>
+<div class="codehilite"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hosts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+  <span class="l l-Scalar l-Scalar-Plain">connection</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+  <span class="l l-Scalar l-Scalar-Plain">tasks</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">print ansible_facts</span>
+      <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">var</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_facts</span>
+
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">print all host facts</span>
+      <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">var</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">hostvars[inventory_hostname]</span>
 </pre></div>
-
-<p>Note that <code class="codehilite">hostvars[inventory_hostname]</code> will always give the facts for the specified inventory_hostname, whereas ansible_facts gives it for the machine the task is being run on. This behaviour will be apparent when delegating tasks to other machines, especially localhost which will not have had any facts gathered at all. </p>
-<h2 id="flow-control">Flow control<a class="headerlink" href="#flow-control" title="Permanent link">&para;</a></h2>
-<p>Run a single task in serial in a Role. Note that the <a href="https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html">serial keyword</a> is not applicable to a task, so we have to use a workaround with a side-effect which is that the host selected by Ansible to execute the run_once task will report as being changed even when the actual change took place on the host which the task was delegated to. </p>
-<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Enable and start the service</span>
-  <span class="l l-Scalar l-Scalar-Plain">service</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my_service</span>
-    <span class="l l-Scalar l-Scalar-Plain">enabled</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">yes</span>
-    <span class="l l-Scalar l-Scalar-Plain">state</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">started</span>
-  <span class="l l-Scalar l-Scalar-Plain">delegate_to</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>  
-  <span class="l l-Scalar l-Scalar-Plain">run_once</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-  <span class="l l-Scalar l-Scalar-Plain">loop</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ansible_play_batch</span><span class="nv"> </span><span class="s">}}&quot;</span>
-</pre></div>
-
-<h2 id="loops">Loops<a class="headerlink" href="#loops" title="Permanent link">&para;</a></h2>
-<p>Loops work with <code class="codehilite">when</code> and <code class="codehilite">failed_when</code> as well as the <code class="codehilite">until</code> conditions. <code class="codehilite">when</code> will be evaluated once prior to entering the loop, <code class="codehilite">until</code> will be evaluated as the loop repetition condition and finally the <code class="codehilite">failed_when</code> condition will be evaluated a single time only once the until condition is true or the loop has reached the maximum <code class="codehilite">retry</code> limit.</p>
-<div class="codehilite"><pre><span></span>  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Poll for Cassandra connection</span>
-    <span class="l l-Scalar l-Scalar-Plain">shell</span><span class="p p-Indicator">:</span> <span class="s">&quot;echo</span><span class="nv"> </span><span class="s">&#39;SHOW</span><span class="nv"> </span><span class="s">HOST;&#39;</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">cqlsh</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">ansible_default_ipv4.address</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">-u</span><span class="nv"> </span><span class="s">&#39;cassandra&#39;</span><span class="nv"> </span><span class="s">--ssl&quot;</span>
-    <span class="l l-Scalar l-Scalar-Plain">register</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">result</span>
-    <span class="l l-Scalar l-Scalar-Plain">until</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">result.stderr.find(&quot;Connection refused&quot;) == -1</span>
-    <span class="l l-Scalar l-Scalar-Plain">retries</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-    <span class="l l-Scalar l-Scalar-Plain">delay</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span> 
-    <span class="l l-Scalar l-Scalar-Plain">changed_when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="l l-Scalar l-Scalar-Plain">failed_when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">result.stderr.find(&quot;Connection refused&quot;) != -1</span>
-</pre></div>
-
-<h2 id="blocks">Blocks<a class="headerlink" href="#blocks" title="Permanent link">&para;</a></h2>
-<p>Block sections include <code class="codehilite">block</code>, <code class="codehilite">rescue</code> and <code class="codehilite">always</code>. These function like <code class="codehilite">try</code>, <code class="codehilite">catch</code> and <code class="codehilite">finally</code> respectively. Blocks can accept options like run_once and tags, note that they can't be used to apply handlers which must be specified per task.</p>
-<h2 id="process-files-on-host">Process files on host<a class="headerlink" href="#process-files-on-host" title="Permanent link">&para;</a></h2>
-<p>The find module can be used to find files on a remote host and then process them in later in the playbook by registering the output. The full filename and path is stored in the registered variable under files.path, which can be looped over as per the example below.</p>
-<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">find all logstash plugins</span>
-  <span class="l l-Scalar l-Scalar-Plain">find</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">paths</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">logstash_plugins_folder</span><span class="nv"> </span><span class="s">}}&quot;</span>
-    <span class="l l-Scalar l-Scalar-Plain">patterns</span><span class="p p-Indicator">:</span> <span class="s">&quot;*.gem&quot;</span>
-    <span class="l l-Scalar l-Scalar-Plain">recurse</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
-  <span class="l l-Scalar l-Scalar-Plain">register</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin_gems</span>
-  <span class="l l-Scalar l-Scalar-Plain">changed_when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
-
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ensure all plugins are installed</span>
-  <span class="l l-Scalar l-Scalar-Plain">logstash_plugin</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item.path</span><span class="nv"> </span><span class="s">}}&quot;</span>
-    <span class="l l-Scalar l-Scalar-Plain">state</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
-  <span class="l l-Scalar l-Scalar-Plain">loop</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">plugin_gems.files</span><span class="nv"> </span><span class="s">}}&quot;</span>
-  <span class="l l-Scalar l-Scalar-Plain">notify</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">restart logstash</span>
-</pre></div>
-
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html">Special Variables</a></li>
-<li><a href="https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html">Keywords</a></li>
-<li><a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html">Filters</a></li>
-<li><a href="https://jinja.palletsprojects.com/en/2.10.x/templates/#builtin-filters">Jinja2 Filters</a></li>
-</ul>
                 
                   
                 
@@ -831,7 +857,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../bash/reference/" title="Bash reference" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../playbooks/" title="Playbooks" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -840,19 +866,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Bash reference
+                Playbooks
               </span>
             </div>
           </a>
         
         
-          <a href="../jenkins/" title="Jenkins" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../bash/reference/" title="Bash reference" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Jenkins
+                Bash reference
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

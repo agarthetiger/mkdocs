@@ -759,30 +759,30 @@
                 
                 <h1 id="playbooks">Playbooks<a class="headerlink" href="#playbooks" title="Permanent link">&para;</a></h1>
 <h2 id="conditional-checks">Conditional checks<a class="headerlink" href="#conditional-checks" title="Permanent link">&para;</a></h2>
-<p>Conditional checks use the <code class="codehilite">when:</code> syntax. The <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_conditionals.html">Ansible documentation</a> states "...When conditions are raw Jinja2 expressions and don't require double quotes for variable interpolation.", which is not entirely accurate. When conditions can use raw Jinja2 expressions but can execute regular python code so can access methods like String.find() to check for a text match in a String. Multiple conditions should be enclosed with parenthesis, multiple conditions can be specified in a list where they are all required to be true (logical AND).</p>
+<p>Conditional checks use the <code class="codehilite">when:</code> syntax. When conditions can use raw Jinja2 expressions but can execute regular python code so can access methods like String.find() to check for a text match in a String. Multiple conditions should be enclosed with parenthesis, multiple conditions can be specified in a list where they are all required to be true (logical AND).</p>
 <h3 id="conditional-check-examples">Conditional check examples<a class="headerlink" href="#conditional-check-examples" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>    <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> 
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">tomcat_status_result.stdout.find(&quot;JVM is running.&quot;) &gt; -1</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">tomcat_status_result.stderr != &quot;&quot;</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">tomcat_status_result.rc == 0</span>
+<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> 
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">tomcat_status_result.stdout.find(&quot;JVM is running.&quot;) &gt; -1</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">tomcat_status_result.stderr != &quot;&quot;</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">tomcat_status_result.rc == 0</span>
 
-    <span class="l l-Scalar l-Scalar-Plain">---</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hosts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
-      <span class="l l-Scalar l-Scalar-Plain">tasks</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;print</span><span class="nv"> </span><span class="s">inventory</span><span class="nv"> </span><span class="s">vars&quot;</span>
-          <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">var</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
-          <span class="l l-Scalar l-Scalar-Plain">with_items</span><span class="p p-Indicator">:</span>
-            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">inventory_dir</span>
-            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">inventory_file</span>
-          <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">inventory_dir | regex_search(&#39;dev$&#39;)</span>
+<span class="nn">---</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hosts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
+  <span class="l l-Scalar l-Scalar-Plain">tasks</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;print</span><span class="nv"> </span><span class="s">inventory</span><span class="nv"> </span><span class="s">vars&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">var</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">with_items</span><span class="p p-Indicator">:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">inventory_dir</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">inventory_file</span>
+      <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">inventory_dir | regex_search(&#39;dev$&#39;)</span>
 
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hosts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
-      <span class="l l-Scalar l-Scalar-Plain">tasks</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;apply</span><span class="nv"> </span><span class="s">stub</span><span class="nv"> </span><span class="s">role&quot;</span>
-          <span class="l l-Scalar l-Scalar-Plain">include_role</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">issuer-wallet-stub</span>
-          <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">inventory_dir | regex_search(&#39;dev$&#39;)</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hosts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
+  <span class="l l-Scalar l-Scalar-Plain">tasks</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;apply</span><span class="nv"> </span><span class="s">stub</span><span class="nv"> </span><span class="s">role&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">include_role</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">issuer-wallet-stub</span>
+      <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">inventory_dir | regex_search(&#39;dev$&#39;)</span>
 </pre></div>
 
 <h2 id="filters">Filters<a class="headerlink" href="#filters" title="Permanent link">&para;</a></h2>
@@ -811,38 +811,19 @@ Filters use Jinja2, and Ansible ships with some extra ones to those available in
 <li><a href="http://www.oznetnerd.com/jinja2-selectattr-filter/">jinja2-selectattr-filter</a></li>
 </ul>
 <h2 id="debug">Debug<a class="headerlink" href="#debug" title="Permanent link">&para;</a></h2>
-<p>Use this to debug what is available in hostvars quickly. gather_facts: false would not be a useful option on first execution of this.</p>
-<div class="codehilite"><pre><span></span>- hosts: ondemand
-  gather_facts: false
-  tasks:
-  - name: &quot;test hostvars for target_environment&quot;
-    debug:
-      var: hostvars
+<p>You can print a message with variable information in it, combine this with the verbosity level, below which the debug will not output anything. </p>
+<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">msg</span><span class="p p-Indicator">:</span> <span class="s">&quot;System</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">inventory_hostname</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">has</span><span class="nv"> </span><span class="s">gateway</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">ansible_default_ipv4.gateway</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">verbosity</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+  <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_default_ipv4.gateway is defined</span>
 </pre></div>
-
-
-<p>You can print a message with variable information in it.</p>
-<div class="codehilite"><pre><span></span><span class="x">- debug:</span>
-<span class="x">    msg: &quot;System </span><span class="cp">{{</span> <span class="nv">inventory_hostname</span> <span class="cp">}}</span><span class="x"> has gateway </span><span class="cp">{{</span> <span class="nv">ansible_default_ipv4.gateway</span> <span class="cp">}}</span><span class="x">&quot;</span>
-<span class="x">  when: ansible_default_ipv4.gateway is defined</span>
-</pre></div>
-
-
-<p>You can dump the contents of a list or map, and set a verbosity level, below which the debug will not output anything. </p>
-<div class="codehilite"><pre><span></span>- name: Display all variables/facts known for a host
-  debug:
-    var: hostvars[inventory_hostname]
-    verbosity: 4
-</pre></div>
-
 
 <p>See documentation for the <a href="http://docs.ansible.com/ansible/latest/modules/debug_module.html">debug module</a>.</p>
 <h2 id="play-options">Play options<a class="headerlink" href="#play-options" title="Permanent link">&para;</a></h2>
 <p>Disable facts gathering</p>
-<div class="codehilite"><pre><span></span>- hosts: all
-  gather_facts: false
+<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hosts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
+  <span class="l l-Scalar l-Scalar-Plain">gather_facts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 </pre></div>
-
 
 <h2 id="import-and-include">Import and Include<a class="headerlink" href="#import-and-include" title="Permanent link">&para;</a></h2>
 <p>Ansible documentation on <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse.html">Creating reusable playbooks</a>

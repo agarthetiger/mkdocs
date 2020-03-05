@@ -21,6 +21,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://agarthetiger.github.io/mkdocs/ansible/tower/</loc>
+     <lastmod>2020-03-05</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/vars-and-facts/</loc>
      <lastmod>2020-03-05</lastmod>
      <changefreq>daily</changefreq>

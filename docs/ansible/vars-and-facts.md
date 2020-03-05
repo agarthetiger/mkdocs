@@ -19,6 +19,17 @@ my_var_name: "some value"
 
 Use `{{ hostvars[inventory_hostname]['my_var_name'] }}` to reference. Note the group_vars/all structure does not mean there is an `[all]` hosts group to reference, but the vars in all will get applied to all group (hosts), and can be referenced using the magic variable inventory_hostname. Note the use of single quotes for the my_var_name (which is looking up the string 'my_var_name') vs the [inventory_hostname] syntax to index the inventory_hostname in the hostvars array. 
 
+### Load variables from a file
+On the command line, use -e or --extra-vars. Set additional variables as key=value or YAML/JSON, if filename prepend the filename with @.
+
+    ansible-playbook ... --extra-vars '@my-vars.yaml'
+
+Combine vars from a file and additional vars by using --extra-vars twice.
+
+    ansible-playbook ... --extra-vars '@my-vars.yaml' --extra-vars 'target_env=uat generate_report=true'
+
+See [documentation](https://docs.ansible.com/ansible/2.4/ansible-playbook.html#cmdoption-ansible-playbook-e)
+
 ## Facts
 
 ### Setup module

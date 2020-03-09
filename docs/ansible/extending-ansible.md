@@ -24,3 +24,5 @@ There are lots of documents under the [Developer Guide](https://docs.ansible.com
 * The `DOCUMENTATION` docstring is meta-information about the plugin you are writing. Changing the documented value of whether an option is required will actually enforce that when executing the plugin. 
 * The `DOCUMENTATION` docstring is also what determines the help text for the plugin when running `ansible-doc`.
 * Not all examples will follow all the best practices. It will save you time and frustration in the long run to read the documentation first, and continually refer to it as you build a plugin. 
+* Adding `no_log=True` to a sensitive param on a custom module like a password does not present it from being logged if you enable `DEBUG=True` in ansible.cfg. See [protecting-sensitive-data-with-no-log](https://docs.ansible.com/ansible/latest/reference_appendices/logging.html#protecting-sensitive-data-with-no-log)
+

@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://agarthetiger.github.io/mkdocs/terraform/resources/">
+        <link rel="canonical" href="https://agarthetiger.github.io/mkdocs/ansible/extending-ansible/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Terraform resources - Software Engineering Notes</title>
+        <title>Extending Ansible - Software Engineering Notes</title>
       
     
     
@@ -92,7 +92,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="../../#terraform-resources" tabindex="1" class="md-skip">
+      <a href="../../#extending-ansible" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -118,7 +118,7 @@
                 Software Engineering Notes
               </span>
               <span class="md-header-nav__topic">
-                Terraform resources
+                Extending Ansible
               </span>
             
           
@@ -245,10 +245,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Ansible
@@ -266,7 +268,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/collections/" title="Collections" class="md-nav__link">
+    <a href="../collections/" title="Collections" class="md-nav__link">
       Collections
     </a>
   </li>
@@ -276,11 +278,63 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../ansible/extending-ansible/" title="Extending Ansible" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Extending Ansible
+      </label>
+    
+    <a href="./" title="Extending Ansible" class="md-nav__link md-nav__link--active">
       Extending Ansible
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#developer-guides" title="Developer Guides" class="md-nav__link">
+    Developer Guides
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practice" title="Best practice" class="md-nav__link">
+    Best practice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" title="Notes" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -290,7 +344,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/filters/" title="Filters" class="md-nav__link">
+    <a href="../filters/" title="Filters" class="md-nav__link">
       Filters
     </a>
   </li>
@@ -302,7 +356,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/inventory-plugins/" title="Inventory Plugins" class="md-nav__link">
+    <a href="../inventory-plugins/" title="Inventory Plugins" class="md-nav__link">
       Inventory Plugins
     </a>
   </li>
@@ -314,7 +368,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/local-actions/" title="Local actions" class="md-nav__link">
+    <a href="../local-actions/" title="Local actions" class="md-nav__link">
       Local actions
     </a>
   </li>
@@ -326,7 +380,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/playbooks/" title="Playbooks" class="md-nav__link">
+    <a href="../playbooks/" title="Playbooks" class="md-nav__link">
       Playbooks
     </a>
   </li>
@@ -338,7 +392,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/roles/" title="Roles" class="md-nav__link">
+    <a href="../roles/" title="Roles" class="md-nav__link">
       Roles
     </a>
   </li>
@@ -350,7 +404,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/tools/" title="Ansible tools" class="md-nav__link">
+    <a href="../tools/" title="Ansible tools" class="md-nav__link">
       Ansible tools
     </a>
   </li>
@@ -362,7 +416,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/tower/" title="Ansible Tower" class="md-nav__link">
+    <a href="../tower/" title="Ansible Tower" class="md-nav__link">
       Ansible Tower
     </a>
   </li>
@@ -374,7 +428,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/vars-and-facts/" title="Vars and Facts" class="md-nav__link">
+    <a href="../vars-and-facts/" title="Vars and Facts" class="md-nav__link">
       Vars and Facts
     </a>
   </li>
@@ -653,12 +707,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       Terraform
@@ -674,20 +726,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="Terraform resources" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../terraform/resources/" title="Terraform resources" class="md-nav__link">
       Terraform resources
     </a>
-    
   </li>
 
         
@@ -713,6 +756,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#developer-guides" title="Developer Guides" class="md-nav__link">
+    Developer Guides
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practice" title="Best practice" class="md-nav__link">
+    Best practice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" title="Notes" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -723,13 +796,32 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/agarthetiger/mkdocs/blob/master/docs/terraform/resources.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/agarthetiger/mkdocs/blob/master/docs/ansible/extending-ansible.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="terraform-resources">Terraform resources<a class="headerlink" href="#terraform-resources" title="Permanent link">&para;</a></h1>
+                <h1 id="extending-ansible">Extending Ansible<a class="headerlink" href="#extending-ansible" title="Permanent link">&para;</a></h1>
+<p>Before extending Ansible there are several resources which you should be familiar with before diving into the code. </p>
+<h2 id="developer-guides">Developer Guides<a class="headerlink" href="#developer-guides" title="Permanent link">&para;</a></h2>
+<p>There are lots of documents under the <a href="https://docs.ansible.com/ansible/latest/dev_guide/index.html">Developer Guide</a> on the Ansible website. Here are some for my quick reference, do read them all though.</p>
 <ul>
-<li><a href="https://www.infoq.com/presentations/automated-testing-terraform-docker-packer/">InfoQ - Automated infrastructure testing</a></li>
-<li><a href="https://blog.gruntwork.io/terragrunt-how-to-keep-your-terraform-code-dry-and-maintainable-f61ae06959d8">Terragrunt - Keeing IaC DRY</a></li>
+<li><a href="https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_general.html">https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_general.html</a></li>
+<li><a href="https://docs.ansible.com/ansible/latest/dev_guide/developing_plugins.html">https://docs.ansible.com/ansible/latest/dev_guide/developing_plugins.html</a></li>
+<li><a href="https://docs.ansible.com/ansible/latest/dev_guide/developing_inventory.html">https://docs.ansible.com/ansible/latest/dev_guide/developing_inventory.html</a></li>
+<li><a href="https://docs.ansible.com/ansible/latest/dev_guide/developing_program_flow_modules.html">https://docs.ansible.com/ansible/latest/dev_guide/developing_program_flow_modules.html</a></li>
+<li><a href="https://docs.ansible.com/ansible/latest/dev_guide/developing_module_utilities.html">https://docs.ansible.com/ansible/latest/dev_guide/developing_module_utilities.html</a></li>
+<li><a href="https://docs.ansible.com/ansible/latest/dev_guide/debugging.html">https://docs.ansible.com/ansible/latest/dev_guide/debugging.html</a></li>
+</ul>
+<h2 id="best-practice">Best practice<a class="headerlink" href="#best-practice" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_best_practices.html">https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_best_practices.html</a></li>
+<li><a href="https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_documenting.html#documentation-block">https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_documenting.html#documentation-block</a></li>
+</ul>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Don't trust the code in the Ansible repo as gospel. There are old modules which pre-date the current best-practice guidance.</li>
+<li>The <code class="codehilite">DOCUMENTATION</code> docstring is meta-information about the plugin you are writing. Changing the documented value of whether an option is required will actually enforce that when executing the plugin. </li>
+<li>The <code class="codehilite">DOCUMENTATION</code> docstring is also what determines the help text for the plugin when running <code class="codehilite">ansible-doc</code>.</li>
+<li>Not all examples will follow all the best practices. It will save you time and frustration in the long run to read the documentation first, and continually refer to it as you build a plugin. </li>
 </ul>
                 
                   
@@ -751,7 +843,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../python/resources/" title="Python Resources" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../collections/" title="Collections" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -760,11 +852,25 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Python Resources
+                Collections
               </span>
             </div>
           </a>
         
+        
+          <a href="../filters/" title="Filters" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Filters
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>

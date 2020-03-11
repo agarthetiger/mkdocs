@@ -2,10 +2,15 @@
 
 # Build the right thing, and build the thing right.
 
-This site contains a tiny sample of my notes and experience I've gathered over my professional career as a software developer and DevOps engineer. Find me on [LinkedIn](https://www.linkedin.com/in/buildthethingright/). It's purpose for creation was for me to learn about mkdocs and TravisCI over a weekend. Summary mkdocs: great, travisci: not-so-much.
+This site contains a tiny sample of my notes and experience I've gathered over my professional career as a software developer and DevOps engineer. Find me on [LinkedIn](https://www.linkedin.com/in/buildthethingright/). It's initial purpose was for me to learn about MKDocs and TravisCI over a weekend. 
+
+Site built with [MKDocs](https://www.mkdocs.org/) and [Travic-CI](https://travis-ci.org/) [![Build Status](https://travis-ci.org/agarthetiger/mkdocs.svg?branch=master)](https://travis-ci.org/agarthetiger/mkdocs)
+
+# About Me
 
 <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="buildthethingright"><a class="LI-simple-link" href='https://uk.linkedin.com/in/buildthethingright?trk=profile-badge'>Andrew Garner</a></div>
 
-Site built with [MKDocs](https://www.mkdocs.org/) and [Travic-CI](https://travis-ci.org/)
+# Open Source
 
-[![Build Status](https://travis-ci.org/agarthetiger/mkdocs.svg?branch=master)](https://travis-ci.org/agarthetiger/mkdocs)
+<h2><img src="img/Jengu2.png" alt="Jengu Logo" width="200" /></h2>
+[A lightweight Jenkins Shared Library test framework.](https://github.com/agarthetiger/jengu)

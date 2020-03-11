@@ -12,5 +12,5 @@ Site built with [MKDocs](https://www.mkdocs.org/) and [Travic-CI](https://travis
 
 # Open Source
 
-<h2><img src="img/Jengu2.png" alt="Jengu Logo" width="200" /></h2>
+![Jengu Logo](img/Jengu2.png) 
 [A lightweight Jenkins Shared Library test framework.](https://github.com/agarthetiger/jengu)

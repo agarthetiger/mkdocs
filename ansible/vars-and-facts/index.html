@@ -930,8 +930,14 @@
                 <h1 id="vars-and-facts">Vars and Facts<a class="headerlink" href="#vars-and-facts" title="Permanent link">&para;</a></h1>
 <h2 id="vars">Vars<a class="headerlink" href="#vars" title="Permanent link">&para;</a></h2>
 <h3 id="magic-variables">Magic variables<a class="headerlink" href="#magic-variables" title="Permanent link">&para;</a></h3>
-<p>The most commonly used magic variables are <code class="codehilite">hostvars</code>, <code class="codehilite">groups</code>, <code class="codehilite">group_names</code>, and <code class="codehilite">inventory_hostname</code>. <code class="codehilite">groups</code> is a list of all the groups (and hosts) in the inventory.</p>
-<p>Also available, <code class="codehilite">inventory_dir</code> is the pathname of the directory holding Ansible’s inventory host file, <code class="codehilite">inventory_file</code> is the pathname and the filename pointing to the Ansible’s inventory host file.</p>
+<p>Commonly used magic variables include <code class="codehilite">hostvars</code>, <code class="codehilite">groups</code>, <code class="codehilite">group_names</code>, and <code class="codehilite">inventory_hostname</code>. <code class="codehilite">groups</code> is a list of all the groups (and hosts) in the inventory.</p>
+<ul>
+<li><code class="codehilite">inventory_dir</code> is the pathname of the directory holding Ansible’s inventory host file</li>
+<li><code class="codehilite">inventory_file</code> is the pathname and the filename pointing to the Ansible’s inventory host file.</li>
+<li><code class="codehilite">inventory_hostname</code> is the name of the target host for the current play. This is the remote target even when the task uses <code class="codehilite">delegate_to</code>.</li>
+<li><code class="codehilite">inventory_hostname_short</code> is useful if your host has a long fqdn and you only need the hostname up to the first period. Note this comes from the inventory, not from the target host, useful if <code class="codehilite">gather_facts</code> is disabled.</li>
+<li><code class="codehilite">ansible_hostname</code> is a discovered fact from the remote host, so not available with <code class="codehilite">gather_facts</code> disabled.</li>
+</ul>
 <p>See the <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#accessing-information-about-other-hosts-with-magic-variables">ansible docs</a> for more details.</p>
 <h3 id="group-and-host-variables">Group and Host Variables<a class="headerlink" href="#group-and-host-variables" title="Permanent link">&para;</a></h3>
 <p>See documentation for <a href="http://docs.ansible.com/ansible/latest/playbooks_best_practices.html#group-and-host-variables">playbooks best practices</a>.</p>

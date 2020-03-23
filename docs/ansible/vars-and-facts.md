@@ -4,9 +4,13 @@
 
 ### Magic variables
 
-The most commonly used magic variables are `hostvars`, `groups`, `group_names`, and `inventory_hostname`. `groups` is a list of all the groups (and hosts) in the inventory.
+Commonly used magic variables include `hostvars`, `groups`, `group_names`, and `inventory_hostname`. `groups` is a list of all the groups (and hosts) in the inventory.
 
-Also available, `inventory_dir` is the pathname of the directory holding Ansible’s inventory host file, `inventory_file` is the pathname and the filename pointing to the Ansible’s inventory host file.
+* `inventory_dir` is the pathname of the directory holding Ansible’s inventory host file
+* `inventory_file` is the pathname and the filename pointing to the Ansible’s inventory host file.
+* `inventory_hostname` is the name of the target host for the current play. This is the remote target even when the task uses `delegate_to`.
+* `inventory_hostname_short` is useful if your host has a long fqdn and you only need the hostname up to the first period. Note this comes from the inventory, not from the target host, useful if `gather_facts` is disabled.
+* `ansible_hostname` is a discovered fact from the remote host, so not available with `gather_facts` disabled.
 
 See the [ansible docs](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#accessing-information-about-other-hosts-with-magic-variables) for more details.
 

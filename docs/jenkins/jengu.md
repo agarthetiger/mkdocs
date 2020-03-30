@@ -1,4 +1,4 @@
-![Jengu Logo](img/Jengu2wide.png)
+![Jengu Logo](../img/Jengu2wide.png)
 
 ## A lightweight Jenkins Shared Library test framework
 

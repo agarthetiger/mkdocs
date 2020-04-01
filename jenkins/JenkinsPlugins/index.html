@@ -565,6 +565,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pipeline-utility-steps" title="Pipeline Utility Steps" class="md-nav__link">
+    Pipeline Utility Steps
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#findfiles" title="findFiles" class="md-nav__link">
+    findFiles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -812,6 +832,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pipeline-utility-steps" title="Pipeline Utility Steps" class="md-nav__link">
+    Pipeline Utility Steps
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#findfiles" title="findFiles" class="md-nav__link">
+    findFiles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -835,11 +875,21 @@
 <p>Anyone who has ever administered Jenkins will know that plugins are both essential and problematic. Jenkins can be enhanced through an extensive collection of community maintained plugins, and therein lies the problem. "Want to do 'A' with Jenkins? Yes you can. Want to do 'B' with Jenkins? Yes you can.", goes the sales pitch. However, often A and B are implemented in community plugins which may conflict when installed<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> or may not work together even if both are installed. </p>
 <h2 id="custom-tool-plugin"><a href="https://wiki.jenkins.io/display/JENKINS/Custom+Tools+Plugin">Custom tool plugin</a><a class="headerlink" href="#custom-tool-plugin" title="Permanent link">&para;</a></h2>
 <p>Not compatible with Pipelines until <a href="https://issues.jenkins-ci.org/browse/JENKINS-30680">JENKINS-30680</a> is resolved. This has been open since September 2015.</p>
+<h2 id="pipeline-utility-steps">Pipeline Utility Steps<a class="headerlink" href="#pipeline-utility-steps" title="Permanent link">&para;</a></h2>
+<h3 id="findfiles"><a href="https://jenkins.io/doc/pipeline/steps/pipeline-utility-steps/#findfiles-find-files-in-the-workspace">findFiles</a><a class="headerlink" href="#findfiles" title="Permanent link">&para;</a></h3>
+<p>Returns a <a href="https://javadoc.jenkins.io/plugin/pipeline-utility-steps/org/jenkinsci/plugins/pipeline/utility/steps/fs/FileWrapper.html">FileWrapper</a> object.</p>
+<ul>
+<li>name - (String) file name and extension</li>
+<li>path - (String) file path including file name and extension. Path does not include the workspace path. </li>
+<li>directory - (Boolean) True for a directory, otherwise False</li>
+<li>length - (long) Length (size) of the file in bytes</li>
+<li>lastModified - (long) </li>
+</ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
-<p>"Installed" must include restarting the Jenkins Master. I've had a plugin cause a conflict when installed, so I uninstalled it. The uninstall didn't resolve the conflict so I restarted to completely remove it. 12 hours later at 11:30pm I finally got the Jenkins Master up and running again. I'd been tracking down all the recent changes working backwards to find that a plugin installed 8 months previously (before I joined the company of course) was causing the conflict. I'd overlooked the signs initially, not believing that a change made 8 months ago could have caused the problem. The master had not been restarted in 8 months. If the master had been restarted at the time, the problem would have been detected immediately and the change rolled back right away. Lesson learned, always restart Jenkins after installing or removing plugins and check the logs to ensure the instance comes up cleanly.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>"Installed" must include restarting the Jenkins Master. I've had a plugin cause a conflict when installed, so I uninstalled it. The uninstall didn't resolve the conflict so I restarted to completely remove it. 12 hours later I finally got the Jenkins Master up and running again. I'd been tracking down all the recent changes working backwards to find that a plugin installed 8 months previously (before I joined the company of course) was causing the conflict. I'd overlooked the signs initially, not believing that a change made 8 months ago could have caused the problem. The master had not been restarted in 8 months. If the master had been restarted at the time, the problem would have been detected immediately and the change rolled back right away. Lesson learned, always restart Jenkins after installing or removing plugins and check the logs to ensure the instance comes up cleanly.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

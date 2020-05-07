@@ -15,5 +15,4 @@ Use `with_fileglob` with a file lookup to use the file contents.
       definition: "{{ lookup('file', item) }}"
     with_fileglob:
     - "files/crd-*.yml"
- ```
- 
+```

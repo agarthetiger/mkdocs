@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://agarthetiger.github.io/mkdocs/python/mkdocs/">
+        <link rel="canonical" href="https://agarthetiger.github.io/mkdocs/ansible/lookup-plugins/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>MKDocs - Software Engineering Notes</title>
+        <title>Lookup Plugins - Software Engineering Notes</title>
       
     
     
@@ -92,7 +92,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="../../#mkdocs" tabindex="1" class="md-skip">
+      <a href="../../#lookup-plugins" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -118,7 +118,7 @@
                 Software Engineering Notes
               </span>
               <span class="md-header-nav__topic">
-                MKDocs
+                Lookup Plugins
               </span>
             
           
@@ -245,10 +245,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Ansible
@@ -266,7 +268,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/collections/" title="Collections" class="md-nav__link">
+    <a href="../collections/" title="Collections" class="md-nav__link">
       Collections
     </a>
   </li>
@@ -278,7 +280,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/extending-ansible/" title="Extending Ansible" class="md-nav__link">
+    <a href="../extending-ansible/" title="Extending Ansible" class="md-nav__link">
       Extending Ansible
     </a>
   </li>
@@ -290,7 +292,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/filters/" title="Filters" class="md-nav__link">
+    <a href="../filters/" title="Filters" class="md-nav__link">
       Filters
     </a>
   </li>
@@ -302,7 +304,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/inventory-plugins/" title="Inventory Plugins" class="md-nav__link">
+    <a href="../inventory-plugins/" title="Inventory Plugins" class="md-nav__link">
       Inventory Plugins
     </a>
   </li>
@@ -314,7 +316,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/local-actions/" title="Local actions" class="md-nav__link">
+    <a href="../local-actions/" title="Local actions" class="md-nav__link">
       Local actions
     </a>
   </li>
@@ -324,11 +326,62 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../ansible/lookup-plugins/" title="Lookup Plugins" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Lookup Plugins
+      </label>
+    
+    <a href="./" title="Lookup Plugins" class="md-nav__link md-nav__link--active">
       Lookup Plugins
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#examples" title="Examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with_fileglob" title="with_fileglob" class="md-nav__link">
+    with_fileglob
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -338,7 +391,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/playbooks/" title="Playbooks" class="md-nav__link">
+    <a href="../playbooks/" title="Playbooks" class="md-nav__link">
       Playbooks
     </a>
   </li>
@@ -350,7 +403,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/roles/" title="Roles" class="md-nav__link">
+    <a href="../roles/" title="Roles" class="md-nav__link">
       Roles
     </a>
   </li>
@@ -362,7 +415,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/selinux/" title="SELinux" class="md-nav__link">
+    <a href="../selinux/" title="SELinux" class="md-nav__link">
       SELinux
     </a>
   </li>
@@ -374,7 +427,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/tools/" title="Ansible tools" class="md-nav__link">
+    <a href="../tools/" title="Ansible tools" class="md-nav__link">
       Ansible tools
     </a>
   </li>
@@ -386,7 +439,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/tower/" title="Ansible Tower" class="md-nav__link">
+    <a href="../tower/" title="Ansible Tower" class="md-nav__link">
       Ansible Tower
     </a>
   </li>
@@ -398,7 +451,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ansible/vars-and-facts/" title="Vars and Facts" class="md-nav__link">
+    <a href="../vars-and-facts/" title="Vars and Facts" class="md-nav__link">
       Vars and Facts
     </a>
   </li>
@@ -713,12 +766,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
     
     <label class="md-nav__link" for="nav-9">
       Python
@@ -734,20 +785,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="MKDocs" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../python/mkdocs/" title="MKDocs" class="md-nav__link">
       MKDocs
     </a>
-    
   </li>
 
         
@@ -757,7 +799,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../resources/" title="Python Resources" class="md-nav__link">
+    <a href="../../python/resources/" title="Python Resources" class="md-nav__link">
       Python Resources
     </a>
   </li>
@@ -821,6 +863,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#examples" title="Examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with_fileglob" title="with_fileglob" class="md-nav__link">
+    with_fileglob
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -831,86 +902,15 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/agarthetiger/mkdocs/blob/master/docs/python/mkdocs.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/agarthetiger/mkdocs/blob/master/docs/ansible/lookup-plugins.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="mkdocs">MKDocs<a class="headerlink" href="#mkdocs" title="Permanent link">&para;</a></h1>
-<p>This site is built with MKDocs, hosted on GitHub Pages and automatically published on commit to master from Travis CI. </p>
-<p>Good documentation is vital for any enterprise IT team to publish shared practices or software components. To empower other teams and allow them to easily consume the output is key, in order to alleviate the publishing team from becoming yet-another-enterprise-bottleneck. MKDocs and GitHub Pages allows teams to publish documentation without having to worry about site hosting, and the documentation can be easily written in markdown. </p>
-<h1 id="ci-deployments-to-github-pages-with-travis-ci">CI deployments to GitHub Pages with Travis-CI<a class="headerlink" href="#ci-deployments-to-github-pages-with-travis-ci" title="Permanent link">&para;</a></h1>
-<p>To publish from master onto the site served from the gh-pages branch I've used Travis CI for this open source site. I based my .travis.yml file on <a href="https://derekweitzel.com/2017/02/08/deploying-docs-on-github-with-travisci/">Derek Weitzel's blog post</a>. As this was my first time using Travis I didn't initally understand what every line was for. A little piece of me dies whenever I see people cutting and pasting from the internet and executing code, or worse just "curl bash piping", especially in an enterprise organisation when they have no idea what code they are running. I've seen that happen way more times than I'd like. Anyway, here is my breakdown of the original script, followed by my enhancements. </p>
-<div class="codehilite"><pre><span></span><span class="n">env</span><span class="o">:</span>
-  <span class="n">global</span><span class="o">:</span>
-  <span class="o">-</span> <span class="n">GIT_NAME</span><span class="o">:</span> <span class="s2">&quot;&#39;Markdown autodeploy&#39;&quot;</span>
-  <span class="o">-</span> <span class="n">GIT_EMAIL</span><span class="o">:</span> <span class="n">djw8605</span><span class="err">@</span><span class="n">gmail</span><span class="o">.</span><span class="na">com</span>
-  <span class="o">-</span> <span class="n">GH_REF</span><span class="o">:</span> <span class="n">git</span><span class="err">@</span><span class="n">github</span><span class="o">.</span><span class="na">com</span><span class="o">:</span><span class="n">opensciencegrid</span><span class="o">/</span><span class="n">security</span><span class="o">.</span><span class="na">git</span>
-<span class="n">language</span><span class="o">:</span> <span class="n">python</span>
-</pre></div>
-
-
-<p>Set some environment variables to use later in the job. Setting the language to python tells Travis CI to run this job on a docker container with python and pip pre-installed. </p>
-<div class="codehilite"><pre><span></span>before_script:
-- pip install mkdocs
-- pip install MarkdownHighlight
-</pre></div>
-
-
-<p>This before_script phase will run prior to the (build) script section running. In the <a href="https://docs.travis-ci.com/user/job-lifecycle">Job lifecycle</a> Travis CI provides an install phase for installing dependencies which should be used instead. With this script there may be no practical difference between running these steps under the install or before_script phases, however I believe following the patterns intended by the tools is often an easier path to travel in the long term. </p>
-<div class="codehilite"><pre><span></span>script:
-- openssl aes-256-cbc -K $encrypted_1d262b48bc9b_key -iv $encrypted_1d262b48bc9b_iv -in deploy-key.enc -out deploy-key -d
-- chmod 600 deploy-key
-- eval `ssh-agent -s`
-- ssh-add deploy-key
-</pre></div>
-
-
-<p>MKDocs needs to be able to commit and push to the gh-pages branch in the git repository. The openssl command decrypts the private ssh deploy key, then we limit the permissions and add the key to the running ssh agent. Restricting permissions is required otherwise ssh-add will refuse to add the overly permissive private key file. The eval statement is required to set the apropriate environment variables for the current shell instance so that you can connect to it with ssh-add.  </p>
-<div class="codehilite"><pre><span></span>- git config user.name &quot;Automatic Publish&quot;
-- git config user.email &quot;djw8605@gmail.com&quot;
-- git remote add gh-token &quot;<span class="cp">${</span><span class="n">GH_REF</span><span class="cp">}</span>&quot;;
-- git fetch gh-token <span class="err">&amp;&amp;</span> git fetch gh-token gh-pages:gh-pages;
-</pre></div>
-
-
-<p>These steps are required in order for mkdocs to push to the GitHub gh-pages branch. In order to understand why, we need to look at the build log which shows Travis CI running something like the following</p>
-<div class="codehilite"><pre><span></span>$ git clone --depth<span class="o">=</span><span class="m">50</span> --branch<span class="o">=</span>master https://github.com/agarthetiger/mkdocs.git agarthetiger/mkdocs
-Cloning into <span class="s1">&#39;agarthetiger/mkdocs&#39;</span>...
-$ <span class="nb">cd</span> agarthetiger/mkdocs
-$ git checkout -qf cffa8d732d907f62a08262db229ee5899e2fc795
-</pre></div>
-
-
-<p>There would be two issues with trying to run <code class="codehilite">mkdocs gh-deploy</code> without the bulk of code in this script phase. First off, the <a href="https://git-scm.com/docs/git-clone#git-clone---depthltdepthgt">--depth option on git clone implies --single-branch</a>. If you add <code class="codehilite">git branch -r</code> or <code class="codehilite">git remote show origin</code> as steps into the script you can see that there is apparently no gh-pages branch in the remote. This behaviour can be changed by specifying git.depth: false in .travis.yml which will cause Travis CI to drop the --depth option and the clone will then fetch all branches. This can also be changed by <a href="https://stackoverflow.com/questions/17714159/how-do-i-undo-a-single-branch-clone">telling git to clone all branches</a> but there is still one more issue. </p>
-<p>The other issue is that we haven't provided a GitHub token or credentials to authenticate to the https GitHub remote with, so even if we add the branch to the origin we still can't push. The clone operation works as this is a public GitHub repository. Using a deploy key and ssh is preferable because any exposure of the credentials in this case would only compromise one repository via the deploy key, rather than compromising all repositories if using a GitHub token.</p>
-<p>Back to the original script, and adding a 2<sup>nd</sup> remote allows the additional branches to be cloned over ssh and also to be pushed to using the decrypted key added to the ssh agent earlier for authentication. The fetch command can be simplified from the example because the initial <code class="codehilite">git fetch gh-token</code> fetches all branches. </p>
-<div class="codehilite"><pre><span></span>- if [ &quot;<span class="cp">${</span><span class="n">TRAVIS_PULL_REQUEST</span><span class="cp">}</span>&quot; = &quot;false&quot; ]; then echo &quot;Pushing to github&quot;; PYTHONPATH=src/ mkdocs gh-deploy -v --clean --remote-name gh-token; git push gh-token gh-pages; fi;
-</pre></div>
-
-
-<p>This line first checks to see whether the build was triggered from a Pull Request. Technically this could be avoided, because what we're doing here is building and deploying the website. We could build the site in the script phase of the .travis.yml file and then have all this ssh, git and deploy code running from the deploy phase. This is because the <a href="https://docs.travis-ci.com/user/deployment/#pull-requests">deploy phase is always skipped for Pull Requests</a>. The <a href="https://docs.travis-ci.com/user/deployment/script/">script provider</a> for deployments requires the script be defined in an external file, which is executed with bash. I've refactored this in my version, as the script example from the blog post is essentially individual bash commands in a yaml dictionary it was quick to translate into a file. Adding <code class="codehilite">set -e</code> to the file also allows the script to fail fast and terminate on the first non-zero exit code from a command. Failing fast on error is possibly but ugly to accomplish in the .travis.yml file, requiring every line to append <code class="codehilite">|| travis_terminate 1</code> and even this approach has <a href="https://github.com/travis-ci/travis-ci/issues/1066#issuecomment-425757599">problems</a>.</p>
-<h2 id="travis-ci-enhancements">Travis CI Enhancements<a class="headerlink" href="#travis-ci-enhancements" title="Permanent link">&para;</a></h2>
-<p>My yaml file looks like this.</p>
-<div class="codehilite"><pre><span></span><span class="n">language</span><span class="o">:</span> <span class="n">python</span>
-<span class="n">branches</span><span class="o">:</span>
-  <span class="n">only</span><span class="o">:</span>
-  <span class="o">-</span> <span class="n">master</span>
-<span class="n">git</span><span class="o">:</span>
-  <span class="n">depth</span><span class="o">:</span> <span class="mi">1</span>
-<span class="n">install</span><span class="o">:</span>
-<span class="o">-</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">mkdocs</span>
-<span class="o">-</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">mkdocs</span><span class="o">-</span><span class="n">material</span>
-<span class="n">script</span><span class="o">:</span>
-<span class="o">-</span> <span class="k">if</span> <span class="o">[[</span> <span class="n">$TRAVIS_PULL_REQUEST</span> <span class="o">==</span> <span class="s2">&quot;false&quot;</span> <span class="o">]];</span> <span class="n">then</span> <span class="n">mkdocs</span> <span class="n">build</span> <span class="o">--</span><span class="n">strict</span><span class="o">;</span> <span class="n">fi</span><span class="o">;</span>
-<span class="n">deploy</span><span class="o">:</span> 
-  <span class="n">skip_cleanup</span><span class="o">:</span> <span class="kc">true</span>
-  <span class="n">provider</span><span class="o">:</span> <span class="n">script</span>
-  <span class="n">script</span><span class="o">:</span> <span class="n">bash</span> <span class="n">travis</span><span class="o">-</span><span class="n">ci</span><span class="o">/</span><span class="n">deploy</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">gh</span><span class="o">-</span><span class="n">pages</span><span class="o">.</span><span class="na">sh</span>
-  <span class="n">on</span><span class="o">:</span>
-    <span class="n">branch</span><span class="o">:</span> <span class="n">master</span>
-</pre></div>
-
-
-<p>I kept the --depth option to still shallow clone the repo with a single branch for the build. Using the branches whitelist I could remove the requirement to check the branch name later in the script, and using a deploy phase meant no additional logic is required to check for pull requests or the branch in the shell script travis-ci/deploy-to-gh-pages.sh. deploy.skip_cleanup stops Travis from stashing changes in the workspace between the (build) script and deploy phases. </p>
+                <h1 id="lookup-plugins">Lookup Plugins<a class="headerlink" href="#lookup-plugins" title="Permanent link">&para;</a></h1>
+<p>You can use ansible-doc -t lookup -l to see the list of available plugins. Use ansible-doc -t lookup <plugin name> to see specific documents and examples. Alternatively browse the list on <a href="https://docs.ansible.com/ansible/latest/plugins/lookup.html">https://docs.ansible.com/ansible/latest/plugins/lookup.html</a></p>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<h3 id="with_fileglob">with_fileglob<a class="headerlink" href="#with_fileglob" title="Permanent link">&para;</a></h3>
+<p>Use <code class="codehilite">with_fileglob</code> with a file lookup to use the file contents.</p>
+<p><code class="codehilite"><span class="x">yaml</span><span class="x">  - name: ensure CRDs are present</span><span class="x">    k8s:</span><span class="x">      state: present</span><span class="x">      definition: &quot;</span><span class="cp">{{</span> <span class="nv">lookup</span><span class="o">(</span><span class="s1">&#39;file&#39;</span><span class="o">,</span> <span class="nv">item</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot;</span><span class="x">    with_fileglob:</span><span class="x">    - &quot;files/crd-*.yml&quot;</span></code></p>
                 
                   
                 
@@ -931,7 +931,7 @@ $ git checkout -qf cffa8d732d907f62a08262db229ee5899e2fc795
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../puppet/puppet/" title="Puppet" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../local-actions/" title="Local actions" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -940,19 +940,19 @@ $ git checkout -qf cffa8d732d907f62a08262db229ee5899e2fc795
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Puppet
+                Local actions
               </span>
             </div>
           </a>
         
         
-          <a href="../resources/" title="Python Resources" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../playbooks/" title="Playbooks" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Python Resources
+                Playbooks
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

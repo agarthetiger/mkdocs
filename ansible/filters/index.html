@@ -319,8 +319,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#use-case" title="Use-case" class="md-nav__link">
-    Use-case
+  <a href="#use-case-extract-text-from-html" title="Use-case - extract text from html" class="md-nav__link">
+    Use-case - extract text from html
   </a>
   
     <nav class="md-nav">
@@ -342,6 +342,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-case-search-for-text-in-json" title="Use-case - search for text in json" class="md-nav__link">
+    Use-case - search for text in json
+  </a>
   
 </li>
       
@@ -874,8 +881,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#use-case" title="Use-case" class="md-nav__link">
-    Use-case
+  <a href="#use-case-extract-text-from-html" title="Use-case - extract text from html" class="md-nav__link">
+    Use-case - extract text from html
   </a>
   
     <nav class="md-nav">
@@ -900,6 +907,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#use-case-search-for-text-in-json" title="Use-case - search for text in json" class="md-nav__link">
+    Use-case - search for text in json
+  </a>
+  
+</li>
+      
       
       
       
@@ -920,7 +934,7 @@
                 
                 
                 <h1 id="filters">Filters<a class="headerlink" href="#filters" title="Permanent link">&para;</a></h1>
-<h2 id="use-case">Use-case<a class="headerlink" href="#use-case" title="Permanent link">&para;</a></h2>
+<h2 id="use-case-extract-text-from-html">Use-case - extract text from html<a class="headerlink" href="#use-case-extract-text-from-html" title="Permanent link">&para;</a></h2>
 <p>This was developed to perform post-deployment verification against a RESTful service. The tomcat app startup script would always return before the application was ready to serve traffic and also there is a belt-and-braces check against a version endpoint to check that the url is serving the version on the application we believe should have just been deployed. The <a href="https://docs.ansible.com/ansible/latest/modules/uri_module.html">uri</a> module handles getting what is unfortunately in this case html, then we need to extract the application version from the content. Cue Ansible <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#regular-expression-filters">Filters</a></p>
 <h3 id="regex_search">regex_search<a class="headerlink" href="#regex_search" title="Permanent link">&para;</a></h3>
 <p>regex_search can perform the search and return the matched string. I won't share the whole html here, but note there are multiple versions in the html with no unique IDs on any of the elements. So how to extract just the application version? Although in python we can get this using a single regex and a match group, regex_search cannot return just the match group, only the whole match.</p>
@@ -980,6 +994,21 @@ fatal: [localhost]: FAILED! =&gt; {"msg": "The task includes an option with an u
 <p class="admonition-title">Danger</p>
 <p>Be very careful about what you paste into online tools like this. Always triple check that you are never sharing anything sensitive and if in doubt test a rexeg locally, even if it is more cumbersome. Security is never worth risking for speed. </p>
 </div>
+<h2 id="use-case-search-for-text-in-json">Use-case - search for text in json<a class="headerlink" href="#use-case-search-for-text-in-json" title="Permanent link">&para;</a></h2>
+<p>A RESTful API returned a json payload which we needed to search through for a name stored in a variable. </p>
+<p>This didn't work, the variable <code class="codehilite"><span class="cp">{{</span> <span class="nv">check_control_plane</span> <span class="cp">}}</span><span class="x"></span></code> was never interpolated so the name was never found even when it was present. </p>
+<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">set fact with controlplane check</span>
+  <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">pingdom_controlplane_check</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">pingdom_checks.json.checks</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">json_query(&#39;[?name==`{{</span><span class="nv"> </span><span class="s">check_controlplane_name</span><span class="nv"> </span><span class="s">}}`]&#39;)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">list</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</pre></div>
+
+<p>This does work as expected.</p>
+<div class="codehilite"><pre><span></span>  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">set fact with controlplane check</span>
+    <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">pingdom_controlplane_check</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">pingdom_checks.json.checks</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">json_query(query)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">list</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="l l-Scalar l-Scalar-Plain">vars</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">query</span><span class="p p-Indicator">:</span> <span class="s">&quot;[?name==&#39;{{</span><span class="nv"> </span><span class="s">check.controlplane.name</span><span class="nv"> </span><span class="s">}}&#39;]&quot;</span>
+</pre></div>
                 
                   
                 

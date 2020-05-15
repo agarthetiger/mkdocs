@@ -1,6 +1,6 @@
 # Filters
 
-## Use-case
+## Use-case - extract text from html
 This was developed to perform post-deployment verification against a RESTful service. The tomcat app startup script would always return before the application was ready to serve traffic and also there is a belt-and-braces check against a version endpoint to check that the url is serving the version on the application we believe should have just been deployed. The [uri](https://docs.ansible.com/ansible/latest/modules/uri_module.html) module handles getting what is unfortunately in this case html, then we need to extract the application version from the content. Cue Ansible [Filters](https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#regular-expression-filters)
 
 ### regex_search
@@ -70,3 +70,25 @@ Online tools like [pythex.org](https://pythex.org/) can be useful for quickly te
 
 !!! danger
     Be very careful about what you paste into online tools like this. Always triple check that you are never sharing anything sensitive and if in doubt test a rexeg locally, even if it is more cumbersome. Security is never worth risking for speed. 
+
+## Use-case - search for text in json
+
+A RESTful API returned a json payload which we needed to search through for a name stored in a variable. 
+
+This didn't work, the variable `{{ check_control_plane }}` was never interpolated so the name was never found even when it was present. 
+
+```yaml
+- name: set fact with controlplane check
+  set_fact:
+      pingdom_controlplane_check: "{{ pingdom_checks.json.checks | json_query('[?name==`{{ check_controlplane_name }}`]') | list }}"
+```
+
+This does work as expected.
+
+```yaml
+  - name: set fact with controlplane check
+    set_fact:
+      pingdom_controlplane_check: "{{ pingdom_checks.json.checks | json_query(query) | list }}"
+    vars:
+      query: "[?name=='{{ check.controlplane.name }}']"
+```

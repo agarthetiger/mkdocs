@@ -34,7 +34,7 @@ https://pdoc3.github.io/pdoc/
 
 https://click.palletsprojects.com/en/7.x/
 
-Definitely my favourite CLI tool so far.
+Definitely my favourite CLI tool so far. Read a comparison of argparse, docopt and click on [Real Python](https://realpython.com/comparing-python-command-line-parsing-libraries-argparse-docopt-click/)
 
 ### Nubia
 

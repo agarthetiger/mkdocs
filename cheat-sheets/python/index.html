@@ -541,6 +541,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
       
       
       
@@ -920,6 +927,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
       
       
       
@@ -941,9 +955,16 @@
                 
                 <h1 id="python-quick-reference">Python Quick Reference<a class="headerlink" href="#python-quick-reference" title="Permanent link">&para;</a></h1>
 <h2 id="regular-expressions">Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permanent link">&para;</a></h2>
-<p><code class="codehilite">+</code> - match the previous RE one or more times
-<code class="codehilite">?</code> - match the previous RE zero or one time only eg <code class="codehilite">ab?</code> matches <code class="codehilite">a</code> or <code class="codehilite">ab</code>
-<code class="codehilite">\.</code> - Escape matching a dot, eg <code class="codehilite">r&#39;\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}&#39;</code> for a basic ip address expression</p>
+<ul>
+<li><code class="codehilite">+</code> - match the previous RE one or more times</li>
+<li><code class="codehilite">?</code> - match the previous RE zero or one time only eg <code class="codehilite">ab?</code> matches <code class="codehilite">a</code> or <code class="codehilite">ab</code></li>
+<li><code class="codehilite">*?</code>, <code class="codehilite">+?</code> - non-greedy match. eg For the string <code class="codehilite">&lt;a&gt;something&lt;b&gt;</code>, <code class="codehilite">&lt;.*&gt;</code> will match <code class="codehilite">&lt;a&gt;something&lt;b&gt;</code>, using <code class="codehilite">&lt;.*?&gt;</code> this will match <code class="codehilite">&lt;a&gt;</code>.</li>
+<li><code class="codehilite">\.</code> - Escape matching a dot, eg <code class="codehilite">r&#39;\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}&#39;</code> for a basic ip address expression</li>
+</ul>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.python.org/3/library/re.html">Python 3 re documentation</a></li>
+</ul>
                 
                   
                 

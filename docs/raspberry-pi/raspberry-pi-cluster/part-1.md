@@ -1,0 +1,24 @@
+# Raspberry Pi Cluster - Part 1
+
+I've enjoyed working with electronic hardware ever since I was a kid and wanted to take after my Dad. He worked at British Aerospace for most of his career hand-building custom electronics for flight simulators. At home we worked on projects together which he would design and I would build, like modifying a rechargable battery charger to work with regular batteries (periodic current reversal is the key), and upgrading speed controllers and battery chargers for my radio control car. 
+
+It's been a long time since I've taken on any kind of project like this but I've been bitten by the Raspberry Pi bug recently and want to build a cluster. I don't want to just buy all off-the-shelf parts though, I want to build something personal and unique and have fun doing it. 
+
+## Power
+
+I'll be starting out with a TP-Link TL-SG1008P 8 port gigabit ethernet switch with 4 ports capable of delivering Power over Ethernet (PoE). I considered PoE which does make for a clean build with minimal cables. Looking at the official Pi PoE board though there seems to be potential trouble lurking. While the PoE HAT is compatible with the Raspberry Pi 4 as well as the Pi 3 boards which were the latest at the time, the maximum current draw for a Pi 4 has gone up to 3A. Admittedly this is with additional USB peripherals and a peak load like at boot, but I don't want problems down the line with voltage drops. The PoE board can only deliver 2.5A max. Also my choice of switch delivers 55Watts max via PoE. Split this across 4 devices with an optimistic 80% efficiency in the PoE HAT and we're down to 2.2A max at 5V. The PoE HAT also generates heat right where we don't want it, right next to the Pi and it while it has a fan it looks to be a snug fit to the Pi board meaning heatsink on the Pi are probably also out of the question. While I've not decided on my final power soltuion, PoE is out for now.
+
+## Case
+
+I know I'll need an enclosure which can survive being moved between my house and garage and get by in a moderately dusty environment. The open stackable Pi cluster cases didn't have enough environmental protection for my liking. A pretty good candidate for a cluster case would actually be a gaming PC case. A PC PSU could potentially provide 5v power for the Pis as well as 5/12v for fans and a windows to view the LEDs which I will of course be fitting to each device, because bling! Cases can also provide convenient hard-drive mounting too which would be a tidy setup. 
+
+I don't want this cluster to be a huge power draw though if left powered on but idle. Often the PSUs don't have great efficiency and are optimised for a clean single rail 12v supply which would be wasted just for the fans which I don't want running all the time anyway. I could use a dedicated passively cooled high current 5v supply, but now there's less value in using the PC case. A shop bought PC case also isn't very imaginative or unique so I'm leaning towards a home-made enclosure. I have a [Sienci Mill One](https://sienci.com/product/sienci-mill-one-kit-v3/) CNC machine from their original Kickstarter campaign so I should be able to make something tidy. 
+
+## Cooling
+
+One thing I expect this cluster will need is active cooling. The cluster is based around four Pi 4Bs which even with the updates since launch will still throttle under prolonged high cpu load. This cluster has to work in my garage as well as inside my house, so needs protection from dust which means more enclosure than the cheap cluster cases provide. Enclosure is bad for cooling but as this will also sit next to my desk indoors this also needs to be quiet and only activate the fans when cooling is required. 
+
+After much deliberation my first build will use a single Noctua 120mm fan to provide airflow across all the hosts in the cluster. The cheap cluster cases which include fans are connected to the 3.3v or 5v power GPIO pins and are therefore always on. This fan can be controlled by a Pulse Width Modulation (PWM) signal from the nominated cluster controller which will be monitoring the temperature of all the hosts in the cluster. The [NF-A12x25](https://noctua.at/en/nf-a12x25-pwm) in particular will stop  when the fan is set to 0% PWM duty cycle by the PWM fan controller. This makes it ideal for creating setups with semi-passive cooling that automatically turn the fans off and thus run completely silent at idle if thermals allow.
+
+In the fan specs it needs a 5v PWM signal and the Pi's GPIO pins are 3.3v, so I'll be using a [SparkFun Logic Level Converter](https://shop.pimoroni.com/products/sparkfun-logic-level-converter-bi-directional) to drive the fan. From the specs sheet the rise and fall response times should easily be adequate for a 100kHz PWM signal which is more than enough for the fan. 
+

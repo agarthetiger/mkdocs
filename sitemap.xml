@@ -171,6 +171,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://agarthetiger.github.io/mkdocs/raspberry-pi/raspberry-pi-cluster/part-1/</loc>
+     <lastmod>2020-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://agarthetiger.github.io/mkdocs/terraform/resources/</loc>
      <lastmod>2020-06-07</lastmod>
      <changefreq>daily</changefreq>

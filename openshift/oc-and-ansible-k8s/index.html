@@ -1041,9 +1041,16 @@
                 
                 <h1 id="oc-and-ansible-k8s">oc and Ansible k8s<a class="headerlink" href="#oc-and-ansible-k8s" title="Permanent link">&para;</a></h1>
 <h2 id="oc">oc<a class="headerlink" href="#oc" title="Permanent link">&para;</a></h2>
-<p>RedHat provide several CLIs to interact with OpenShift.</p>
+<p>RedHat provide several CLIs to interact with OpenShift. With OpenShift 4.4 these include</p>
+<ul>
+<li><a href="https://docs.openshift.com/container-platform/4.4/cli_reference/openshift_cli/getting-started-cli.html">oc</a> - An operations-focussed tool for managing OpenShift clusters.</li>
+<li><a href="ahttps://docs.openshift.com/container-platform/4.4/cli_reference/developer_cli_odo/understanding-odo.html">odo</a> - OpenShift Do, a developer-focussed tool for developing applications with OpenShift, intentionally abstracting away the complexities of OpenShift and Kubernetes. </li>
+<li><a href="https://docs.openshift.com/container-platform/4.4/cli_reference/tkn_cli/installing-tkn.html">tkn</a> - Tekton CLI for interacting with Tekton, the Kubernetes-native build tool behind OpenShift Pipelines. </li>
+<li><a href="https://docs.openshift.com/container-platform/4.4/serverless/knative_cli/knative-cli.html#knative-cli">kn</a> - Knative CLI for interacting with OpenShift Serverless.</li>
+</ul>
 <h2 id="ansible-k8s">Ansible k8s<a class="headerlink" href="#ansible-k8s" title="Permanent link">&para;</a></h2>
 <p>Ansible supports working with Kubernetes via the k8s modules. These were included with Ansible up to v2.9 but when v2.10 is released this will need to be installed using the <a href="https://galaxy.ansible.com/community/kubernetes">community kubernetes collection</a>. Either way, this provides a  potentially idempotent way to manage resources in Kubernetes. I say potentially because it's still possible to unintentionally use these modules in a non-idempotent manner, more on that later. </p>
+<p>Ansible 2.7 through to 2.9 has seen additions to the k8s family of modules including <code class="codehilite">k8s_auth</code>, <code class="codehilite">k8s_service</code> and <code class="codehilite">k8s_info</code>, as well as enhancements like the addition of <code class="codehilite">wait</code>, <code class="codehilite">wait_timeout</code> and <code class="codehilite">wait_condition</code> to the k8s module. This <a href="https://www.ansible.com/blog/continuous-improvements-in-ansible-and-kubernetes-automation">Ansible blog post</a> provides some more details. </p>
 <h2 id="convert-oc-cli-commands-to-ansible-k8s">Convert oc CLI commands to Ansible k8s<a class="headerlink" href="#convert-oc-cli-commands-to-ansible-k8s" title="Permanent link">&para;</a></h2>
 <p>It may not be immediately apparent what K8s resources need to be created to provide parity with oc commands. Here is a rough guide to what you'll need to create with k8s in order to replicate oc commands. Note as always that when writing or updating automation, simply automating exactly what came before is not always optimal especially if the process being automated was manual. </p>
 <p><code class="codehilite">oc new-app</code> - DeploymentConfig, ReplicationController, ImageStream, BuildConfig, Service</p>

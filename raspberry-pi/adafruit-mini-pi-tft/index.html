@@ -979,10 +979,11 @@
                 
                 
                 <h1 id="adafruit-minipitft">AdaFruit miniPiTFT<a class="headerlink" href="#adafruit-minipitft" title="Permanent link">&para;</a></h1>
+<p><img alt="AdaFruit miniPiTFT" src="../../img/adafruit_products_IMG_8407-scaled.jpg" /></p>
 <p>AdaFruit make several small displays for Raspberry Pi, including some tiny TFT displays. I bought a Raspberry Pi Zero to use as a <a href="https://pi-hole.net/">Pi Hole</a> to block adverts on my home network and also bought an <a href="https://www.adafruit.com/product/4393">Adafruit Mini PiTFT - 135x240 Color TFT Add-on for Raspberry Pi</a>, mostly because it looked cool! It has the added benefit of allowing me to check the Pi is up and running if I have any network issues when checking the physical networking around my router. </p>
 <p>I have no intention of displaying the console output to this device, so opted to install the python drivers for this display instead of the kernel drivers which cannot both be installed at the same time. The display can be controlled using CircuitPython. </p>
 <p>Getting the display running was straight-forward if a little manual following the <a href="https://learn.adafruit.com/pi-hole-ad-blocker-with-pi-zero-w/install-mini-pitft">AdaFruit guide</a>.</p>
-<p>I want to make something a bit more advanced, so I went down an interesting yet unfortunate rabbit hole learning about displayio, Groups, TileGrids etc only to find out that there is <a href="https://forums.adafruit.com/viewtopic.php?f=60&amp;t=164892&amp;p=809707">no support for displayio on Raspberry Pi</a>. </p>
+<p>I want to make something a bit more advanced, so I went down an interesting yet unfortunate rabbit hole learning about displayio, Groups, TileGrids etc only to find out that there is <a href="https://forums.adafruit.com/viewtopic.php?f=60&amp;t=164892&amp;p=809707">no support for displayio on Raspberry Pi</a>. Instead this display needs to use the <a href="https://github.com/adafruit/Adafruit_CircuitPython_RGB_Display">AdaFruit CircuitPython RGB Display</a> python library and <a href="https://pillow.readthedocs.io/en/stable/index.html">Pillow</a>. The AdaFruit GitHub repo has some useful examples, as does <a href="https://learn.adafruit.com/adafruit-mini-pitft-135x240-color-tft-add-on-for-raspberry-pi/python-usage">learn.adafruit.com</a>.</p>
                 
                   
                 

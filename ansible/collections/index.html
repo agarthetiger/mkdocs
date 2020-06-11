@@ -321,6 +321,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#troubleshooting" title="Troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ansiblesequence-object-has-no-attribute-get" title="'AnsibleSequence' object has no attribute 'get'" class="md-nav__link">
+    'AnsibleSequence' object has no attribute 'get'
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -1044,6 +1064,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#troubleshooting" title="Troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ansiblesequence-object-has-no-attribute-get" title="'AnsibleSequence' object has no attribute 'get'" class="md-nav__link">
+    'AnsibleSequence' object has no attribute 'get'
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -1072,6 +1112,9 @@
 <p>See <a href="https://docs.ansible.com/ansible/latest/dev_guide/testing_documentation.html#testing-module-documentation">https://docs.ansible.com/ansible/latest/dev_guide/testing_documentation.html#testing-module-documentation</a></p>
 <h2 id="modules-and-plugins">Modules and Plugins<a class="headerlink" href="#modules-and-plugins" title="Permanent link">&para;</a></h2>
 <p>A Module runs on the remote system, a Plugin runs on the Ansible Control node. See <a href="https://docs.ansible.com/ansible/latest/dev_guide/developing_locally.html#modules-and-plugins-what-s-the-difference">https://docs.ansible.com/ansible/latest/dev_guide/developing_locally.html#modules-and-plugins-what-s-the-difference</a></p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="ansiblesequence-object-has-no-attribute-get">'AnsibleSequence' object has no attribute 'get'<a class="headerlink" href="#ansiblesequence-object-has-no-attribute-get" title="Permanent link">&para;</a></h3>
+<p>I've hit this error a few times when developing a module or plugin for a collection. The errors in my case were related to incorrect indentation in the DOCUMENTATION string in the module or plugin source, which was not immediately apparent from the error message.</p>
                 
                   
                 

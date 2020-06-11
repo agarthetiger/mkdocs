@@ -16,3 +16,7 @@ See https://docs.ansible.com/ansible/latest/dev_guide/testing_documentation.html
 
 A Module runs on the remote system, a Plugin runs on the Ansible Control node. See https://docs.ansible.com/ansible/latest/dev_guide/developing_locally.html#modules-and-plugins-what-s-the-difference
 
+## Troubleshooting
+
+### 'AnsibleSequence' object has no attribute 'get'
+I've hit this error a few times when developing a module or plugin for a collection. The errors in my case were related to incorrect indentation in the DOCUMENTATION string in the module or plugin source, which was not immediately apparent from the error message.

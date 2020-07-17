@@ -96,6 +96,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://agarthetiger.github.io/mkdocs/cnc/sienci-mill-one/</loc>
+     <lastmod>2020-07-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://agarthetiger.github.io/mkdocs/jenkins/JenkinsPlugins/</loc>
      <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>

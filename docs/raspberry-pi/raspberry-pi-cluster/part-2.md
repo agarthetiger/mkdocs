@@ -2,6 +2,8 @@
 
 ## Smart cooling
 
+![PWM fan controller breakout board for Raspberry Pi](../../img/pwm-fan-breakout-1024.jpg)
+
 ### Parts
 
 * Noctua NF-A12x25 12v PWM fan
@@ -10,6 +12,7 @@
 * Molex 47053-1000 4 pin pcb mount socket
 * 5.5/2.5mm DC socket
 * 12v power supply (from stock)
+* 24awg single core wire
 
 ### Pins used
 
@@ -20,9 +23,13 @@
 
 The SparkFun logic level converter [board overview](https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide/all#board-overview) shows that each side of the MOSFET has a 10K ohm pull-up resistor. I'm hoping the RPM speed signal can be read using this from a 5v supply using the high voltage side of the logic level converter. 
 
-### Circuit Design 
+### Electrical Circuit Design 
 
 To be added...
+
+### Physical Circuit Layout
+
+The Breakout PiZero board was really too small for this project. With the logic level converter board being 5 pins wide there was little option but to cross signal and power wires over each other. The wiring under the board is not accessible which I could have used pins and sockets to connect the logic level converter board in a removable way. It does work so it is good enough for purpose, but I'm not proud of the wiring layout which is really not optimal. 
 
 ### Testing
 
@@ -56,7 +63,7 @@ My initial circuit would control the fan speed down to it's lowest threshold, bu
 
 ### Future enhancements
 
-The Breakout PiZero board was really too small for this project. With the logic level converter board being 5 pins wide there was little option but to cross signal and power wires over each other. The wiring under the board is not accessible which I could have used pins and sockets to connect the logic level converter board in a removable way. It does work so it is good enough for purpose, but I'm not proud of the wiring layout which is really not tidy. Pins for the 12v supply leads would be useful, as would some insulation between the underside of the board and the conductive aluminium heatsinks on the Raspberry CPU, which could cause a short if not careful to stabalise the board when connecting or removing the 4 pin fan connector. Hopefully adding standoffs to fix the board in place will help, especially as I will enlarge the mounting holes to M3 size. 
+Pins and a detachable connector for the 12v supply leads would be useful, as would some insulation between the underside of the board and the conductive aluminium heatsinks on the Raspberry CPU, which could cause a short if not careful to stabalise the board when connecting or removing the 4 pin fan connector. Hopefully adding standoffs to fix the board in place will help, especially as I will enlarge the mounting holes to M3 size. 
 
 ### Resources
 

@@ -29,9 +29,15 @@ The Raspberry Pi has GPIO pins which can provide a Pulse Width Modulation (PWM) 
 
 ![Raspberry Pi GPIO pinout courtesy of pinout.xyz](https://pinout.xyz/resources/raspberry-pi-pinout.png)
 
-Pinout.xyz was useful in confirming which pins the Blinkt! LED array would use which I'll be stacking on top of this PWM fan control board. 
+Pinout.xyz was useful in confirming which pins the Blinkt! LED array would use which I'll be stacking on top of this PWM fan control board. As we can see from https://pinout.xyz/pinout/blinkt only pins BCM 23 and BCM 24 need to be reserved for the Blinkt! so BCM 18 (PWM0) can be used to generate the PWM signal for the fan and BCM 6 for monitoring the fan speed (BCM 6 was a coin-toss selection, based on it's physical proximity to where the signal wire (at one point) was coming onto the board. 
 
-To be added...
+The GPIO pins use 3.3v for I/O, and the Noctua fan needs a 5v PWM signal. Fortunately SparkFun make a cheap (£3) logic level converter which can translate a signal from a low voltage to a high voltage and vice versa. We can use the Raspberry Pi 5v GPIO to power the high voltage side of the board, as the PWM signal draws very little current. 
+
+![SparkFun Logic Level Converter circuit design](https://cdn.sparkfun.com/r/400-400/assets/f/3/3/4/4/526842ae757b7f1b128b456f.png)
+
+As the LLC board has pull-up resistors on each side then a second channel can be used for reading the signal from the Noctua fan speed wire, which the [Notcua fan PWM specifications](https://noctua.at/pub/media/wysiwyg/Noctua_PWM_specifications_white_paper.pdf) show as needing a pull-up resistor. 
+
+Curcuit design to be added...
 
 ### Physical Circuit Layout
 

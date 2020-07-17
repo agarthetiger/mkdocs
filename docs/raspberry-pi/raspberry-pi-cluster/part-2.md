@@ -6,10 +6,10 @@
 
 ### Parts
 
-* Noctua NF-A12x25 12v PWM fan
-* SparkFun Logic Level converter
-* ABElectronics Breakout PiZero prototyping PCB
-* Molex 47053-1000 4 pin pcb mount socket
+* [Noctua NF-A12x25 12v PWM fan](https://noctua.at/en/products/fan/nf-a12x25-pwm)
+* [SparkFun Logic Level converter](https://shop.pimoroni.com/products/sparkfun-logic-level-converter-bi-directional)
+* [ABElectronics Breakout PiZero prototyping PCB](https://thepihut.com/products/breakout-pizero)
+* [Molex 47053-1000 4 pin pcb mount socket](https://uk.farnell.com/molex/47053-1000/connector-header-4pos-1row-2-54mm/dp/2313705)
 * 5.5/2.5mm DC socket
 * 12v power supply (from stock)
 * 24awg single core wire
@@ -29,7 +29,7 @@ To be added...
 
 ### Physical Circuit Layout
 
-The Breakout PiZero board was really too small for this project. With the logic level converter board being 5 pins wide there was little option but to cross signal and power wires over each other. The wiring under the board is not accessible which I could have used pins and sockets to connect the logic level converter board in a removable way. It does work so it is good enough for purpose, but I'm not proud of the wiring layout which is really not optimal. 
+The Breakout PiZero board was too small for this circuit to wire it nicely. With the logic level converter board being 5 pins wide there was little option but to cross signal and power wires over each other. The wiring under the board is not accessible which I could have used pins and sockets to connect the logic level converter board in a removable way. It does work so it is good enough for purpose, but I'm not proud of the wiring layout which is really not optimal. I chose to use it because it doesn't totally cover the Raspberry Pi 4B it is connected to, which will have CPU load which I don't want throttled due to high CPU temperature. 
 
 ### Testing
 
@@ -69,3 +69,4 @@ Pins and a detachable connector for the 12v supply leads would be useful, as wou
 
 * [SparkFun logic level converter](https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide/all)
 * [Notcua fan PWM specifications](https://noctua.at/pub/media/wysiwyg/Noctua_PWM_specifications_white_paper.pdf)
+* https://blog.driftking.tw/en/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/

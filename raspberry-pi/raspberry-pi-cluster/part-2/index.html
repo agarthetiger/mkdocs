@@ -945,8 +945,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#circuit-design" title="Circuit Design" class="md-nav__link">
-    Circuit Design
+  <a href="#electrical-circuit-design" title="Electrical Circuit Design" class="md-nav__link">
+    Electrical Circuit Design
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physical-circuit-layout" title="Physical Circuit Layout" class="md-nav__link">
+    Physical Circuit Layout
   </a>
   
 </li>
@@ -1103,8 +1110,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#circuit-design" title="Circuit Design" class="md-nav__link">
-    Circuit Design
+  <a href="#electrical-circuit-design" title="Electrical Circuit Design" class="md-nav__link">
+    Electrical Circuit Design
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physical-circuit-layout" title="Physical Circuit Layout" class="md-nav__link">
+    Physical Circuit Layout
   </a>
   
 </li>
@@ -1163,6 +1177,7 @@
                 
                 <h1 id="raspberry-pi-cluster-part-2">Raspberry Pi Cluster - Part 2<a class="headerlink" href="#raspberry-pi-cluster-part-2" title="Permanent link">&para;</a></h1>
 <h2 id="smart-cooling">Smart cooling<a class="headerlink" href="#smart-cooling" title="Permanent link">&para;</a></h2>
+<p><img alt="PWM fan controller breakout board for Raspberry Pi" src="../../../img/pwm-fan-breakout-1024.jpg" /></p>
 <h3 id="parts">Parts<a class="headerlink" href="#parts" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Noctua NF-A12x25 12v PWM fan</li>
@@ -1171,6 +1186,7 @@
 <li>Molex 47053-1000 4 pin pcb mount socket</li>
 <li>5.5/2.5mm DC socket</li>
 <li>12v power supply (from stock)</li>
+<li>24awg single core wire</li>
 </ul>
 <h3 id="pins-used">Pins used<a class="headerlink" href="#pins-used" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1179,8 +1195,10 @@
 </ul>
 <h3 id="design">Design<a class="headerlink" href="#design" title="Permanent link">&para;</a></h3>
 <p>The SparkFun logic level converter <a href="https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide/all#board-overview">board overview</a> shows that each side of the MOSFET has a 10K ohm pull-up resistor. I'm hoping the RPM speed signal can be read using this from a 5v supply using the high voltage side of the logic level converter. </p>
-<h3 id="circuit-design">Circuit Design<a class="headerlink" href="#circuit-design" title="Permanent link">&para;</a></h3>
+<h3 id="electrical-circuit-design">Electrical Circuit Design<a class="headerlink" href="#electrical-circuit-design" title="Permanent link">&para;</a></h3>
 <p>To be added...</p>
+<h3 id="physical-circuit-layout">Physical Circuit Layout<a class="headerlink" href="#physical-circuit-layout" title="Permanent link">&para;</a></h3>
+<p>The Breakout PiZero board was really too small for this project. With the logic level converter board being 5 pins wide there was little option but to cross signal and power wires over each other. The wiring under the board is not accessible which I could have used pins and sockets to connect the logic level converter board in a removable way. It does work so it is good enough for purpose, but I'm not proud of the wiring layout which is really not optimal. </p>
 <h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
 <p>The system daemon code to control the fan will use the python GPIO libraries (assuming they prove suitable). For initial testing from the command line I'm using (the awesome) WiringPi library. </p>
 <p>Reading Gordon's <a href="http://wiringpi.com/wiringpi-deprecated/">deprecation notice</a> for WiringPi it makes me sad that open source contributors receive such poor treatment by a number of consumers for the contributions they have made. I'm sure it is a minority of people, but equally sure that fact does not detract from the impact of their behaviour. </p>
@@ -1205,7 +1223,7 @@ gpio pwm <span class="m">1</span> <span class="m">512</span>
 <h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h3>
 <p>My initial circuit would control the fan speed down to it's lowest threshold, but wouldn't turn the fan off completely as it should with a zero duty-cycle (eg. ground) PWM signal to the fan. After sleeping on the problem I realised that I'd not connected the ground from the Pi/Logic level converter to the ground from teh 12v supply which was powering the fan, leaving the PWM "ground" signal floating above the maximum voltage of 0.8v for the PWM low logic level. A bit of rewiring later and things are working as expected. This ground issue was probably also the cause of erroneous RPM readings, which I noticed at the same time as troubleshooting the fan speed. </p>
 <h3 id="future-enhancements">Future enhancements<a class="headerlink" href="#future-enhancements" title="Permanent link">&para;</a></h3>
-<p>The Breakout PiZero board was really too small for this project. With the logic level converter board being 5 pins wide there was little option but to cross signal and power wires over each other. The wiring under the board is not accessible which I could have used pins and sockets to connect the logic level converter board in a removable way. It does work so it is good enough for purpose, but I'm not proud of the wiring layout which is really not tidy. Pins for the 12v supply leads would be useful, as would some insulation between the underside of the board and the conductive aluminium heatsinks on the Raspberry CPU, which could cause a short if not careful to stabalise the board when connecting or removing the 4 pin fan connector. Hopefully adding standoffs to fix the board in place will help, especially as I will enlarge the mounting holes to M3 size. </p>
+<p>Pins and a detachable connector for the 12v supply leads would be useful, as would some insulation between the underside of the board and the conductive aluminium heatsinks on the Raspberry CPU, which could cause a short if not careful to stabalise the board when connecting or removing the 4 pin fan connector. Hopefully adding standoffs to fix the board in place will help, especially as I will enlarge the mounting holes to M3 size. </p>
 <h3 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide/all">SparkFun logic level converter</a></li>

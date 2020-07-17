@@ -1216,10 +1216,10 @@
 <p><img alt="PWM fan controller breakout board for Raspberry Pi" src="../../../img/pwm-fan-breakout-1024.jpg" /></p>
 <h3 id="parts">Parts<a class="headerlink" href="#parts" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Noctua NF-A12x25 12v PWM fan</li>
-<li>SparkFun Logic Level converter</li>
-<li>ABElectronics Breakout PiZero prototyping PCB</li>
-<li>Molex 47053-1000 4 pin pcb mount socket</li>
+<li><a href="https://noctua.at/en/products/fan/nf-a12x25-pwm">Noctua NF-A12x25 12v PWM fan</a></li>
+<li><a href="https://shop.pimoroni.com/products/sparkfun-logic-level-converter-bi-directional">SparkFun Logic Level converter</a></li>
+<li><a href="https://thepihut.com/products/breakout-pizero">ABElectronics Breakout PiZero prototyping PCB</a></li>
+<li><a href="https://uk.farnell.com/molex/47053-1000/connector-header-4pos-1row-2-54mm/dp/2313705">Molex 47053-1000 4 pin pcb mount socket</a></li>
 <li>5.5/2.5mm DC socket</li>
 <li>12v power supply (from stock)</li>
 <li>24awg single core wire</li>
@@ -1234,7 +1234,7 @@
 <h3 id="electrical-circuit-design">Electrical Circuit Design<a class="headerlink" href="#electrical-circuit-design" title="Permanent link">&para;</a></h3>
 <p>To be added...</p>
 <h3 id="physical-circuit-layout">Physical Circuit Layout<a class="headerlink" href="#physical-circuit-layout" title="Permanent link">&para;</a></h3>
-<p>The Breakout PiZero board was really too small for this project. With the logic level converter board being 5 pins wide there was little option but to cross signal and power wires over each other. The wiring under the board is not accessible which I could have used pins and sockets to connect the logic level converter board in a removable way. It does work so it is good enough for purpose, but I'm not proud of the wiring layout which is really not optimal. </p>
+<p>The Breakout PiZero board was too small for this circuit to wire it nicely. With the logic level converter board being 5 pins wide there was little option but to cross signal and power wires over each other. The wiring under the board is not accessible which I could have used pins and sockets to connect the logic level converter board in a removable way. It does work so it is good enough for purpose, but I'm not proud of the wiring layout which is really not optimal. I chose to use it because it doesn't totally cover the Raspberry Pi 4B it is connected to, which will have CPU load which I don't want throttled due to high CPU temperature. </p>
 <h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h3>
 <p>The system daemon code to control the fan will use the python GPIO libraries (assuming they prove suitable). For initial testing from the command line I'm using (the awesome) WiringPi library. </p>
 <p>Reading Gordon's <a href="http://wiringpi.com/wiringpi-deprecated/">deprecation notice</a> for WiringPi it makes me sad that open source contributors receive such poor treatment by a number of consumers for the contributions they have made. I'm sure it is a minority of people, but equally sure that fact does not detract from the impact of their behaviour. </p>
@@ -1264,6 +1264,7 @@ gpio pwm <span class="m">1</span> <span class="m">512</span>
 <ul>
 <li><a href="https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide/all">SparkFun logic level converter</a></li>
 <li><a href="https://noctua.at/pub/media/wysiwyg/Noctua_PWM_specifications_white_paper.pdf">Notcua fan PWM specifications</a></li>
+<li><a href="https://blog.driftking.tw/en/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/">https://blog.driftking.tw/en/2019/11/Using-Raspberry-Pi-to-Control-a-PWM-Fan-and-Monitor-its-Speed/</a></li>
 </ul>
                 
                   

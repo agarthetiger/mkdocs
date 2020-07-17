@@ -25,6 +25,12 @@ The SparkFun logic level converter [board overview](https://learn.sparkfun.com/t
 
 ### Electrical Circuit Design 
 
+The Raspberry Pi has GPIO pins which can provide a Pulse Width Modulation (PWM) signal. [Pinout.xyz](https://pinout.xyz/) is a useful resource for working out the pinout and purposes of the GPIO pins which you can use, as well as seeing which pins various HATs, pHATs and SHIMs use when stacking boards together.
+
+![Raspberry Pi GPIO pinout courtesy of pinout.xyz](https://pinout.xyz/resources/raspberry-pi-pinout.png)
+
+Pinout.xyz was useful in confirming which pins the Blinkt! LED array would use which I'll be stacking on top of this PWM fan control board. 
+
 To be added...
 
 ### Physical Circuit Layout

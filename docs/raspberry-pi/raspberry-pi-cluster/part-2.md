@@ -1,6 +1,4 @@
-# Raspberry Pi Cluster - Part 2
-
-## Smart cooling
+# Part 2 - Smart cooling
 
 ![PWM fan controller breakout board for Raspberry Pi](../../img/pwm-fan-breakout-1024.jpg)
 

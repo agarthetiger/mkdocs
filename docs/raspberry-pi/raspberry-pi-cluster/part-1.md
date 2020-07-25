@@ -1,4 +1,4 @@
-# Raspberry Pi Cluster - Part 1
+# Part 1 - Initial design
 
 I've enjoyed working with electronic hardware ever since I was a kid and wanted to take after my Dad. He worked at British Aerospace for most of his career hand-building custom electronics for flight simulators. At home we worked on projects together which he would design and I would build, like modifying a rechargable battery charger to work with regular batteries (periodic current reversal is the key), and upgrading speed controllers and battery chargers for my radio control car. 
 

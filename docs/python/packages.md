@@ -14,6 +14,12 @@ https://natsort.readthedocs.io/en/master/
 
 Sort things 'naturally', including but not limited to semantic version numbers.
 
+### parse
+
+https://pypi.org/project/parse/
+
+Simplified regex-based string search.
+
 ## Documentation
 
 ### Portray

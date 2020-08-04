@@ -34,6 +34,12 @@ https://www.mkdocs.org/
 
 https://pdoc3.github.io/pdoc/
 
+### terminalizer
+
+https://terminalizer.com/
+
+Ok, so it's Node.js but useful to note here to generate animated terminal gifs for cli documentation. 
+
 ## CLI tools
 
 ### Click

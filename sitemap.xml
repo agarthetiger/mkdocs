@@ -101,51 +101,6 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://agarthetiger.github.io/mkdocs/hints/ansible/</loc>
-     <lastmod>2020-08-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://agarthetiger.github.io/mkdocs/hints/bash/</loc>
-     <lastmod>2020-08-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://agarthetiger.github.io/mkdocs/hints/bitwarden/</loc>
-     <lastmod>2020-08-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://agarthetiger.github.io/mkdocs/hints/find/</loc>
-     <lastmod>2020-08-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://agarthetiger.github.io/mkdocs/hints/oc/</loc>
-     <lastmod>2020-08-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://agarthetiger.github.io/mkdocs/hints/podman/</loc>
-     <lastmod>2020-08-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://agarthetiger.github.io/mkdocs/hints/poetry/</loc>
-     <lastmod>2020-08-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://agarthetiger.github.io/mkdocs/hints/python/</loc>
-     <lastmod>2020-08-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://agarthetiger.github.io/mkdocs/hints/zsh/</loc>
-     <lastmod>2020-08-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
      <loc>https://agarthetiger.github.io/mkdocs/jenkins/JenkinsPlugins/</loc>
      <lastmod>2020-08-06</lastmod>
      <changefreq>daily</changefreq>

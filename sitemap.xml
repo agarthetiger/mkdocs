@@ -111,6 +111,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://agarthetiger.github.io/mkdocs/hints/find/</loc>
+     <lastmod>2020-08-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://agarthetiger.github.io/mkdocs/hints/podman/</loc>
      <lastmod>2020-08-06</lastmod>
      <changefreq>daily</changefreq>

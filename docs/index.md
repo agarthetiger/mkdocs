@@ -4,7 +4,7 @@
 
 This site contains a tiny sample of my notes and experience I've gathered over my professional career as a software developer and DevOps engineer. Find me on [LinkedIn](https://www.linkedin.com/in/buildthethingright/). It's initial purpose was for me to learn about MKDocs and TravisCI over a weekend. 
 
-Site built with [MKDocs](https://www.mkdocs.org/) and [Travic-CI](https://travis-ci.org/) [![Build Status](https://travis-ci.org/agarthetiger/mkdocs.svg?branch=master)](https://travis-ci.org/agarthetiger/mkdocs)
+Site built with [MKDocs](https://www.mkdocs.org/) and [Travic-CI](https://travis-ci.org/) [![Build Status](https://travis-ci.com/agarthetiger/mkdocs.svg?branch=master)](https://travis-ci.com/agarthetiger/mkdocs)
 
 
 # About Me

@@ -1180,7 +1180,6 @@
         <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">issuer-wallet-stub</span>
       <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">inventory_dir | regex_search(&#39;dev$&#39;)</span>
 </pre></div>
-
 <h2 id="filters">Filters<a class="headerlink" href="#filters" title="Permanent link">&para;</a></h2>
 <p>See documentation on <a href="http://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html">filters</a>.
 Filters use Jinja2, and Ansible ships with some extra ones to those available in Jinja2. Remember that if using a filter in a conditional statement that python methods are also accessible. </p>
@@ -1195,13 +1194,11 @@ Filters use Jinja2, and Ansible ships with some extra ones to those available in
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">project-c</span>
         <span class="l l-Scalar l-Scalar-Plain">value</span><span class="p p-Indicator">:</span> <span class="s">&#39;5.6.7-SNAPSHOT&#39;</span>
 </pre></div>
-
 <p>Select the version of project-b using the following expression.</p>
 <div class="codehilite"><pre><span></span>    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hosts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">project-hosts-b</span>
       <span class="l l-Scalar l-Scalar-Plain">vars</span><span class="p p-Indicator">:</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">deployable_version</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">projects</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">selectattr(&#39;name&#39;,</span><span class="nv"> </span><span class="s">&#39;match&#39;,</span><span class="nv"> </span><span class="s">&#39;^project-b$&#39;)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">map(attribute=&#39;version&#39;)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">list</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">first</span><span class="nv"> </span><span class="s">}}&quot;</span>
 </pre></div>
-
 <p>References</p>
 <ul>
 <li><a href="http://www.oznetnerd.com/jinja2-selectattr-filter/">jinja2-selectattr-filter</a></li>
@@ -1213,14 +1210,12 @@ Filters use Jinja2, and Ansible ships with some extra ones to those available in
     <span class="l l-Scalar l-Scalar-Plain">verbosity</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
   <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_default_ipv4.gateway is defined</span>
 </pre></div>
-
 <p>See documentation for the <a href="http://docs.ansible.com/ansible/latest/modules/debug_module.html">debug module</a>.</p>
 <h2 id="play-options">Play options<a class="headerlink" href="#play-options" title="Permanent link">&para;</a></h2>
 <p>Disable facts gathering</p>
 <div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hosts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
   <span class="l l-Scalar l-Scalar-Plain">gather_facts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 </pre></div>
-
 <h2 id="import-and-include">Import and Include<a class="headerlink" href="#import-and-include" title="Permanent link">&para;</a></h2>
 <p>Ansible documentation on <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse.html">Creating reusable playbooks</a>
 Note there are trade-offs when selecting between static and dynamic, any import* tasks will be static, any include* tasks will be dynamic. </p>

@@ -1132,7 +1132,6 @@
 <p>regex_search can perform the search and return the matched string. I won't share the whole html here, but note there are multiple versions in the html with no unique IDs on any of the elements. So how to extract just the application version? Although in python we can get this using a single regex and a match group, regex_search cannot return just the match group, only the whole match.</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>application version : 7.12.0-SNAPSHOT<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 </pre></div>
-
 <p>We can do this in two simple steps using regex_search, the first filter matches the project version and sets that as a fact which we can search again and this time there is only one version number in the string to be searched and extracting the version number is now easy with a second regex.</p>
 <div class="codehilite"><pre><span></span>    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">extract version element from response</span>
       <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
@@ -1146,7 +1145,6 @@
       <span class="l l-Scalar l-Scalar-Plain">debug</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">var</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">deployed_application_version</span>
 </pre></div>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Ansible (2.6) does not support having both facts set in a single task. The following code prodeces the error below because the first fact is not set when the second fact tries to reference it. 
@@ -1180,7 +1178,6 @@ fatal: [localhost]: FAILED! =&gt; {"msg": "The task includes an option with an u
       <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">deployed_application_version</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">response</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">regex_replace(&#39;^.*application</span><span class="nv"> </span><span class="s">version</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">([\\w\\.\\-]+).*?$&#39;,</span><span class="nv"> </span><span class="s">&#39;\\1&#39;)</span><span class="nv"> </span><span class="s">}}&quot;</span>
 </pre></div>
-
 <p>Online tools like <a href="https://pythex.org/">pythex.org</a> can be useful for quickly testing regular expressions. </p>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
@@ -1193,7 +1190,6 @@ fatal: [localhost]: FAILED! =&gt; {"msg": "The task includes an option with an u
   <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>
       <span class="l l-Scalar l-Scalar-Plain">pingdom_controlplane_check</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">pingdom_checks.json.checks</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">json_query(&#39;[?name==`{{</span><span class="nv"> </span><span class="s">check_controlplane_name</span><span class="nv"> </span><span class="s">}}`]&#39;)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">list</span><span class="nv"> </span><span class="s">}}&quot;</span>
 </pre></div>
-
 <p>This does work as expected.</p>
 <div class="codehilite"><pre><span></span>  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">set fact with controlplane check</span>
     <span class="l l-Scalar l-Scalar-Plain">set_fact</span><span class="p p-Indicator">:</span>

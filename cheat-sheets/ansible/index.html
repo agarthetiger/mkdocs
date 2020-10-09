@@ -1178,7 +1178,6 @@
     <span class="c1"># This is the same as {{ ansible_facts }} but note that ansible_facts will work differntly to hostvars[inventory_hostname] when delegating actions to another host.</span>
     <span class="l l-Scalar l-Scalar-Plain">verbosity</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
 </pre></div>
-
 <p>Note that <code class="codehilite">hostvars[inventory_hostname]</code> will always give the facts for the specified inventory_hostname, whereas ansible_facts gives it for the machine the task is being run on. This behaviour will be apparent when delegating tasks to other machines, especially localhost which will not have had any facts gathered at all. </p>
 <h2 id="flow-control">Flow control<a class="headerlink" href="#flow-control" title="Permanent link">&para;</a></h2>
 <p>Run a single task in serial in a Role. Note that the <a href="https://docs.ansible.com/ansible/latest/reference_appendices/playbooks_keywords.html">serial keyword</a> is not applicable to a task, so we have to use a workaround with a side-effect which is that the host selected by Ansible to execute the run_once task will report as being changed even when the actual change took place on the host which the task was delegated to. </p>
@@ -1191,7 +1190,6 @@
   <span class="l l-Scalar l-Scalar-Plain">run_once</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
   <span class="l l-Scalar l-Scalar-Plain">loop</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ansible_play_batch</span><span class="nv"> </span><span class="s">}}&quot;</span>
 </pre></div>
-
 <h2 id="loops">Loops<a class="headerlink" href="#loops" title="Permanent link">&para;</a></h2>
 <p>Loops work with <code class="codehilite">when</code> and <code class="codehilite">failed_when</code> as well as the <code class="codehilite">until</code> conditions. <code class="codehilite">when</code> will be evaluated once prior to entering the loop, <code class="codehilite">until</code> will be evaluated as the loop repetition condition and finally the <code class="codehilite">failed_when</code> condition will be evaluated a single time only once the until condition is true or the loop has reached the maximum <code class="codehilite">retry</code> limit.</p>
 <div class="codehilite"><pre><span></span>  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Poll for Cassandra connection</span>
@@ -1203,7 +1201,6 @@
     <span class="l l-Scalar l-Scalar-Plain">changed_when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
     <span class="l l-Scalar l-Scalar-Plain">failed_when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">result.stderr.find(&quot;Connection refused&quot;) != -1</span>
 </pre></div>
-
 <h2 id="blocks">Blocks<a class="headerlink" href="#blocks" title="Permanent link">&para;</a></h2>
 <p>Block sections include <code class="codehilite">block</code>, <code class="codehilite">rescue</code> and <code class="codehilite">always</code>. These function like <code class="codehilite">try</code>, <code class="codehilite">catch</code> and <code class="codehilite">finally</code> respectively. Blocks can accept options like run_once and tags, note that they can't be used to apply handlers which must be specified per task.</p>
 <h2 id="process-files-on-host">Process files on host<a class="headerlink" href="#process-files-on-host" title="Permanent link">&para;</a></h2>
@@ -1223,7 +1220,6 @@
   <span class="l l-Scalar l-Scalar-Plain">loop</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">plugin_gems.files</span><span class="nv"> </span><span class="s">}}&quot;</span>
   <span class="l l-Scalar l-Scalar-Plain">notify</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">restart logstash</span>
 </pre></div>
-
 <h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html">Special Variables</a></li>

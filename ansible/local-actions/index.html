@@ -1104,7 +1104,6 @@
 <div class="codehilite"><pre><span></span>ansible all -m setup -i 192.168.0.11,
 </pre></div>
 
-
 <ul>
 <li><code class="codehilite">ansible all</code> execute ansible against host group 'all'    </li>
 <li><code class="codehilite">-m setup</code> run the setup module to gather information about the hosts</li>
@@ -1117,12 +1116,10 @@
 <div class="codehilite"><pre><span></span>ansible-playbook -i 127.0.0.1, --connection=local myplaybook.yaml
 </pre></div>
 
-
 <p>Alternatively, within a playbook with tasks to be executed remotely, include a section with </p>
 <div class="codehilite"><pre><span></span>- hosts: 127.0.0.1
   connection: local
 </pre></div>
-
 
 <p>More alternatives include using the <code class="codehilite">local_action</code> module which is a shorthand syntax for  the <code class="codehilite"><span class="n">delegate_to</span><span class="o">:</span> <span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span></code> option. Combine these with <code class="codehilite"><span class="n">run_once</span><span class="o">:</span> <span class="kc">true</span></code> to ensure things running locally only happen once if that's what you want (like downloading a file once to then use Ansible to push the file to multiple hosts). </p>
 <p>See Ansible documentation on <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_delegation.html#delegation">Delegation</a> This is useful to switch to running selected tasks locally in the middle of a role execution for example, where you cannot add hosts: directives to switch between local and remote execution.</p>
@@ -1143,7 +1140,6 @@
     <span class="l l-Scalar l-Scalar-Plain">register</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">keyFile</span>
     <span class="l l-Scalar l-Scalar-Plain">run_once</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
-
 <h2 id="localhost-and-non-ssh-connections">Localhost and non-SSH connections<a class="headerlink" href="#localhost-and-non-ssh-connections" title="Permanent link">&para;</a></h2>
 <p><code class="codehilite">ansible_connection=local</code> can be used in the inventory or on the command line to specify how Ansible will connect to the target host. In the case of local actions you can use ansible_connection=local as an inventory parameter with localhost to execute something locally even if you don't have a local loopback connection. The equivalent in a playbook is <code class="codehilite"><span class="n">connection</span><span class="o">:</span> <span class="n">local</span></code>.</p>
 <p>Note localhost will be recognised by Ansible as a valid host if the /etc/hosts file has an entry for 127.0.0.1 localhost or if <code class="codehilite">localhost 127.0.0.1 ansible_connection=local</code> is specified in the inventory, otherwise use 127.0.0.1.</p>

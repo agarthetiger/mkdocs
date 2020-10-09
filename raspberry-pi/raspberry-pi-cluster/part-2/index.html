@@ -1234,7 +1234,6 @@ gpio mode <span class="m">1</span> pwm
 <span class="c1"># Level 0 is off, eg 0% duty cycle, level 1023 is &#39;on&#39;, eg 100% duty cycle</span>
 gpio pwm <span class="m">1</span> <span class="m">512</span>
 </pre></div>
-
 <h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h3>
 <p>My initial circuit would control the fan speed down to it's lowest threshold, but wouldn't turn the fan off completely as it should with a zero duty-cycle (eg. ground) PWM signal to the fan. After sleeping on the problem I realised that I'd not connected the ground from the Pi/Logic level converter to the ground from teh 12v supply which was powering the fan, leaving the PWM "ground" signal floating above the maximum voltage of 0.8v for the PWM low logic level. A bit of rewiring later and things are working as expected. This ground issue was probably also the cause of erroneous RPM readings, which I noticed at the same time as troubleshooting the fan speed. </p>
 <h3 id="future-enhancements">Future enhancements<a class="headerlink" href="#future-enhancements" title="Permanent link">&para;</a></h3>

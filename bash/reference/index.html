@@ -1104,7 +1104,6 @@
 <p>This example was used to upload a file to post a file to a site requiriing authentication, without ever writing the credentials to disk or having them exposed in the command history or the running process list while the command is executing. Note that this code was run from a Jenkinsfile pipeline shared library, so the ${} variables are coming from Jenkins (Groovy) DSL.</p>
 <div class="codehilite"><pre><span></span><span class="nv">response_code</span><span class="o">=</span><span class="se">\$</span><span class="o">(</span>curl -w %<span class="o">{</span>http_code<span class="o">}</span> --netrc-file &lt;<span class="o">(</span>cat <span class="o">&lt;&lt;&lt;</span><span class="s1">&#39;machine $uploadDomain login ${Username} password ${Password}&#39;</span><span class="o">)</span> -sS --upload-file <span class="si">${</span><span class="nv">filename</span><span class="si">}</span> <span class="s1">&#39;${uploadUrl}&#39;</span><span class="o">)</span>
 </pre></div>
-
 <p>Breaking this command down</p>
 <p><code class="codehilite">&lt;&lt;&lt;&#39;Something here&#39;</code> is a <a href="https://www.tldp.org/LDP/abs/html/x17837.html">here string</a>, a variant of a here doc where the (variables in the) string are expanded before being fed to standard input.</p>
 <p><code class="codehilite">&lt;( command )</code> is <a href="http://tldp.org/LDP/abs/html/process-sub.html">process substitution</a> where the standard output of one process can be fed to the standard input of another process. In this case we're using process substitution and cat to feed curl with a netrc 'file' without ever writing the file to disk.</p>
@@ -1113,7 +1112,6 @@
 <p>The <code class="codehilite">#</code> symbol is a bash comment, and can also be used to to stop processing of command line options. This is useful in git alias commands where we want to reference command line args in the git alias. Without the hash at the end of the alias below, using GitBash on Windows 10, the code will error with a message like <code class="codehilite"><span class="n">grep</span><span class="o">:</span> <span class="n">develop</span><span class="o">:</span> <span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="n">or</span> <span class="n">directory</span></code>. Adding the comment halts processing and the command works as expected. </p>
 <div class="codehilite"><pre><span></span>alias.prune-merged<span class="o">=</span>!git branch --merged <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="p">|</span>grep -v -e develop -e master -e <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="c1">#</span>
 </pre></div>
-
 <h2 id="explain-shell">Explain Shell<a class="headerlink" href="#explain-shell" title="Permanent link">&para;</a></h2>
 <p><a href="https://explainshell.com/">Explain Shell</a> can be useful to start to understand complex bash commands. </p>
 <div class="admonition warning">

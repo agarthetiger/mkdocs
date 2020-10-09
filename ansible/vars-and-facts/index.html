@@ -1201,11 +1201,9 @@ my_var_name: "some value"</p>
 <div class="codehilite"><pre><span></span>ansible-playbook ... --extra-vars &#39;@my-vars.yaml&#39;
 </pre></div>
 
-
 <p>Combine vars from a file and additional vars by using --extra-vars twice.</p>
 <div class="codehilite"><pre><span></span>ansible-playbook ... --extra-vars &#39;@my-vars.yaml&#39; --extra-vars &#39;target_env=uat generate_report=true&#39;
 </pre></div>
-
 
 <p>See <a href="https://docs.ansible.com/ansible/2.4/ansible-playbook.html#cmdoption-ansible-playbook-e">documentation</a></p>
 <h2 id="facts">Facts<a class="headerlink" href="#facts" title="Permanent link">&para;</a></h2>

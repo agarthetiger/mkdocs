@@ -1,5 +1,7 @@
 # Python Packages
 
+A small collection of python packages which I've found useful. 
+
 ## General
 
 ### isort
@@ -19,6 +21,12 @@ Sort things 'naturally', including but not limited to semantic version numbers.
 https://pypi.org/project/parse/
 
 Simplified regex-based string search.
+
+### python-benedict
+
+https://github.com/fabiocaccamo/python-benedict
+
+dict subclass with keylist/keypath support, I/O shortcuts (base64, csv, json, pickle, plist, query-string, toml, xml, yaml) and many utilities.
 
 ## Documentation
 

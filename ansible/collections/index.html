@@ -295,6 +295,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#installing-collections-from-a-requirementsyml-file" title="Installing Collections from a requirements.yml file" class="md-nav__link">
+    Installing Collections from a requirements.yml file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#documenting-collections" title="Documenting Collections" class="md-nav__link">
     Documenting Collections
   </a>
@@ -1086,6 +1093,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#installing-collections-from-a-requirementsyml-file" title="Installing Collections from a requirements.yml file" class="md-nav__link">
+    Installing Collections from a requirements.yml file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#documenting-collections" title="Documenting Collections" class="md-nav__link">
     Documenting Collections
   </a>
@@ -1152,6 +1166,18 @@
                 
                 
                 <h1 id="collections">Collections<a class="headerlink" href="#collections" title="Permanent link">&para;</a></h1>
+<h2 id="installing-collections-from-a-requirementsyml-file">Installing Collections from a requirements.yml file<a class="headerlink" href="#installing-collections-from-a-requirementsyml-file" title="Permanent link">&para;</a></h2>
+<p>Example of how to specify roles and collection dependencies in a single requirements.yml file.</p>
+<div class="codehilite"><pre><span></span><span class="nn">---</span>
+<span class="l l-Scalar l-Scalar-Plain">roles</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">src</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/dreamteam-gg/ansible-victoriametrics-role</span>
+    <span class="l l-Scalar l-Scalar-Plain">version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.0.1</span>
+    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">victoria-metrics</span>
+
+<span class="l l-Scalar l-Scalar-Plain">collections</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">src</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">community.general.pacman</span>
+    <span class="l l-Scalar l-Scalar-Plain">version</span><span class="p p-Indicator">:</span> <span class="s">&quot;1.2.0&quot;</span>
+</pre></div>
 <h2 id="documenting-collections">Documenting Collections<a class="headerlink" href="#documenting-collections" title="Permanent link">&para;</a></h2>
 <p><code class="codehilite">ansible-docs</code> displays documentation from docstrings in the python file which implements the Ansible Module or Plugin. <a href="https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_documenting.html">https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_documenting.html</a> describes the expected format for the docstrings. </p>
 <p>While the documentation states "...Any parsing errors will be obvious - you can view details by adding -vvv to the command.", my experience differs. </p>

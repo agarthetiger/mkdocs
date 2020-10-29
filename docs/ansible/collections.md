@@ -1,5 +1,21 @@
 # Collections
 
+## Installing Collections from a requirements.yml file
+
+Example of how to specify roles and collection dependencies in a single requirements.yml file.
+
+```yaml
+---
+roles:
+  - src: https://github.com/dreamteam-gg/ansible-victoriametrics-role
+    version: v0.0.1
+    name: victoria-metrics
+
+collections:
+  - src: community.general.pacman
+    version: "1.2.0"
+```
+
 ## Documenting Collections
 
 `ansible-docs` displays documentation from docstrings in the python file which implements the Ansible Module or Plugin. https://docs.ansible.com/ansible/latest/dev_guide/developing_modules_documenting.html describes the expected format for the docstrings. 

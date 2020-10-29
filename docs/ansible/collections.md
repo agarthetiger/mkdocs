@@ -12,7 +12,7 @@ roles:
     name: victoria-metrics
 
 collections:
-  - src: community.general.pacman
+  - name: community.general
     version: "1.2.0"
 ```
 

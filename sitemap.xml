@@ -2,197 +2,202 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/collections/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/extending-ansible/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/filters/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/inventory-plugins/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/local-actions/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/lookup-plugins/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/playbooks/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/roles/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/selinux/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/tools/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/tower/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/ansible/vars-and-facts/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/bash/reference/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/cheat-sheets/ansible/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/cheat-sheets/jenkins/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/cheat-sheets/markdown/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/cheat-sheets/python/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/cheat-sheets/vagrant/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/cnc/sienci-mill-one/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/jenkins/JenkinsPlugins/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/jenkins/PipelineDSL/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/jenkins/PipelineSteps/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/jenkins/administration/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/jenkins/jengu/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/linux/ius/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/openshift/glossary/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/openshift/oc-and-ansible-k8s/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/puppet/puppet/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/python/mkdocs/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/python/packages/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/python/resources/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/raspberry-pi/adafruit-mini-pi-tft/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/raspberry-pi/blinkt/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/raspberry-pi/raspbian-commands/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/raspberry-pi/raspberry-pi-cluster/part-1/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/raspberry-pi/raspberry-pi-cluster/part-2/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/raspberry-pi/raspberry-pi-cluster/resources/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://agarthetiger.github.io/mkdocs/tekton/tektoncd/</loc>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://agarthetiger.github.io/mkdocs/terraform/resources/</loc>
-     <lastmod>2020-10-29</lastmod>
+     <lastmod>2020-10-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

@@ -1,6 +1,4 @@
-# Tekton
-
-## Learn Tekton
+# Learn Tekton
 
 If you are new to Tekton there are some great tutorials to get you started. 
 

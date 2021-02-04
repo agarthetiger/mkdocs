@@ -1,6 +1,6 @@
 # Python Packages
 
-A small collection of python packages which I've found useful. 
+A small collection of python packages. Some are notes for further investigation, some I use occasionally and want a reminder for, some I use all the time. This is not a complete list, just a scratchpad of sorts.  
 
 ## General
 
@@ -8,7 +8,7 @@ A small collection of python packages which I've found useful.
 
 https://github.com/timothycrosley/isort
 
-Sorts your imports, so you don't have to.
+Sorts your imports, so you don't have to. 
 
 ### natsort
 
@@ -64,6 +64,20 @@ Nubia is a lightweight framework for building command-line applications with Pyt
 
 Nubia is built on top of python-prompt-toolkit which is a fantastic toolkit for building interactive command-line applications.
 
+### Rich
+
+https://rich.readthedocs.io/en/latest/
+
+Rich is a Python library for writing rich text (with color and style) to the terminal, and for displaying advanced content such as tables, markdown, and syntax highlighted code. I'll use this in the next release of [hint](https://pypi.org/project/hint-cli/).
+
+## Logging and error handling
+
+### PrettyErrors
+
+https://github.com/onelivesleft/PrettyErrors
+
+"Prettifies Python exception output to make it legible". Tracebacks are legible IMO, the problems are mostly getting users (including myself) to read them carefully and diligently every time. They could still be formatted better for humans though. One to review, my initial impression is I'm not 100% sold on the output. One to compare and constrast with the logging and error handling features in Rich. Could be a useful tool for new users of python though, as it can be configured with no code changes required. 
+
 ## Versioning
 
 ### setuptools-scm
@@ -85,6 +99,19 @@ https://pypi.org/project/bumpversion/
 ### Python Semantic Release
 
 https://github.com/relekang/python-semantic-release
+
+## Managing
+
+### Poetry
+
+https://python-poetry.org/
+
+Packaging and dependency management. Doesn't yet support autoversioning from Git tags, that's dependent on the plugin framework in v1.2, hopefully soon. Still great for personal projects where manually bumping versions is manageable (ymmv) and releasing to pypi.org is fine to do locally. 
+
+### Sailboat
+
+https://github.com/cole-wilson/sailboat
+
 
 ## Templating
 

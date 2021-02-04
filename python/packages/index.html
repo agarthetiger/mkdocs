@@ -950,6 +950,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#rich" title="Rich" class="md-nav__link">
+    Rich
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-and-error-handling" title="Logging and error handling" class="md-nav__link">
+    Logging and error handling
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prettyerrors" title="PrettyErrors" class="md-nav__link">
+    PrettyErrors
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -987,6 +1014,33 @@
           <li class="md-nav__item">
   <a href="#python-semantic-release" title="Python Semantic Release" class="md-nav__link">
     Python Semantic Release
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing" title="Managing" class="md-nav__link">
+    Managing
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#poetry" title="Poetry" class="md-nav__link">
+    Poetry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sailboat" title="Sailboat" class="md-nav__link">
+    Sailboat
   </a>
   
 </li>
@@ -1387,6 +1441,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#rich" title="Rich" class="md-nav__link">
+    Rich
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-and-error-handling" title="Logging and error handling" class="md-nav__link">
+    Logging and error handling
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prettyerrors" title="PrettyErrors" class="md-nav__link">
+    PrettyErrors
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1424,6 +1505,33 @@
           <li class="md-nav__item">
   <a href="#python-semantic-release" title="Python Semantic Release" class="md-nav__link">
     Python Semantic Release
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managing" title="Managing" class="md-nav__link">
+    Managing
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#poetry" title="Poetry" class="md-nav__link">
+    Poetry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sailboat" title="Sailboat" class="md-nav__link">
+    Sailboat
   </a>
   
 </li>
@@ -1500,11 +1608,11 @@
                 
                 
                 <h1 id="python-packages">Python Packages<a class="headerlink" href="#python-packages" title="Permanent link">&para;</a></h1>
-<p>A small collection of python packages which I've found useful. </p>
+<p>A small collection of python packages. Some are notes for further investigation, some I use occasionally and want a reminder for, some I use all the time. This is not a complete list, just a scratchpad of sorts.  </p>
 <h2 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h2>
 <h3 id="isort">isort<a class="headerlink" href="#isort" title="Permanent link">&para;</a></h3>
 <p><a href="https://github.com/timothycrosley/isort">https://github.com/timothycrosley/isort</a></p>
-<p>Sorts your imports, so you don't have to.</p>
+<p>Sorts your imports, so you don't have to. </p>
 <h3 id="natsort">natsort<a class="headerlink" href="#natsort" title="Permanent link">&para;</a></h3>
 <p><a href="https://natsort.readthedocs.io/en/master/">https://natsort.readthedocs.io/en/master/</a></p>
 <p>Sort things 'naturally', including but not limited to semantic version numbers.</p>
@@ -1532,6 +1640,13 @@
 <p><a href="https://github.com/facebookincubator/python-nubia/blob/master/README.md">https://github.com/facebookincubator/python-nubia/blob/master/README.md</a></p>
 <p>Nubia is a lightweight framework for building command-line applications with Python. It was originally designed for the "logdevice interactive shell (aka. ldshell)" at Facebook. Since then it was factored out to be a reusable component and several internal Facebook projects now rely on it as a quick and easy way to get an intuitive shell/cli application without too much boilerplate.</p>
 <p>Nubia is built on top of python-prompt-toolkit which is a fantastic toolkit for building interactive command-line applications.</p>
+<h3 id="rich">Rich<a class="headerlink" href="#rich" title="Permanent link">&para;</a></h3>
+<p><a href="https://rich.readthedocs.io/en/latest/">https://rich.readthedocs.io/en/latest/</a></p>
+<p>Rich is a Python library for writing rich text (with color and style) to the terminal, and for displaying advanced content such as tables, markdown, and syntax highlighted code. I'll use this in the next release of <a href="https://pypi.org/project/hint-cli/">hint</a>.</p>
+<h2 id="logging-and-error-handling">Logging and error handling<a class="headerlink" href="#logging-and-error-handling" title="Permanent link">&para;</a></h2>
+<h3 id="prettyerrors">PrettyErrors<a class="headerlink" href="#prettyerrors" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/onelivesleft/PrettyErrors">https://github.com/onelivesleft/PrettyErrors</a></p>
+<p>"Prettifies Python exception output to make it legible". Tracebacks are legible IMO, the problems are mostly getting users (including myself) to read them carefully and diligently every time. They could still be formatted better for humans though. One to review, my initial impression is I'm not 100% sold on the output. One to compare and constrast with the logging and error handling features in Rich. Could be a useful tool for new users of python though, as it can be configured with no code changes required. </p>
 <h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>
 <h3 id="setuptools-scm">setuptools-scm<a class="headerlink" href="#setuptools-scm" title="Permanent link">&para;</a></h3>
 <p><a href="https://pypi.org/project/setuptools-scm/">https://pypi.org/project/setuptools-scm/</a></p>
@@ -1543,6 +1658,12 @@
 <p><a href="https://pypi.org/project/bumpversion/">https://pypi.org/project/bumpversion/</a></p>
 <h3 id="python-semantic-release">Python Semantic Release<a class="headerlink" href="#python-semantic-release" title="Permanent link">&para;</a></h3>
 <p><a href="https://github.com/relekang/python-semantic-release">https://github.com/relekang/python-semantic-release</a></p>
+<h2 id="managing">Managing<a class="headerlink" href="#managing" title="Permanent link">&para;</a></h2>
+<h3 id="poetry">Poetry<a class="headerlink" href="#poetry" title="Permanent link">&para;</a></h3>
+<p><a href="https://python-poetry.org/">https://python-poetry.org/</a></p>
+<p>Packaging and dependency management. Doesn't yet support autoversioning from Git tags, that's dependent on the plugin framework in v1.2, hopefully soon. Still great for personal projects where manually bumping versions is manageable (ymmv) and releasing to pypi.org is fine to do locally. </p>
+<h3 id="sailboat">Sailboat<a class="headerlink" href="#sailboat" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/cole-wilson/sailboat">https://github.com/cole-wilson/sailboat</a></p>
 <h2 id="templating">Templating<a class="headerlink" href="#templating" title="Permanent link">&para;</a></h2>
 <h3 id="cruft">Cruft<a class="headerlink" href="#cruft" title="Permanent link">&para;</a></h3>
 <p><a href="https://timothycrosley.github.io/cruft/">https://timothycrosley.github.io/cruft/</a></p>

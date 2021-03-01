@@ -134,3 +134,9 @@ Beautiful Soup is a Python library for pulling data out of HTML and XML files. I
 https://doc.scrapy.org/en/latest/index.html
 
 Scrapy is a fast (async) high-level web crawling and web scraping framework, used to crawl websites and extract structured data from their pages. It can be used for a wide range of purposes, from data mining to monitoring and automated testing.
+
+## Other
+
+### Diagrams as code
+
+https://diagrams.mingrammer.com/

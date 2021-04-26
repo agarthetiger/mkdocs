@@ -387,6 +387,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#required-variables" title="Required variables" class="md-nav__link">
+    Required variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#filters" title="Filters" class="md-nav__link">
     Filters
   </a>
@@ -1167,6 +1174,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#required-variables" title="Required variables" class="md-nav__link">
+    Required variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#filters" title="Filters" class="md-nav__link">
     Filters
   </a>
@@ -1239,6 +1253,27 @@
       <span class="l l-Scalar l-Scalar-Plain">include_role</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">issuer-wallet-stub</span>
       <span class="l l-Scalar l-Scalar-Plain">when</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">inventory_dir | regex_search(&#39;dev$&#39;)</span>
+</pre></div>
+<h2 id="required-variables">Required variables<a class="headerlink" href="#required-variables" title="Permanent link">&para;</a></h2>
+<p>Often at the beginning of a Playbook or Role you may want to assert that all mandatory variables have been defined. This can avoid more difficult problems further into a playbook, like only finding this out mid-way through a production deployment. </p>
+<p>vars.yml
+<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">REQUIRED_VARS</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">application_version</span> <span class="c1"># Exists</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">i_dont_exist</span>
+</pre></div></p>
+<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Ensure required variables have been set</span>
+  <span class="l l-Scalar l-Scalar-Plain">assert</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">that</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">lookup(&#39;vars&#39;, item) is defined</span>
+  <span class="l l-Scalar l-Scalar-Plain">loop</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">REQUIRED_VARS</span><span class="nv"> </span><span class="s">}}&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">delegate_to</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">localhost</span>
+  <span class="l l-Scalar l-Scalar-Plain">run_once</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Yes</span>
+</pre></div>
+<p>By using a list of varaible names in vars.yml for example in an Ansible Role, it keeps all the variable declarations together. Note that you cannot use <code class="codehilite">is defined</code> directly on <code class="codehilite"><span class="cp">{{</span> <span class="nv">item</span> <span class="cp">}}</span><span class="x"></span></code>, you will get the following output (v2.10.4).</p>
+<div class="codehilite"><pre><span></span>ok: <span class="o">[</span>localhost<span class="o">]</span> <span class="o">=</span>&gt; <span class="o">(</span><span class="nv">item</span><span class="o">=</span>i_dont_exist<span class="o">)</span> <span class="o">=</span>&gt; <span class="o">{</span>
+    <span class="s2">&quot;ansible_loop_var&quot;</span>: <span class="s2">&quot;item&quot;</span>,
+    <span class="s2">&quot;i_dont_exist&quot;</span>: <span class="s2">&quot;VARIABLE IS NOT DEFINED!&quot;</span>,
+    <span class="s2">&quot;item&quot;</span>: <span class="s2">&quot;i_dont_exist&quot;</span>
+<span class="o">}</span>
 </pre></div>
 <h2 id="filters">Filters<a class="headerlink" href="#filters" title="Permanent link">&para;</a></h2>
 <p>See documentation on <a href="http://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html">filters</a>.

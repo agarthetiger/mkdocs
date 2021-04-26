@@ -31,6 +31,36 @@ when:
       when: inventory_dir | regex_search('dev$')
 ```          
 
+## Required variables
+
+Often at the beginning of a Playbook or Role you may want to assert that all mandatory variables have been defined. This can avoid more difficult problems further into a playbook, like only finding this out mid-way through a production deployment. 
+
+vars.yml
+```yaml
+REQUIRED_VARS:
+  - application_version # Exists
+  - i_dont_exist
+```
+
+```yaml
+- name: Ensure required variables have been set
+  assert:
+    that: lookup('vars', item) is defined
+  loop: "{{ REQUIRED_VARS }}"
+  delegate_to: localhost
+  run_once: Yes
+```
+
+By using a list of varaible names in vars.yml for example in an Ansible Role, it keeps all the variable declarations together. Note that you cannot use `is defined` directly on `{{ item }}`, you will get the following output (v2.10.4).
+
+```bash
+ok: [localhost] => (item=i_dont_exist) => {
+    "ansible_loop_var": "item",
+    "i_dont_exist": "VARIABLE IS NOT DEFINED!",
+    "item": "i_dont_exist"
+}
+```
+
 ## Filters
 
 See documentation on [filters](http://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html).
